@@ -109,7 +109,7 @@ if((link == "/index.html") || (link == "/")) {
       
     if('geolocation' in navigator) {
         observeGeoPermission();
-        const button = document.querySelector("permissions__allowlocation");
+        const button = document.querySelector("#permissions__allowlocation");
         button.addEventListener("click", async (e) => {
             await geoData();
         });
