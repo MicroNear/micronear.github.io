@@ -1,0 +1,13 @@
+{
+    "name": "Micronear - Nearby micronation finder",
+    "short_name": "Micronear",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Find new micronations and people",
+    "icons": [{
+      "src": "images/micronear.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }]
+  }
