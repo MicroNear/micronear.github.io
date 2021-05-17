@@ -1,8 +1,10 @@
 'use strict';
 
 const snackbar = document.getElementById("snackbar");
-const protocol = "https://"
-const domain = "api.micronear.berrykingdom.xyz";
+const protocol = "http://"
+// const domain = "api.micronear.berrykingdom.xyz";
+const domain = "127.0.0.1:3001";
+
 
 export const errors = {
     generic: "An error occured",
