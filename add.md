@@ -10,7 +10,7 @@
     </div>
     <div class="mdl-textfield mdl-js-textfield">
       <textarea class="mdl-textfield__input" type="text" rows= "3" id="add__description" ></textarea>
-      <label class="mdl-textfield__label" for="sample5">Description</label>
+      <label class="mdl-textfield__label" for="add__description">Description</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="add__email">
@@ -25,8 +25,8 @@
       <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">
-      <textarea class="mdl-textfield__input" type="text" rows= "3" id="add__description" ></textarea>
-      <label class="mdl-textfield__label" for="sample5">Private key (Upcoming feature)</label>
+      <textarea class="mdl-textfield__input" type="text" rows= "3" id="add__privatekey" ></textarea>
+      <label class="mdl-textfield__label" for="add__privatekey">Private key (Upcoming feature)</label>
     </div>
     <p>Screenshot or rewrite your cryptographic private key, you will need it to edit your micronation in the future</p>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
