@@ -289,7 +289,7 @@ export async function sendInfoRequest(imnc) {
         }
 
         if(micronation.email != undefined) {
-            elements.email.setAttribute("href", micronation.email)
+            elements.email.setAttribute("href", `mailto:${micronation.email}`);
             elements.email.classList.remove("hidden");
         }
 
