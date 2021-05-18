@@ -119,14 +119,12 @@ if((link == "/index.html") || (link == "/")) {
 
       
     if('geolocation' in navigator) {
+
         const button = document.querySelector("#permissions__allowlocation");
         button.addEventListener("click", async (e) => {
-            await geoData();
+            await geoData(false);
         });
 
-        if(await geoData().code == 1) {
-            
-        }
         observeGeoPermission();
 
     } else {
@@ -141,6 +139,7 @@ if((link == "/index.html") || (link == "/")) {
     if(!(imnc == null || imnc == undefined)) {
 
         await sendInfoRequest(imnc);
+
     
     } else {
         showSnackBar(errors.generic);

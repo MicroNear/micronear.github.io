@@ -26,16 +26,16 @@
     </div>
     <div class="mdl-textfield mdl-js-textfield">
       <textarea class="mdl-textfield__input" type="text" rows= "3" id="add__privatekey" ></textarea>
-      <label class="mdl-textfield__label" for="add__privatekey">Private key (Upcoming feature)</label>
+      <label class="mdl-textfield__label" for="add__privatekey">XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX </label>
     </div>
     <p>Screenshot or rewrite your cryptographic private key, you will need it to edit your micronation in the future</p>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
       <input type="checkbox" id="add__distance" class="mdl-switch__input" checked>
-      <span class="mdl-switch__label">Allow users to see the distance</span>
+      <span class="mdl-switch__label">Show on the find nearby page</span>
     </label>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__coordinates">
       <input type="checkbox" id="add__coordinates" class="mdl-switch__input">
-      <span class="mdl-switch__label">Allow users to see the coordinates</span>
+      <span class="mdl-switch__label">Show on map</span>
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input">

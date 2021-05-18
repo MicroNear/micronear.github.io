@@ -59,7 +59,9 @@ export function geoPermission() {
 
 export function observeGeoPermission() {
     navigator.permissions.query({name:'geolocation'}).then(function(result) {
-        alert(result.state);
+    if(result.state == "granted") {
+        window.location = "/index.html";
+    }
       result.onchange = function() {
         alert(result.change);
         if(result.state == "granted") {
@@ -259,16 +261,47 @@ export async function superfetch(url, method, body, datahandler, errorhandler) {
     )
 }
 
+
 export async function sendInfoRequest(imnc) {
     
+
+
     let url = `${protocol}${domain}/micronation/${imnc}`;
     
-    await superfetch(url, "GET", null, (data) => {
-        console.log(data);
+    await superfetch(url, "GET", null, (micronation) => {
 
-    }, (error) => {
+        console.log(micronation)
+    
+        const elements = {
+            name: document.querySelector("#mnpage__name"),
+            description: document.querySelector("#mnpage__description"),
+            email: document.querySelector("#mnpage__email"),
+            map: document.querySelector("#mnpage__map"),
+            website: document.querySelector("#mnpage__website"),
+        }
+    
+        elements.name.innerText = micronation.name;
+        elements.description.innerText = micronation.description;
+
+        if(micronation.website != undefined) {
+            elements.website.setAttribute("href", micronation.web)
+            elements.website.classList.remove("hidden");
+        }
+
+        if(micronation.email != undefined) {
+            elements.email.setAttribute("href", micronation.email)
+            elements.email.classList.remove("hidden");
+        }
+
+        if(micronation.coordinates != undefined) {
+            elements.map.setAttribute("href", `http://www.google.com/maps/place/${micronation.coordinates.longitude},${micronation.coordinates.longitude}`);
+            elements.map.classList.remove("hidden");
+        }
+    
+    }, async (error) => {
+        console.log(error);
         showSnackBar(errors.fetch)
-
+        return false;
     })
 
 }
