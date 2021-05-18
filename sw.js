@@ -1,7 +1,6 @@
 const PRECACHE = 'Microner_v1.0.7';
 const RUNTIME = 'runtime';
 
-/*
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
@@ -64,4 +63,3 @@ self.addEventListener('fetch', event => {
   }
 });
 
-*/
