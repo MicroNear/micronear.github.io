@@ -116,6 +116,8 @@ if((link == "/index.html") || (link == "/")) {
 
     });
 } else if (link == "/permissions.html") {
+
+    console.log(await geoData());
       
     if('geolocation' in navigator) {
         observeGeoPermission();
