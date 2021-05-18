@@ -117,14 +117,18 @@ if((link == "/index.html") || (link == "/")) {
     });
 } else if (link == "/permissions.html") {
 
-    console.log(await geoData());
       
     if('geolocation' in navigator) {
-        observeGeoPermission();
         const button = document.querySelector("#permissions__allowlocation");
         button.addEventListener("click", async (e) => {
             await geoData();
         });
+
+        if(await geoData().code == 1) {
+            
+        }
+        observeGeoPermission();
+
     } else {
         alert("Your browser is not supported.")
     }

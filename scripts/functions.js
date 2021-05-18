@@ -59,7 +59,7 @@ export function geoPermission() {
 
 export function observeGeoPermission() {
     navigator.permissions.query({name:'geolocation'}).then(function(result) {
-        alert(result);
+        alert(result.state);
       result.onchange = function() {
         alert(result.change);
         if(result.state == "granted") {

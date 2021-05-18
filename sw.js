@@ -1,4 +1,4 @@
-const PRECACHE = 'Microner_v1.0.5';
+const PRECACHE = 'Microner_v1.0.6';
 const RUNTIME = 'runtime';
 
 /*
