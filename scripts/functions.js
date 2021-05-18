@@ -1,9 +1,9 @@
 'use strict';
 
 const snackbar = document.getElementById("snackbar");
-const protocol = "http://"
-// const domain = "api.micronear.berrykingdom.xyz";
-const domain = "127.0.0.1:3001";
+const protocol = "https://"
+const domain = "api.micronear.berrykingdom.xyz";
+//const domain = "127.0.0.1:3001";
 
 
 export const errors = {
@@ -71,7 +71,7 @@ export function observeGeoPermission() {
 export async function sendAddRequest (micronation) {
 
     if(await geoPermission() == true) {
-        let geolocation = await geoData();
+        let geolocation = await geoData(true);
 
         micronation.coordinates = geolocation;
 
@@ -109,10 +109,9 @@ export async function sendFindRequest () {
 
     foundresults.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
 
-    let parsedlocation = JSON.stringify(geolocation);
     let url = `${protocol}${domain}/find`;
 
-    await superfetch(url, "POST", parsedlocation, (data) => {
+    await superfetch(url, "POST", geolocation, (data) => {
 
         let wrapper = document.createElement("div");
         if(data.length == 0) {
@@ -212,10 +211,10 @@ export async function sendListRequest() {
 
 }
 
-export async function geoData () {
+export async function geoData (enableHighAccuracy) {
 
     const options = {
-        enableHighAccuracy: true
+        enableHighAccuracy: enableHighAccuracy
     }
 
     return new Promise(function(resolve, reject) {

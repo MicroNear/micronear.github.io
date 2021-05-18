@@ -52,6 +52,16 @@ if((link == "/index.html") || (link == "/")) {
 
 } else if (link == "/add.html") {
 
+    /* Assuming that window.crypto.getRandomValues is available */
+
+    var array = new Uint32Array(12);
+    window.crypto.getRandomValues(array);
+
+    console.log("Your lucky numbers:");
+    for (var i = 0; i < array.length; i++) {
+    console.log(array[i]);
+    }
+
     const elements = {
         form: document.getElementById("add__form"),
         name: document.getElementById("add__mname"),
