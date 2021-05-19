@@ -21,6 +21,10 @@ span a {
     /*color: #ddd;*/
 }
 
+.nodecoration {
+    text-decoration: none;
+}
+
 fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disabled.is-disabled .mdl-textfield__label {
     /*color: #999;*/
 }

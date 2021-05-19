@@ -57,6 +57,13 @@ export function geoPermission() {
 
 }
 
+export function addhttps(url) {
+    if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
+        url = "https://" + url;
+    }
+    return url;
+}
+
 export function observeGeoPermission() {
     navigator.permissions.query({name:'geolocation'}).then(function(result) {
     if(result.state == "granted") {
@@ -284,17 +291,17 @@ export async function sendInfoRequest(imnc) {
         elements.description.innerText = micronation.description;
 
         if(micronation.website != undefined) {
-            elements.website.setAttribute("href", micronation.web)
+            elements.website.setAttribute("href", addhttps(micronation.web));
             elements.website.classList.remove("hidden");
         }
 
         if(micronation.email != undefined) {
-            elements.email.setAttribute("href", `mailto:${micronation.email}`);
+            elements.email.setAttribute("href", `${micronation.email}`);
             elements.email.classList.remove("hidden");
         }
 
         if(micronation.coordinates != undefined) {
-            elements.map.setAttribute("href", `http://www.google.com/maps/place/${micronation.coordinates.longitude},${micronation.coordinates.longitude}`);
+            elements.map.setAttribute("href", `http://www.google.com/maps/place/${micronation.coordinates.latitude},${micronation.coordinates.longitude}`);
             elements.map.classList.remove("hidden");
         }
     
