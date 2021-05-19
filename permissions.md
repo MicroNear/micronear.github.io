@@ -2,7 +2,7 @@
 
 <p>
   Micronear needs the Location permission in order to find micronations near to you.
-  Grant the permission by clicking the button below or by following steps underneath it.
+  Grant the permission by clicking the button below.
 </p>
 
 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="permissions__allowlocation">
@@ -10,6 +10,8 @@
 </button>
 
 <hr>
+
+<h4>Does not work? Try following the steps listed below</h4>
 
 <ul class="demo-list-icon mdl-list">
   <li class="mdl-list__item">

@@ -234,6 +234,7 @@ export async function geoData (enableHighAccuracy) {
             }
             resolve(data);
         }, (error) => {
+            resolve(false);
             console.log(error)
         }, options);
     });

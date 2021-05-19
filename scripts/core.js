@@ -121,8 +121,11 @@ if((link == "/index.html") || (link == "/")) {
     if('geolocation' in navigator) {
 
         const button = document.querySelector("#permissions__allowlocation");
+        
         button.addEventListener("click", async (e) => {
-            await geoData(false);
+            if(await geoData(false) != false) {
+                window.location = "/index.html";
+            }
         });
 
         observeGeoPermission();
