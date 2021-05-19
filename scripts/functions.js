@@ -284,6 +284,7 @@ export async function sendInfoRequest(imnc) {
             description: document.querySelector("#mnpage__description"),
             email: document.querySelector("#mnpage__email"),
             map: document.querySelector("#mnpage__map"),
+            website_text: document.querySelector("#mnpage__website_text"),
             website: document.querySelector("#mnpage__website"),
         }
     
@@ -291,12 +292,14 @@ export async function sendInfoRequest(imnc) {
         elements.description.innerText = micronation.description;
 
         if(micronation.website != undefined) {
-            elements.website.setAttribute("href", addhttps(micronation.web));
+            const fixedURL = addhttps(micronation.web);
+            elements.website.setAttribute("href", fixedURL);
+            elements.website_text.innerText = fixedURL;
             elements.website.classList.remove("hidden");
         }
 
         if(micronation.email != undefined) {
-            elements.email.setAttribute("href", `${micronation.email}`);
+            elements.email.setAttribute("href", `mailto:${micronation.email}`);
             elements.email.classList.remove("hidden");
         }
 
