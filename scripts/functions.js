@@ -63,7 +63,6 @@ export function observeGeoPermission() {
         window.location = "/index.html";
     }
       result.onchange = function() {
-        alert(result.change);
         if(result.state == "granted") {
             window.location = "/index.html";
         }
