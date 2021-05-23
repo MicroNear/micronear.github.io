@@ -291,20 +291,20 @@ export async function sendInfoRequest(imnc) {
         elements.name.innerText = micronation.name;
         elements.description.innerText = micronation.description;
 
-        if(micronation.website != undefined) {
+        if(micronation.hasOwnProperty("website")) {
             const fixedURL = addhttps(micronation.web);
             elements.website.setAttribute("href", fixedURL);
             elements.website_text.innerText = fixedURL;
             elements.website.classList.remove("hidden");
         }
 
-        if(micronation.email != undefined) {
+        if(micronation.hasOwnProperty("email")) {
             elements.email.setAttribute("href", `mailto:${micronation.email}`);
             elements.email.classList.remove("hidden");
         }
 
-        if(micronation.coordinates != undefined) {
-            elements.map.setAttribute("href", `http://www.google.com/maps/place/${micronation.coordinates.latitude},${micronation.coordinates.longitude}`);
+        if(micronation.privacy_coordinates == true) {
+            elements.map.setAttribute("href", `geo:${micronation.coordinates.latitude},${micronation.coordinates.longitude}`);
             elements.map.classList.remove("hidden");
         }
     

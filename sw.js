@@ -1,4 +1,4 @@
-const PRECACHE = 'Microner_v1.0.9';
+const PRECACHE = 'Microner_v1.1.0';
 const RUNTIME = 'runtime';
 
 
@@ -12,7 +12,9 @@ const PRECACHE_URLS = [
   'micronation.html',
   'style.css',
   'scripts/core.js',
-  'scripts/functions.js'
+  'scripts/functions.js',
+  'images/micronear.png',
+  'terms.html'
 ];
 
 // The install handler takes care of precaching the resources we always need.
@@ -62,4 +64,3 @@ self.addEventListener('fetch', event => {
     );
   }
 });
-

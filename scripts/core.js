@@ -32,6 +32,11 @@ import {
     errors
 } from '/scripts/functions.js';
 
+/*
+import {
+    Mnemonic
+} from '/scripts/bip39/jsbip39.js'
+*/
 
 let geopermission = await geoPermission();
 
@@ -61,6 +66,20 @@ if((link == "/index.html") || (link == "/")) {
     for (var i = 0; i < array.length; i++) {
     console.log(array[i]);
     }
+
+    /*
+var m = new Mnemonic("english")
+
+// Generate new mnemonics
+var words = m.generate();
+"canyon subway other flower grocery diagram cigar such custom rude couch horror"
+
+// Generate BIP32 seeds from mnemonics
+var seed = m.toSeed(words, "mysecretpassword");
+"b4f0524dd1fcfc15ac2408fc9228df71c706aab238f8558d3b2bb3f4bce8ea25be9a3a6fc684a16ebfbb1240aee3decb404b856dd57298ce150441965c91c6e9"
+    */
+
+
 
     const elements = {
         form: document.getElementById("add__form"),

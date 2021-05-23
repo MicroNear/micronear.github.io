@@ -66,3 +66,8 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
 .page-content {
     padding: 4rem;
 }
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
