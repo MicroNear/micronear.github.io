@@ -1,0 +1,5 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "xyz.berrykingdom.micronear",
+                 "sha256_cert_fingerprints": ["D6:81:D6:D4:11:13:F7:E7:C4:DE:D1:1F:1D:9A:58:2B:3C:DD:DF:D4:B1:87:13:2D:05:FD:B3:59:BF:E5:18:46"] }
+  }]
