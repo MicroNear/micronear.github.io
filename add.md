@@ -26,7 +26,7 @@
     </div>
     <div class="mdl-textfield mdl-js-textfield">
       <textarea class="mdl-textfield__input" type="text" rows="3" id="add__privatekey"></textarea>
-      <label class="mdl-textfield__label" for="add__privatekey">Cryotographic private key (Will be added with next update)</label>
+      <label class="mdl-textfield__label" for="add__privatekey">Cryotographic private key (In next update)</label>
     </div>
     <p>Screenshot or rewrite your cryptographic private key, you will need it to edit your micronation in the future</p>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
