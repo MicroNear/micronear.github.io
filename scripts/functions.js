@@ -84,10 +84,9 @@ export async function sendAddRequest (micronation) {
 
         micronation.coordinates = geolocation;
 
-        let parsedmicronation = JSON.stringify(micronation);
         let url = `${protocol}${domain}/add`;
         
-        await superfetch(url, "POST", parsedmicronation, (data) => {
+        await superfetch(url, "POST", micronation, (data) => {
             console.log(data);
 
             if(data.success == true) {
