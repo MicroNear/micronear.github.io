@@ -294,8 +294,8 @@ export async function sendInfoRequest(imnc) {
 
         if(micronation.hasOwnProperty("website")) {
             //const fixedURL = addhttps(micronation.web);
-            elements.website.setAttribute("href", website);
-            elements.website_text.innerText = website;
+            elements.website.setAttribute("href", micronation.website);
+            elements.website_text.innerText = micronation.website;
             elements.website.classList.remove("hidden");
         }
 
