@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Web Crypto API example</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main>
+      <h1>Web Crypto</h1>
+
+
+      <section class="examples">
+
+
+        <section class="import-key jwk">
+          <h2 class="import-key-heading">JSON Web Key</h2>
+          <section class="import-key-controls">
+            <div class="message-control">
+              <label for="jwk-message">Enter a message to sign:</label>
+              <input type="text" id="jwk-message" name="message" size="25"
+                     value="The bunny hops at teatime">
+            </div>
+            <div class="signature">Signature:<span class="signature-value"></span></div>
+            <input class="import-key-button" type="button" value="Import Key">
+            <input class="sign-button hidden" type="button" value="Sign" disabled>
+          </section>
+          <input class="jwk export-key-button" type="button" value="Export ECDSA key as JWK">
+          <section class="output">
+            <pre class="exported-key"></pre>
+          </section>
+
+          <section class="sign-verify ecdsa">
+            <h2 class="sign-verify-heading">ECDSA</h2>
+            <section class="sign-verify-controls">
+              <div class="message-control">
+                <label for="ecdsa-message">Enter a message to sign:</label>
+                <input type="text" id="ecdsa-message" name="message" size="25"
+                       value="The eagle flies at twilight">
+              </div>
+              <div class="signature">Signature:<span class="signature-value"></span></div>
+              <input class="sign-button" type="button" value="Sign">
+              <input class="verify-button" type="button" value="Verify">
+            </section>
+          </section>
+        </section>
+
+      </section>
+
+      </section>
+    </main>
+
+  </body>
+
+  <script src="jwk.js"></script>
+</html>

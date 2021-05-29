@@ -36,8 +36,8 @@ let geopermission = await geoPermission();
 
 console.log(link)
 
-if(link != "/permissions.html" && !geopermission) {
-    console.log("Not cool")
+if(link != "/permissions.html" && link != "/terms.html" && !geopermission) {
+    console.log("Not cool");
     window.location = "/permissions.html"; 
 }
 
