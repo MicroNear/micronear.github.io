@@ -1,9 +1,9 @@
 'use strict';
 
 const snackbar = document.getElementById("snackbar");
-const protocol = "https://"
-const domain = "api.micronear.berrykingdom.xyz";
-//const domain = "127.0.0.1:3001";
+const protocol = "http://"
+//const domain = "api.micronear.berrykingdom.xyz";
+const domain = "127.0.0.1:3001";
 
 
 export const errors = {
@@ -93,6 +93,8 @@ export async function sendAddRequest (micronation) {
 
             if(data.success == true) {
 
+                window.location = `/micronation.html?m=${data.imnc}`;
+
             } else {
                 showSnackBar(errors.add_internal_fault)
             }
@@ -129,7 +131,7 @@ export async function sendFindRequest () {
         }
         data.forEach(micronation => {
             let card = `
-<div class="card mdl-card mdl-shadow--2dp" style="background-image: linear-gradient(to bottom, rgb(255 255 255 / 85%), rgb(18 50 66 / 85%)), url('${micronation.splash}')">
+<div class="card mdl-card mdl-shadow--2dp" style="background-image: linear-gradient(to bottom, rgb(255 255 255 / 85%), rgb(18 50 66 / 25%)), url('${micronation.splash}')">
 
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">${micronation.name}</h2>

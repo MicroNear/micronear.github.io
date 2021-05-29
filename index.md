@@ -3,7 +3,6 @@
 
 </section>
 
-
 <section id="found__results">
           
 </section>
