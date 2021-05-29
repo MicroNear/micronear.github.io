@@ -32,7 +32,7 @@
       <input type="checkbox" id="add__coordinates" class="mdl-switch__input" />
       <span class="mdl-switch__label">Visible on map</span>
     </label>
-    <p>Turning "Visible on map" on will allow anyone to see precise location of your micronation. Don't turn it on unless you are expecting diplomats from other micronations knocking at your door</p>
+    <p>Turning "Visible on map" on will allow anyone to see precise location of your micronation. Are you expecting diplomats knocking on your door?</p>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
       <span class="mdl-checkbox__label">I agree to the <a href="terms.html">terms of service</a></span>
