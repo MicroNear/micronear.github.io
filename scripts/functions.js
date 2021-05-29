@@ -284,6 +284,7 @@ export async function sendInfoRequest(imnc) {
     
         const elements = {
             name: document.querySelector("#mnpage__name"),
+            imnc_text: document.querySelector("#mnpage__imnc_text"),
             description: document.querySelector("#mnpage__description"),
             email: document.querySelector("#mnpage__email"),
             map: document.querySelector("#mnpage__map"),
@@ -293,6 +294,8 @@ export async function sendInfoRequest(imnc) {
     
         elements.name.innerText = micronation.name;
         elements.description.innerText = micronation.description;
+
+        elements.imnc_text.innerText = imnc;
 
         if(micronation.hasOwnProperty("website")) {
             //const fixedURL = addhttps(micronation.web);
