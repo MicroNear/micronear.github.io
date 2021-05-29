@@ -1,4 +1,4 @@
-        <section id="add">
+<section id="add">
 
   <h3>Add a micronation</h3>
   <p>You can edit your micronation in the future</p>
