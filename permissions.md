@@ -1,7 +1,7 @@
 <h3>Location Permission</h3>
 
 <p>
-  Micronear needs the Location permission in order to find micronations near to you.
+  Micronear allows people to find micronations nearby and therefore it requires the Location permission in order to work
 </p>
 
 <ul class="demo-list-icon mdl-list">
@@ -17,11 +17,11 @@
     Click "Grant"
   </span>
   </li>
-
 </ul>
 
 <hr>
 
+<p>By using micronear, you agree to the <a href="terms.html">Terms of Service</a></p>
 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="permissions__allowlocation">
   Grant
 </button>
