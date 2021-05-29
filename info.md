@@ -2,7 +2,7 @@
 
 <hr>
 <h4> Support & Suggestions </h4>
-<a href="https://discord.gg/5edwBtNrZk"><p> Micronear Discord </p></a>
+<a href="https://discord.gg/5edwBtNrZk">Micronear Discord</a>
 <hr>
 <p>If you like the app, feel free to leave a review on Google Play!</p>
 
