@@ -1,7 +1,7 @@
 <section id="add">
 
   <h3>Add a micronation</h3>
-  <p>You can edit your micronation in the future</p>
+  <p>You'll be able to edit your micronation in the future</p>
 
   <form id="add__form">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -9,7 +9,7 @@
       <label class="mdl-textfield__label" for="add__mname">Micronation name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">
-      <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description"></textarea>
+      <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
       <label class="mdl-textfield__label" for="add__description">Description</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -32,6 +32,7 @@
       <input type="checkbox" id="add__coordinates" class="mdl-switch__input" />
       <span class="mdl-switch__label">Visible on map</span>
     </label>
+    <p>Turning "Visible on map" on will allow anyone to see precise location of your micronation. Don't turn it on unless you are expecting diplomats from other micronations knocking at your door</p>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
       <span class="mdl-checkbox__label">I agree to the <a href="terms.html">terms of service</a></span>
