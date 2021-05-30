@@ -59,6 +59,7 @@ if((link == "/index.html") || (link == "/")) {
         email: document.getElementById("add__email"),
         splash: document.getElementById("add__msplash"),
         website: document.getElementById("add__mwebsite"),
+        password: document.getElementById("add__password"),
         distance: document.getElementById("add__distance"),
         coordinates: document.getElementById("add__coordinates"),
         terms: document.getElementById("add__terms"),
@@ -89,13 +90,12 @@ if((link == "/index.html") || (link == "/")) {
             splash: elements.splash.value,
             description: elements.description.value,
             website: elements.website.value,
+            password: elements.password.value,
             privacy_distance: elements.distance.checked,
             privacy_coordinates: elements.coordinates.checked,
             terms: elements.terms.checked,
             coordinates: {latitude: null, longitude: null, accuracy: null}
         }
-
-        console.log(data);
 
         if(data.terms == true) {
             sendAddRequest(data);
