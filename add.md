@@ -24,6 +24,7 @@
       <input class="mdl-textfield__input" type="text" maxlength="256" id="add__mwebsite" />
       <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
     </div>
+    <p>Website, Wiki article or a Discord server, start with <code>https://</code></p>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
       <input type="checkbox" id="add__distance" class="mdl-switch__input" checked="" />
       <span class="mdl-switch__label">Show on the find nearby page</span>

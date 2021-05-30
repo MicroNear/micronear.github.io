@@ -300,7 +300,11 @@ export async function sendInfoRequest(imnc) {
         if(micronation.hasOwnProperty("website")) {
             //const fixedURL = addhttps(micronation.web);
             elements.website.setAttribute("href", micronation.website);
-            elements.website_text.innerText = micronation.website;
+
+            let domain = (new URL(micronation.website));
+            domain = domain.hostname.replace('www.','');
+
+            elements.website_text.innerText = domain;
             elements.website.classList.remove("hidden");
         }
 
