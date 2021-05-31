@@ -301,6 +301,7 @@ export async function sendInfoRequest(imnc) {
     
         const elements = {
             name: document.querySelector("#mnpage__name"),
+            verified: document.querySelector("#mnpage__verified");
             imnc_text: document.querySelector("#mnpage__imnc_text"),
             description: document.querySelector("#mnpage__description"),
             email: document.querySelector("#mnpage__email"),
@@ -314,6 +315,10 @@ export async function sendInfoRequest(imnc) {
         elements.edit.setAttribute("href", `edit.html?m=${micronation.imnc}`);
         elements.edit.classList.add("hidden");
         elements.imnc_text.innerText = micronation.imnc;
+
+        if(micronation.verified) {
+            elements.verified.classList.remove("hidden");
+        }
 
         if(micronation.hasOwnProperty("website")) {
             //const fixedURL = addhttps(micronation.web);
