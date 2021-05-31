@@ -136,4 +136,27 @@ if((link == "/index.html") || (link == "/")) {
     } else {
         showSnackBar(errors.generic);
     }
+} else if (link == "/edit.html") {
+
+    const elements = {
+        edit__preform: document.querySelector("#edit__preform"),
+        edit__imnc: document.querySelector("#edit__imnc"),
+        edit__password: document.querySelector("#edit__password"),
+    }
+
+    const imnc = findGetParameter("m");
+
+    if(!(imnc == null || imnc == undefined)) {
+
+        elements.edit__imnc.value = imnc;
+
+        elements.edit__preform.addEventListener("submit", e => {
+            e.preventDefault();
+
+            console.log(imnc);
+        })
+    
+    } else {
+        showSnackBar(errors.generic);
+    }
 }

@@ -49,18 +49,8 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
     color: inherit;
 }
 
-
-.layout{
-    /*background: #181818;
-    color: white;
-    */
-}
-
-.layout .mdl-layout__header,
-.layout .mdl-layout__drawer-button,
-.layout .mdl-layout__drawer {
-    /*background: #222;
-    color: inherit;*/
+.icon_chip span {
+    padding: 0 3px;
 }
 
 .page-content {

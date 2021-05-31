@@ -1,6 +1,6 @@
 <section>
     <h3 id="mnpage__name">Micronation</h3>
-    <p id="mnpage__description">Description</p>
+    <p id="mnpage__description">No description provided</p>
       <a href="#" class="nodecoration" id="mnpage__imnc">
       <span class="mdl-chip mdl-chip--deletable">
         <span class="mdl-chip__text" id="mnpage__imnc_text">IMNC</span>

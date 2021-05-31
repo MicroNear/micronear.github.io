@@ -1,15 +1,15 @@
 'use strict';
 
 const snackbar = document.getElementById("snackbar");
-const protocol = "https://"
-const domain = "api.micronear.berrykingdom.xyz";
-//const domain = "127.0.0.1:3001";
+const protocol = "http://"
+//const domain = "api.micronear.berrykingdom.xyz";
+const domain = "127.0.0.1:3001";
 
 
 export const errors = {
     generic: "An error occured",
     location: "Couldn't access device location",
-    fetch: "Couldn't fetch the resources",
+    fetch: "Couldn't connect, turn on WiFi or Data",
     add_internal_fault: "An internal error occured",
     terms: "Agree to the terms in order to proceed",
     micronaiton_not_found: "Couldn't fetch data about this micronation"
@@ -290,8 +290,6 @@ export async function superfetch(url, method, body, datahandler, errorhandler) {
 
 
 export async function sendInfoRequest(imnc) {
-    
-
 
     let url = `${protocol}${domain}/micronation/${imnc}`;
     
@@ -307,12 +305,13 @@ export async function sendInfoRequest(imnc) {
             map: document.querySelector("#mnpage__map"),
             website_text: document.querySelector("#mnpage__website_text"),
             website: document.querySelector("#mnpage__website"),
+            edit: document.querySelector("#mnpage__edit")
         }
     
         elements.name.innerText = micronation.name;
-        elements.description.innerText = micronation.description;
-
-        elements.imnc_text.innerText = imnc;
+        elements.edit.setAttribute("href", `edit.html?m=${micronation.imnc}`);
+        elements.edit.classList.add("hidden");
+        elements.imnc_text.innerText = micronation.imnc;
 
         if(micronation.hasOwnProperty("website")) {
             //const fixedURL = addhttps(micronation.web);
@@ -325,6 +324,10 @@ export async function sendInfoRequest(imnc) {
             elements.website.classList.remove("hidden");
         }
 
+        if(micronation.hasOwnProperty("description")) {
+            elements.description.innerText = micronation.description;
+        }
+
         if(micronation.hasOwnProperty("email")) {
             elements.email.setAttribute("href", `mailto:${micronation.email}`);
             elements.email.classList.remove("hidden");
@@ -334,6 +337,40 @@ export async function sendInfoRequest(imnc) {
             elements.map.setAttribute("href", `geo:${micronation.coordinates.latitude},${micronation.coordinates.longitude}`);
             elements.map.classList.remove("hidden");
         }
+    
+    }, async (error) => {
+        console.log(error);
+        showSnackBar(errors.fetch)
+        return false;
+    })
+
+}
+
+
+export async function sendEditDataRequest(imnc, password) {
+
+    let url = `${protocol}${domain}/edit_view`;
+
+    let request = {
+        imnc: imnc,
+        password: password
+    }
+    
+    await superfetch(url, "POST", JSON.parse(request), (micronation) => {
+
+        console.log(micronation)
+    
+        const elements = {
+            imnc: document.querySelector("#edit__imnc"),
+            name: document.querySelector("#edit__name"),
+            imnc_text: document.querySelector("#edit__imnc_text"),
+            description: document.querySelector("#edit__description"),
+            email: document.querySelector("#edit__email"),
+            map: document.querySelector("#edit__map"),
+            website_text: document.querySelector("#edit__website_text"),
+            website: document.querySelector("#edit__website"),
+        }
+    
     
     }, async (error) => {
         console.log(error);
