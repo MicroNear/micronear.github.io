@@ -301,7 +301,7 @@ export async function sendInfoRequest(imnc) {
     
         const elements = {
             name: document.querySelector("#mnpage__name"),
-            verified: document.querySelector("#mnpage__verified");
+            verified: document.querySelector("#mnpage__verified"),
             imnc_text: document.querySelector("#mnpage__imnc_text"),
             description: document.querySelector("#mnpage__description"),
             email: document.querySelector("#mnpage__email"),
