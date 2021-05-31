@@ -204,11 +204,13 @@ export async function sendListRequest() {
     await superfetch(url, "GET", null, (data) => {
         console.log(data);
 
-        if(Object.values(data).length == 0) {
+
+
+        if(data.length == 0) {
             wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"
         }
 
-        Object.values(data).forEach(micronation => {
+        data.forEach(micronation => {
 
             let listitem = `
             <li class="mdl-list__item mdl-list__item--three-line">
