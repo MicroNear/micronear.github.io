@@ -43,11 +43,11 @@ if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     }
 }
 
-if((link == "/index.html") || (link == "/")) {
+if((link == "/find.html") || (link == "/")) {
 
     await sendFindRequest();
 
-} else if (link == "/list.html") {
+} else if (link == "/index.html") {
 
     await sendListRequest();
 
