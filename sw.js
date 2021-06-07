@@ -12,7 +12,7 @@ const PRECACHE_URLS = [
   'style.css',
   'scripts/core.js',
   'scripts/functions.js',
-  'images/micronear.png',
+  'images/logo.png',
   'terms.html',
   'info.html'
 ];
