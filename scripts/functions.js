@@ -396,7 +396,7 @@ export async function sendEditDataRequest(imnc, password, elements) {
 
 }
 
-export function sendEditRequest(imnc, password, elements) {
+export async function sendEditRequest(imnc, password, elements) {
     //console.log(imnc, password, elements);
 
     let request = {
