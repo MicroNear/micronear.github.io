@@ -1,8 +1,10 @@
 <section>
-    <h3>Nearest micronations</h3>
+  <h3>All micronations</h3>
 
 </section>
 
-<section id="found__results">
-          
+<section id="list">
+  <ul id="list__ul" class="list-micronations mdl-list">
+
+  </ul>
 </section>

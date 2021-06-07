@@ -35,7 +35,7 @@ import {
 
 console.log(link)
 
-if(link != "/permissions.html" && link != "/terms.html" && link != "/micronation.html") {
+if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     let geopermission = await geoPermission();
     if(!geopermission) {
         console.log("Not cool");
