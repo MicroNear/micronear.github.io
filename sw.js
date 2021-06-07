@@ -5,7 +5,7 @@ const RUNTIME = 'runtime';
 const PRECACHE_URLS = [
   '/',
   'index.html',
-  'list.html',
+  'find.html',
   'add.html',
   'permissions.html',
   'micronation.html',
