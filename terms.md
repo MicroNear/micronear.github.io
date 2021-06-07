@@ -10,6 +10,7 @@
 <h4> Adding a micronation </h4>
 <p>
     By adding a micronation, the micronation data will be sent to the server.
+    We do not allow adding any digital-only (simulated) micronations.
     The micronation data consists of the "Add a micronation" form and geolocation data determined by the device used at the time of adding the micronation.
     The server will store the micronation data and provide it to the users.
     By switching on the "Visible on map" switch, users will be able to see the geolocaiton of the micronation on a map.
@@ -25,6 +26,7 @@
 </p>
 <h4> Removing your data </h4>
 <p>
-    We believe everyone has right to privacy.
-    Each micronation can be easily removed from the micronation settings page.
+    Thanks to the European Union, everyone has "Right to be forgotten".
+    We respect this right and therefore you can easily delete your micronaiton from the micronation settings page.
+    In case of any questions/issues, contact us on discord.
 </p>

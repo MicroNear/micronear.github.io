@@ -6,7 +6,7 @@
     "background_color": "#fff",
     "description": "Find new micronations and people",
     "icons": [{
-      "src": "images/micronear.png",
+      "src": "images/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }]

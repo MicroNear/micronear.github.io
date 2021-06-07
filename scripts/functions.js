@@ -1,9 +1,9 @@
 'use strict';
 
 const snackbar = document.getElementById("snackbar");
-const protocol = "https://"
-const domain = "api.micronear.berrykingdom.xyz";
-//const domain = "127.0.0.1:3001";
+const protocol = "http://"
+//const domain = "api.micronear.berrykingdom.xyz";
+const domain = "127.0.0.1:3001";
 
 
 export const errors = {
@@ -96,9 +96,10 @@ export async function sha256(message) {
 export async function sendAddRequest (micronation) {
 
     if(await geoPermission() == true) {
-        let geolocation = await geoData(true);
 
+        let geolocation = await geoData(true);
         micronation.coordinates = geolocation;
+
         micronation.password = await sha256(micronation.password)
 
         let url = `${protocol}${domain}/add`;
@@ -316,7 +317,7 @@ export async function sendInfoRequest(imnc) {
         elements.edit.classList.add("hidden");
         elements.imnc_text.innerText = micronation.imnc;
 
-        if(micronation.verified) {
+        if(micronation.verified == true) {
             elements.verified.classList.remove("hidden");
         }
 
@@ -354,30 +355,38 @@ export async function sendInfoRequest(imnc) {
 }
 
 
-export async function sendEditDataRequest(imnc, password) {
+export async function sendEditDataRequest(imnc, password, elements) {
+    console.log(elements);
 
     let url = `${protocol}${domain}/edit_view`;
-
+    
     let request = {
-        imnc: imnc,
-        password: password
+        imnc: imnc
     }
-    
-    await superfetch(url, "POST", JSON.parse(request), (micronation) => {
 
-        console.log(micronation)
-    
-        const elements = {
-            imnc: document.querySelector("#edit__imnc"),
-            name: document.querySelector("#edit__name"),
-            imnc_text: document.querySelector("#edit__imnc_text"),
-            description: document.querySelector("#edit__description"),
-            email: document.querySelector("#edit__email"),
-            map: document.querySelector("#edit__map"),
-            website_text: document.querySelector("#edit__website_text"),
-            website: document.querySelector("#edit__website"),
+    request.password = await sha256(password);
+
+    console.log(password, request)
+
+    await superfetch(url, "POST", request, (data) => {
+
+        console.log(data)
+
+        if(data.success) {
+
+            elements.name.value = data.name;
+            elements.description.email = data.email;
+            elements.description.value = data.description;
+            elements.privacy_distance.checked = data.privacy_distance;
+            elements.privacy_coordinates.checked = data.privacy_coordinates;
+            
+
+            elements.form.classList.remove("hidden");
+
+        } else {
+            showSnackBar(data.error);
         }
-    
+
     
     }, async (error) => {
         console.log(error);
@@ -385,4 +394,39 @@ export async function sendEditDataRequest(imnc, password) {
         return false;
     })
 
+}
+
+export function sendEditRequest(imnc, password, elements) {
+    //console.log(imnc, password, elements);
+
+    let request = {
+        imnc: imnc,
+        old_password: password,
+        name: elements.name.value,
+        description: elements.description.value,
+        splash: elements.splash.value,
+        new_password: elements.new_password.value
+    }
+
+    console.log(request);
+
+
+    await superfetch(url, "POST", request, (data) => {
+
+        console.log(data);
+
+        if(data.success) {
+
+            console.log("SUCC");
+            
+        } else {
+            showSnackBar(data.error);
+        }
+
+    
+    }, async (error) => {
+        console.log(error);
+        showSnackBar(errors.fetch)
+        return false;
+    })
 }

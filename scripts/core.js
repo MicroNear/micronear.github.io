@@ -13,9 +13,8 @@ if ('serviceWorker' in navigator) {
       });
     });
 } else {
-    alert("Browser not supported.")
+    alert("Browser not supported.");
 }
-
 
 import {
     showSnackBar,
@@ -29,16 +28,19 @@ import {
     geoData,
     superfetch,
     sendInfoRequest,
-    errors
+    errors,
+    sendEditDataRequest,
+    sendEditRequest
 } from '/scripts/functions.js';
-
-let geopermission = await geoPermission();
 
 console.log(link)
 
-if(link != "/permissions.html" && link != "/terms.html" && !geopermission) {
-    console.log("Not cool");
-    window.location = "/permissions.html"; 
+if(link != "/permissions.html" && link != "/terms.html" && link != "/micronation.html") {
+    let geopermission = await geoPermission();
+    if(!geopermission) {
+        console.log("Not cool");
+        window.location = "/permissions.html"; 
+    }
 }
 
 if((link == "/index.html") || (link == "/")) {
@@ -47,7 +49,7 @@ if((link == "/index.html") || (link == "/")) {
 
 } else if (link == "/list.html") {
 
-    await sendListRequest(0);
+    await sendListRequest();
 
 } else if (link == "/add.html") {
 
@@ -94,7 +96,6 @@ if((link == "/index.html") || (link == "/")) {
             privacy_distance: elements.distance.checked,
             privacy_coordinates: elements.coordinates.checked,
             terms: elements.terms.checked,
-            coordinates: {latitude: null, longitude: null, accuracy: null}
         }
 
         if(data.terms == true) {
@@ -138,25 +139,70 @@ if((link == "/index.html") || (link == "/")) {
     }
 } else if (link == "/edit.html") {
 
+    /*
     const elements = {
         edit__preform: document.querySelector("#edit__preform"),
         edit__imnc: document.querySelector("#edit__imnc"),
         edit__password: document.querySelector("#edit__password"),
+        edit__form: document.querySelector("#edit__form"),
+        edit__new_password_wrapper: document.querySelector("#edit__new_password_wrapper"),
+        edit__new_password: document.querySelector("#edit__new_password"),
+        edit__want_to_change_pass: document.querySelector("#edit__want_to_change_pass")
     }
+    */
+
+    const elements = {
+        preform: document.querySelector("#edit__preform"),
+        form: document.querySelector("#edit__form"),
+        imnc: document.querySelector("#edit__imnc"),
+        password: document.querySelector("#edit__password"),
+        name: document.querySelector("#edit__name"),
+        splash: document.querySelector("#edit__splash"),
+        description: document.querySelector("#edit__description"),
+        email: document.querySelector("#edit__email"),
+        want_to_change_pass: document.querySelector("#edit__want_to_change_pass"),
+        new_password_wrapper: document.querySelector("#edit__new_password_wrapper"),
+        new_password: document.querySelector("#edit__new_password"),
+        map: document.querySelector("#edit__map"),
+        website_text: document.querySelector("#edit__website_text"),
+        website: document.querySelector("#edit__website"),
+        privacy_distance: document.querySelector("#edit__privacy_distance"),
+        privacy_coordinates: document.querySelector("#edit__privacy_coordinates"),
+    }
+
+    elements.want_to_change_pass.addEventListener("change", async e => {
+        if(elements.want_to_change_pass.checked == true) {
+            elements.new_password_wrapper.classList.remove("hidden");
+            elements.new_password.setAttribute("required", true);
+        } else {
+            elements.new_password_wrapper.classList.add("hidden");
+            elements.new_password.removeAttribute("required", true);
+        }
+    });
 
     const imnc = findGetParameter("m");
 
     if(!(imnc == null || imnc == undefined)) {
 
-        elements.edit__imnc.value = imnc;
+        elements.imnc.value = imnc;
 
-        elements.edit__preform.addEventListener("submit", e => {
+        elements.preform.addEventListener("submit", async e => {
             e.preventDefault();
-
-            console.log(imnc);
+            await sendEditDataRequest(imnc, elements.password.value, elements);
         })
     
     } else {
         showSnackBar(errors.generic);
     }
+
+    elements.form.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        await sendEditRequest(imnc, elements.password.value, elements);
+
+    });
+} else if (link == "/info.html") {
+    
+} else {
+    alert("You landed on a unknown page: " + link);
 }

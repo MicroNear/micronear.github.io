@@ -7,6 +7,12 @@
         <button type="button" class="mdl-chip__action"><i class="material-icons">flag</i></button>
       </span>
     </a>
+    <a href="#" class="nodecoration hidden" id="mnpage__verified">
+      <span class="mdl-chip mdl-chip--deletable">
+        <span class="mdl-chip__text">Verified</span>
+        <button type="button" class="mdl-chip__action"><i class="material-icons">verified</i></button>
+      </span>
+    </a>
     <a href="#" target="_blank" class="nodecoration hidden" id="mnpage__map">
       <span class="mdl-chip mdl-chip--deletable">
         <span class="mdl-chip__text">View on map</span>
@@ -24,5 +30,10 @@
         <span class="mdl-chip__text" id="mnpage__website_text">Website</span>
         <button type="button" class="mdl-chip__action"><i class="material-icons">public</i></button>
       </span>
+    </a>
+    <a href="#" class="nodecoration icon_chip" id="mnpage__edit">
+        <span class="mdl-chip mdl-chip--deletable">
+          <button type="button" class="mdl-chip__action"><i class="material-icons">edit</i></button>
+        </span>
     </a>
 </section>
