@@ -31,7 +31,7 @@ import {
     errors,
     sendEditDataRequest,
     sendEditRequest,
-    onShare
+    sharePage
 } from '/scripts/functions.js';
 
 console.log(link);
@@ -131,7 +131,7 @@ if((link == "/find.html") || (link == "/")) {
     const imnc = findGetParameter("m");
     const share = document.querySelector("#mnpage__imnc");
 
-    share.addEventListener("click", onShare);
+    share.addEventListener("click", sharePage());
 
 
     if(!(imnc == null || imnc == undefined)) {
