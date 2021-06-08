@@ -27,18 +27,24 @@ export async function sharePage() {
     const title = document.title;
     const url = document.location.href;
     const text = "Share this micronation";
-    try {
-        await navigator
-        .share({
-          title,
-          url,
-          text
-        })
 
-            showSnackBar("Thanks for sharing");
-      } catch (err) {
-            showSnackBar("Not shared");
-      }
+    if(navigator.share) {
+        try {
+            await navigator
+            .share({
+              title,
+              url,
+              text
+            })
+    
+                showSnackBar("Thanks for sharing");
+          } catch (err) {
+                // Cancelled or error
+          }
+    } else {
+        showSnackBar("Sharing isn't supported by your device");
+    }
+
   }
 
 export function findGetParameter(parameterName) {
