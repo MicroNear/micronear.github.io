@@ -30,7 +30,7 @@
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">web</i>
-    Try the <a href="https://micronear.berrykingdom.xyz">web version</a> in Chrome
+    Try the <a href="https://micronear.berrykingdom.xyz"> web version </a> in Chrome
   </span>
   </li>
 </ul>

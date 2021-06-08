@@ -5,7 +5,6 @@ const protocol = "https://"
 const domain = "api.micronear.berrykingdom.xyz";
 //const domain = "127.0.0.1:3001";
 
-
 export const errors = {
     generic: "An error occured",
     location: "Couldn't access device location",
@@ -23,6 +22,24 @@ export function showSnackBar(message) {
         window.setTimeout(showSnackBar, 100, message);
     }
 }
+
+export async function onShare() {
+    const title = document.title;
+    const url = document.location.href;
+    const text = "Share this micronation";
+    try {
+        await navigator
+        .share({
+          title,
+          url,
+          text
+        })
+
+            showSnackBar("Thanks for sharing");
+      } catch (err) {
+            showSnackBar("Not shared");
+      }
+  }
 
 export function findGetParameter(parameterName) {
     var result = null,

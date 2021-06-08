@@ -30,7 +30,8 @@ import {
     sendInfoRequest,
     errors,
     sendEditDataRequest,
-    sendEditRequest
+    sendEditRequest,
+    onShare
 } from '/scripts/functions.js';
 
 console.log(link);
@@ -128,10 +129,15 @@ if((link == "/find.html") || (link == "/")) {
 } else if (link == "/micronation.html") {
 
     const imnc = findGetParameter("m");
+    const share = document.querySelector("#mnpage__imnc");
+
+    share.addEventListener("click", onShare);
+
 
     if(!(imnc == null || imnc == undefined)) {
 
         await sendInfoRequest(imnc);
+        
 
     
     } else {
