@@ -131,7 +131,7 @@ if((link == "/find.html") || (link == "/")) {
     const imnc = findGetParameter("m");
     const share = document.querySelector("#mnpage__imnc");
 
-    share.addEventListener("click", sharePage());
+    share.addEventListener("click", await sharePage());
 
 
     if(!(imnc == null || imnc == undefined)) {
