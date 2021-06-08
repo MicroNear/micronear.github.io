@@ -6,7 +6,7 @@
 <a href="https://www.instagram.com/_micronear_/">Micronear on Instagram</a>
 
 <hr>
-<h4> Facing problems? Try following tips: </h4>
+<h4> Facing problems? Try tips listed below: </h4>
 
 <ul class="demo-list-icon mdl-list">
   <li class="mdl-list__item">
