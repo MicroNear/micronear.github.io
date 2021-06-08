@@ -12,7 +12,8 @@ export const errors = {
     fetch: "Couldn't connect, turn on WiFi or Data",
     add_internal_fault: "An internal error occured",
     terms: "Agree to the terms in order to proceed",
-    micronaiton_not_found: "Couldn't fetch data about this micronation"
+    micronaiton_not_found: "Couldn't fetch data about this micronation",
+    geo_inaccurate: "Your device couldn't provide accurate geolocation"
 }
 
 export function showSnackBar(message) {
@@ -95,33 +96,42 @@ export async function sha256(message) {
 
 export async function sendAddRequest (micronation) {
 
+    let geolocation = await geoData(true);
+
     if(await geoPermission() == true) {
 
-        let geolocation = await geoData(true);
-        micronation.coordinates = geolocation;
+        if(geolocation.accuracy < 250) {
 
-        micronation.password = await sha256(micronation.password)
 
-        let url = `${protocol}${domain}/add`;
+            micronation.coordinates = geolocation;
 
-        console.log(micronation);
+            micronation.password = await sha256(micronation.password)
+
+            let url = `${protocol}${domain}/add`;
+
+            console.log(micronation);
+            
+            await superfetch(url, "POST", micronation, (data) => {
+                console.log(data);
+
+                if(data.success == true) {
+
+                    window.location = `/micronation.html?m=${data.imnc}`;
+
+                } else {
+                    showSnackBar(errors.add_internal_fault)
+                }
+
+                }, (error) => {
+                    showSnackBar(errors.fetch)
+                    console.log(error);
+                }
+            );
+
+        } else {
+            showSnackBar(errors.geo_inaccurate);
+        }
         
-        await superfetch(url, "POST", micronation, (data) => {
-            console.log(data);
-
-            if(data.success == true) {
-
-                window.location = `/micronation.html?m=${data.imnc}`;
-
-            } else {
-                showSnackBar(errors.add_internal_fault)
-            }
-
-            }, (error) => {
-                showSnackBar(errors.fetch)
-                console.log(error);
-            }
-        );
 
     } else {
         showSnackBar(errors.location);
@@ -137,9 +147,9 @@ export async function sendFindRequest () {
         
         let geolocation = await geoData();
 
-    foundresults.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
+        foundresults.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
 
-    let url = `${protocol}${domain}/find`;
+        let url = `${protocol}${domain}/find`;
 
     await superfetch(url, "POST", geolocation, (data) => {
 

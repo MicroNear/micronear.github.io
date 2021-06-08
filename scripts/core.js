@@ -13,7 +13,7 @@ if ('serviceWorker' in navigator) {
       });
     });
 } else {
-    alert("Browser not supported.");
+    console.log("Browser not supported.");
 }
 
 import {
@@ -33,7 +33,7 @@ import {
     sendEditRequest
 } from '/scripts/functions.js';
 
-console.log(link)
+console.log(link);
 
 if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     let geopermission = await geoPermission();
@@ -204,5 +204,5 @@ if((link == "/find.html") || (link == "/")) {
 } else if (link == "/info.html") {
     
 } else {
-    alert("You landed on a unknown page: " + link);
+    console.log(link);
 }
