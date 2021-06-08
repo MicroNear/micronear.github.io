@@ -2,7 +2,7 @@
 
 <hr>
 <h4> Support & social </h4>
-<a href="https://discord.gg/5edwBtNrZk">Micronear on Discord</a>
+<a href="https://discord.gg/5edwBtNrZk">Micronear on Discord</a> <br>
 <a href="https://www.instagram.com/_micronear_/">Micronear on Instagram</a>
 
 <hr>

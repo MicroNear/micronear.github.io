@@ -30,8 +30,8 @@ import {
     sendInfoRequest,
     errors,
     sendEditDataRequest,
-    sendEditRequest
-    
+    sendEditRequest,
+    sharePage
 } from '/scripts/functions.js';
 
 console.log(link);
@@ -135,7 +135,7 @@ if((link == "/find.html") || (link == "/")) {
     if(!(imnc == null || imnc == undefined)) {
 
         await sendInfoRequest(imnc);
-        // share.addEventListener("click", await sharePage());
+        share.addEventListener("click", await sharePage());
 
     
     } else {

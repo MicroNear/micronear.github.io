@@ -8,10 +8,12 @@ section {
     margin-bottom: 2rem;
 }
 
+/*
 span a {
     text-decoration: none;
     color: currentColor;
 }
+/*
 
 .mdl-list__item, .mdl-list__item-text-body {
     color: inherit;
