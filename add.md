@@ -39,7 +39,7 @@
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
-      <span class="mdl-checkbox__label">I agree to the <a href="terms.html">terms of service</a></span>
+      <span class="mdl-checkbox__label">I agree to the <a href="privacy.html">Privacy Policy</a></span>
     </label>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="add__buy">
       Add

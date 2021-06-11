@@ -49,7 +49,14 @@
         <section id="add">
 
   <h3>Add a micronation</h3>
-  <p>You'll be able to edit your micronation in the future</p>
+
+  <p>Tips</p>
+  <ul>
+    <li>Longer passwords such as "mydogsnameisjohnny" are stronger than "X97E4ZQ"</li>
+    <li>If you'll add a website/ig/discord, you must include https://</li>
+    <li>Write down your password to edit the micronation later</li>
+    <li>Feel free to <a href="info.html">Contact us</a></li>
+  </ul>
 
   <form id="add__form">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -58,7 +65,7 @@
     </div>
     <div class="mdl-textfield mdl-js-textfield">
       <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
-      <label class="mdl-textfield__label" for="add__description">Description</label>
+      <label class="mdl-textfield__label" for="add__description">Description in English</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="add__email" />
@@ -66,13 +73,12 @@
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="text" maxlength="256" id="add__msplash" />
-      <label class="mdl-textfield__label" for="add__msplash">Splash screen or flag link</label>
+      <label class="mdl-textfield__label" for="add__msplash">Flag link</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="text" maxlength="256" id="add__mwebsite" />
       <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
     </div>
-    <p>Website, Wiki page or a Discord server, include https://</p>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" required="true" />
       <label class="mdl-textfield__label" for="add__password">Password</label>
@@ -87,7 +93,7 @@
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
-      <span class="mdl-checkbox__label">I agree to the <a href="terms.html">terms of service</a></span>
+      <span class="mdl-checkbox__label">I agree to the <a href="privacy.md">privacy policy</a></span>
     </label>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="add__buy">
       Add

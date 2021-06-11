@@ -21,7 +21,7 @@
 
 <hr>
 
-<p>By using micronear, you agree to the <a href="terms.html">Terms of Service</a></p>
+<p>By using micronear, you agree to the <a href="privacy.html">Privacy Policy</a></p>
 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="permissions__allowlocation">
   Grant
 </button>

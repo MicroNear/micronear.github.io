@@ -1,7 +1,7 @@
 <h2> Micronear </h2>
 
 <hr>
-<h4> Support & social </h4>
+<h4> Social </h4>
 <a href="https://discord.gg/5edwBtNrZk">Micronear on Discord</a> <br>
 <a href="https://www.instagram.com/_micronear_/">Micronear on Instagram</a>
 
@@ -30,14 +30,14 @@
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">web</i>
-    Try the <a href="https://micronear.berrykingdom.xyz"> web version </a> in Chrome
+    Open https://micronear.berrykingdom.xyz in Chrome
   </span>
   </li>
 </ul>
 
 
 <hr>
-<p>Leave a review on Google Play!</p>
+<p>Leave us a review on Google Play!</p>
 
 <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
   <span class="mdl-chip mdl-chip--deletable">
