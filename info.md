@@ -1,5 +1,5 @@
 <h2> Micronear </h2>
-By using Micronear, you agree to the <p><a href="privacy.html">Privacy Policy</a></p>
+By using Micronear, you agree to the<a href="privacy.html">Privacy Policy</a>
 
 <hr>
 <h4> Social </h4>
