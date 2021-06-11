@@ -1,7 +1,7 @@
 <section id="add">
 
   <h3>Add a micronation</h3>
-  <p>You'll be able to edit your micronation in the future</p>
+    <strong>Simulated (fictional) micronations are not allowed.</strong>
 
   <form id="add__form">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -27,7 +27,7 @@
     <p>Website, Wiki page or a Discord server, include https://</p>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" required="true" />
-      <label class="mdl-textfield__label" for="add__password">Passphrase</label>
+      <label class="mdl-textfield__label" for="add__password">Password</label>
     </div>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
       <input type="checkbox" id="add__distance" class="mdl-switch__input" checked="" />
@@ -45,5 +45,13 @@
       Add
     </button>
   </form>
+
+  <h5>Tips</h5>
+  <ul>
+    <li>Include https:// in links</li>
+    <li>"mydogsnameisjohnny" is stronger password than "X97E4ZQ"</li>
+    <li>Write down your password</li>
+    <li>Feel free to <a href="info.html">Contact us</a></li>
+  </ul>
 
 </section>
