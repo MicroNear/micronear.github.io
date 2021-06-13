@@ -178,7 +178,7 @@ export async function sendFindRequest () {
 
         let wrapper = document.createElement("div");
         if(data.length == 0) {
-            wrapper.innerHTML += `<p>We couldn't find any micronations near you, would you like to <a href="/add.html">add your own micronation</a>?</p>`;
+            wrapper.innerHTML += `<p>We couldn't find any micronations within 800km, would you like to <a href="/add.html">add your micronation</a>?</p>`;
         }
         data.forEach(micronation => {
             let card = `

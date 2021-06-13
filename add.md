@@ -1,7 +1,7 @@
 <section id="add">
 
   <h3>Add a micronation</h3>
-    <strong>Simulated (fictional) micronations are not allowed.</strong>
+    <strong>Fictional micronations are not allowed</strong>
 
   <form id="add__form">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -51,7 +51,7 @@
     <li>Include https:// in links</li>
     <li>"mydogsnameisjohnny" is stronger password than "X97E4ZQ"</li>
     <li>Write down your password</li>
-    <li>Feel free to <a href="info.html">Contact us</a></li>
+    <li>Issues? <a href="info.html">Contact us</a></li>
   </ul>
 
 </section>
