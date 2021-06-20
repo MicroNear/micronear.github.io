@@ -1,4 +1,4 @@
-const PRECACHE = 'Microner_v1.6.0';
+const PRECACHE = 'Microner_v1.6.1';
 const RUNTIME = 'runtime';
 
 
@@ -15,7 +15,8 @@ const PRECACHE_URLS = [
   'scripts/functions.js',
   'images/logo.png',
   'privacy.html',
-  'info.html'
+  'info.html',
+  'edit.html'
 ];
 
 // The install handler takes care of precaching the resources we always need.
