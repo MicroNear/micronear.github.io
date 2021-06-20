@@ -19,7 +19,7 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">delete_sweep</i>
-    Chrome > <i class="material-icons">more_vert</i> > <i class="material-icons">settings</i> > Privacy and Security > Clear browsing data > Advanced > Check all > Clear data
+    Chrome > <span><i class="material-icons">more_vert</i></span> > <span><i class="material-icons">settings</i></span> > Privacy and Security > Clear browsing data > Advanced > Check all > Clear data
   </span>
   </li>
   <li class="mdl-list__item">
