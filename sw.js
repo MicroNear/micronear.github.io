@@ -16,7 +16,8 @@ const PRECACHE_URLS = [
   'images/logo.png',
   'privacy.html',
   'info.html',
-  'edit.html'
+  'edit.html',
+  '404.html'
 ];
 
 // The install handler takes care of precaching the resources we always need.
