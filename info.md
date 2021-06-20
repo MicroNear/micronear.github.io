@@ -18,6 +18,12 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
   </li>
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
+    <i class="material-icons mdl-list__item-icon">delete_sweep</i>
+    Chrome > <i class="material-icons">more_vert</i> > <i class="material-icons">settings</i> > Privacy and Security > Clear browsing data > Advanced > Check all > Clear data
+  </span>
+  </li>
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">restart_alt</i>
     Reinstall Micronear
   </span>
@@ -31,7 +37,7 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">web</i>
-    Open https://micronear.berrykingdom.xyz in Chrome
+    Open micronear . berrykingdom . xyz in Chrome
   </span>
   </li>
 </ul>
@@ -48,4 +54,4 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
 </a>
 <hr>
 <h4> Copyright </h4>
-<p>&copy; 2021 Berry Kingdom, All rights reserved. </p>
+<p>&copy; Micronear, 2021, All rights reserved. </p>
