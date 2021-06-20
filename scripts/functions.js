@@ -549,7 +549,7 @@ export async function sendRemoveRequest(code, password) {
         if(data.success) {
 
             console.log("REMOVED");
-            window.location = `/micronations.html`;
+            window.location = `/`;
 
             
         } else {
