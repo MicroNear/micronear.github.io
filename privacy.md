@@ -1,5 +1,4 @@
-<section>
-<h3>Privacy Policy</h3>
+<section><h3>Privacy Policy</h3>
 <h4> Adding a micronation </h4>
 <p>
     By adding a micronation, the micronation data will become accessible to the public.
@@ -17,5 +16,4 @@
 <p>
     Micronations will be removable from the micronation settings page.
     This feature, however, isn't relased yet. Feel free to contact us on <a href="info.html">discord or instagram</a> to delete your account.
-</p>
-</section>
+</p></section>
