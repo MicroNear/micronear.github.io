@@ -1,9 +1,9 @@
 <section>
     <h3 id="mnpage__name">Micronation</h3>
     <p id="mnpage__description">No description provided</p>
-      <a href="#" class="nodecoration" id="mnpage__imnc">
+      <a href="#" class="nodecoration" id="mnpage__code">
       <span class="mdl-chip mdl-chip--deletable">
-        <span class="mdl-chip__text" id="mnpage__imnc_text">IMNC</span>
+        <span class="mdl-chip__text" id="mnpage__code_text">CODE</span>
         <button type="button" class="mdl-chip__action"><i class="material-icons">flag</i></button>
       </span>
     </a>
