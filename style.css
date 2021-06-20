@@ -3,6 +3,12 @@ html {
   box-sizing: border-box;
 }
 
+body {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+
+}
 
 section {
     margin-bottom: 2rem;

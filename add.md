@@ -17,11 +17,11 @@
       <label class="mdl-textfield__label" for="add__email">Public email</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" maxlength="256" id="add__msplash" />
+      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__msplash" />
       <label class="mdl-textfield__label" for="add__msplash">Splash screen or flag link</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" maxlength="256" id="add__mwebsite" />
+      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" />
       <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
     </div>
     <p>Website, Wiki page or a Discord server, include https://</p>

@@ -17,7 +17,9 @@ if ('serviceWorker' in navigator) {
 }
 
 import {
+    sha256,
     showSnackBar,
+    verifyCode,
     findGetParameter,
     round,
     geoPermission,
@@ -29,26 +31,32 @@ import {
     superfetch,
     sendInfoRequest,
     errors,
-    sendEditDataRequest,
+    sendUnlockRequest,
     sendEditRequest,
-    sharePage
+    sharePage,
+    sendRemoveRequest
 } from '/scripts/functions.js';
 
 console.log(link);
 
 if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
+    try {
     let geopermission = await geoPermission();
     if(!geopermission) {
         console.log("Not cool");
-        window.location = "/permissions.html"; 
+        const r = encodeURIComponent(window.location);
+        window.location = `permissions.html?r=${r}`; 
+    }
+    } catch (err) {
+        console.log(err)
     }
 }
 
-if((link == "/find.html") || (link == "/")) {
+if(link == "/find.html") {
 
     await sendFindRequest();
 
-} else if (link == "/index.html") {
+} else if (link == "/index.html" || link == "/") {
 
     await sendListRequest();
 
@@ -58,7 +66,7 @@ if((link == "/find.html") || (link == "/")) {
         form: document.getElementById("add__form"),
         name: document.getElementById("add__mname"),
         description: document.getElementById("add__description"),
-        imnc: null,
+        code: document.getElementById("add__code"),
         email: document.getElementById("add__email"),
         splash: document.getElementById("add__msplash"),
         website: document.getElementById("add__mwebsite"),
@@ -68,6 +76,13 @@ if((link == "/find.html") || (link == "/")) {
         terms: document.getElementById("add__terms"),
         buy: document.getElementById("add__buy")
     }
+
+    elements.code.addEventListener("input", e => {
+        let p= e.target.selectionStart;
+        e.target.value = e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        e.target.value = e.target.value.toUpperCase();
+        e.target.setSelectionRange(p, p);
+    });
 
     /*
     elements.terms.addEventListener("change", (e) => {
@@ -89,6 +104,7 @@ if((link == "/find.html") || (link == "/")) {
 
         let data = {
             name: elements.name.value,
+            code: elements.code.value,
             email: elements.email.value,
             splash: elements.splash.value,
             description: elements.description.value,
@@ -99,14 +115,26 @@ if((link == "/find.html") || (link == "/")) {
             terms: elements.terms.checked,
         }
 
-        if(data.terms == true) {
-            sendAddRequest(data);
+        if(verifyCode(data.code))  {
+
+            if(data.terms == true) {
+
+                sendAddRequest(data);
+
+            } else {
+                showSnackBar(errors.terms);
+            }
+
         } else {
-            showSnackBar(errors.terms);
+            showSnackBar("Code in wrong format");
         }
+
+
 
     });
 } else if (link == "/permissions.html") {
+
+    const r = findGetParameter("r");
 
       
     if('geolocation' in navigator) {
@@ -115,7 +143,7 @@ if((link == "/find.html") || (link == "/")) {
         
         button.addEventListener("click", async (e) => {
             if(await geoData(false) != false) {
-                window.location = "/index.html";
+                window.location = (r == "") ? "/index.html" : r;
             }
         });
 
@@ -128,13 +156,13 @@ if((link == "/find.html") || (link == "/")) {
 
 } else if (link == "/micronation.html") {
 
-    const imnc = findGetParameter("m");
-    const share = document.querySelector("#mnpage__imnc");
+    const code = findGetParameter("m");
+    const share = document.querySelector("#mnpage__code");
 
 
-    if(!(imnc == null || imnc == undefined)) {
+    if(!(code == null || code == undefined)) {
 
-        await sendInfoRequest(imnc);
+        await sendInfoRequest(code);
         share.addEventListener("click", sharePage);
 
     
@@ -143,27 +171,19 @@ if((link == "/find.html") || (link == "/")) {
     }
 } else if (link == "/edit.html") {
 
-    /*
-    const elements = {
-        edit__preform: document.querySelector("#edit__preform"),
-        edit__imnc: document.querySelector("#edit__imnc"),
-        edit__password: document.querySelector("#edit__password"),
-        edit__form: document.querySelector("#edit__form"),
-        edit__new_password_wrapper: document.querySelector("#edit__new_password_wrapper"),
-        edit__new_password: document.querySelector("#edit__new_password"),
-        edit__want_to_change_pass: document.querySelector("#edit__want_to_change_pass")
-    }
-    */
 
     const elements = {
         preform: document.querySelector("#edit__preform"),
         form: document.querySelector("#edit__form"),
-        imnc: document.querySelector("#edit__imnc"),
-        password: document.querySelector("#edit__password"),
+        code: document.querySelector("#edit__code"),
+        old_password: document.querySelector("#edit__old_password"),
+        unlock: document.querySelector("#edit__unlock"),
         name: document.querySelector("#edit__name"),
+        want_to_change_pass: document.querySelector("#edit__want_to_change_pass"),
         splash: document.querySelector("#edit__splash"),
         description: document.querySelector("#edit__description"),
         email: document.querySelector("#edit__email"),
+        update_coordinates: document.querySelector("#edit__update_coordinates"),
         want_to_change_pass: document.querySelector("#edit__want_to_change_pass"),
         new_password_wrapper: document.querySelector("#edit__new_password_wrapper"),
         new_password: document.querySelector("#edit__new_password"),
@@ -172,6 +192,9 @@ if((link == "/find.html") || (link == "/")) {
         website: document.querySelector("#edit__website"),
         privacy_distance: document.querySelector("#edit__privacy_distance"),
         privacy_coordinates: document.querySelector("#edit__privacy_coordinates"),
+        terms: document.querySelector("#edit__terms"),
+        remove: document.querySelector("#edit__remove"),
+        confirm_remove: document.querySelector("#edit__confirm_remove"),
     }
 
     elements.want_to_change_pass.addEventListener("change", async e => {
@@ -184,27 +207,51 @@ if((link == "/find.html") || (link == "/")) {
         }
     });
 
-    const imnc = findGetParameter("m");
+    const code = findGetParameter("m");
 
-    if(!(imnc == null || imnc == undefined)) {
+    if(!(code == null || code == undefined)) {
 
-        elements.imnc.value = imnc;
+        elements.code.value = code;
 
         elements.preform.addEventListener("submit", async e => {
             e.preventDefault();
-            await sendEditDataRequest(imnc, elements.password.value, elements);
+            await sendUnlockRequest(code, elements.old_password.value, elements);
         })
     
     } else {
         showSnackBar(errors.generic);
+        console.error(errors.generic);
     }
 
     elements.form.addEventListener("submit", async e => {
         e.preventDefault();
+        let password_hash = await sha256(elements.old_password.value);
 
-        await sendEditRequest(imnc, elements.password.value, elements);
+        await sendEditRequest(code, password_hash, elements);
 
     });
+
+
+    var snackbarContainer = document.querySelector('#edit__confirm_remove');
+
+    var handler = async function(event) {
+        let password_hash = await sha256(elements.old_password.value);
+        await sendRemoveRequest(code, password_hash);
+    };
+
+    elements.remove.addEventListener('click', function() {
+        'use strict';
+  
+        var data = {
+          message: 'Are you sure?',
+          timeout: 5000,
+          actionHandler: handler,
+          actionText: 'Remove'
+        };
+        snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    });
+
+
 } else if (link == "/info.html") {
     
 } else {

@@ -1,9 +1,16 @@
 'use strict';
 
+export const testing = false;
 const snackbar = document.getElementById("snackbar");
-const protocol = "https://"
-const domain = "api.micronear.berrykingdom.xyz";
-//const domain = "127.0.0.1:3001";
+
+let protocol = "https://"
+let domain = "api.micronear.berrykingdom.xyz";
+
+if(testing) {
+    protocol = "http://"
+    domain = "127.0.0.1:3001";
+}
+
 
 export const errors = {
     generic: "An error occured",
@@ -20,6 +27,14 @@ export function showSnackBar(message) {
         snackbar.MaterialSnackbar.showSnackbar({message: message});
     } else {
         window.setTimeout(showSnackBar, 100, message);
+    }
+}
+
+export function verifyCode (code) {
+    if(code.length > 1) {
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -113,7 +128,7 @@ export async function sha256(message) {
   
     // convert bytes to hex string
     const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
-    console.log(hashHex);
+    // console.log(hashHex);
     return hashHex;
 }
 
@@ -139,10 +154,15 @@ export async function sendAddRequest (micronation) {
 
                 if(data.success == true) {
 
-                    window.location = `/micronation.html?m=${data.imnc}`;
+                    window.location = `/micronation.html?m=${data.code}`;
 
                 } else {
-                    showSnackBar(errors.add_internal_fault)
+                    if(data.reason != "") {
+                        showSnackBar(data.reason);
+                    } else {
+                        showSnackBar(errors.add_internal_fault);
+
+                    }
                 }
 
                 }, (error) => {
@@ -192,7 +212,7 @@ export async function sendFindRequest () {
   </div>
 
     <div class="mdl-card__actions mdl-card--border">
-        <a href="micronation.html?m=${micronation.imnc}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        <a href="micronation.html?m=${micronation.code}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
             More
         </a>
         <span>${round(micronation.proximity, 1)}km</span>
@@ -249,7 +269,7 @@ export async function sendListRequest() {
             let listitem = `
             <li class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
-                    <span>${micronation.imnc}</span>
+                    <span>${micronation.code}</span>
                     <span class="mdl-list__item-text-body">
                         ${micronation.name}
                     </span>
@@ -258,7 +278,7 @@ export async function sendListRequest() {
                     <i class="material-icons">${(micronation.verified) ? "verified" : null}</i>
                 </span>
                 <span class="mdl-list__item-secondary-content">
-                    <a href="micronation.html?m=${micronation.imnc}">
+                    <a href="micronation.html?m=${micronation.code}">
                         <i class="material-icons">open_in_new</i>
                     </a>
                 </span>
@@ -297,7 +317,8 @@ export async function geoData (enableHighAccuracy) {
             resolve(data);
         }, (error) => {
             resolve(false);
-            console.log(error)
+            showSnackBar(error.message);
+            console.log(error);
         }, options);
     });
     
@@ -325,9 +346,9 @@ export async function superfetch(url, method, body, datahandler, errorhandler) {
 }
 
 
-export async function sendInfoRequest(imnc) {
+export async function sendInfoRequest(code) {
 
-    let url = `${protocol}${domain}/micronation/${imnc}`;
+    let url = `${protocol}${domain}/micronation/${code}`;
     
     await superfetch(url, "GET", null, (micronation) => {
 
@@ -336,7 +357,7 @@ export async function sendInfoRequest(imnc) {
         const elements = {
             name: document.querySelector("#mnpage__name"),
             verified: document.querySelector("#mnpage__verified"),
-            imnc_text: document.querySelector("#mnpage__imnc_text"),
+            code_text: document.querySelector("#mnpage__code_text"),
             description: document.querySelector("#mnpage__description"),
             email: document.querySelector("#mnpage__email"),
             map: document.querySelector("#mnpage__map"),
@@ -346,9 +367,9 @@ export async function sendInfoRequest(imnc) {
         }
     
         elements.name.innerText = micronation.name;
-        elements.edit.setAttribute("href", `edit.html?m=${micronation.imnc}`);
-        elements.edit.classList.add("hidden");
-        elements.imnc_text.innerText = micronation.imnc;
+        elements.edit.setAttribute("href", `edit.html?m=${micronation.code}`);
+        //elements.edit.classList.add("hidden");
+        elements.code_text.innerText = micronation.code;
 
         if(micronation.verified == true) {
             elements.verified.classList.remove("hidden");
@@ -388,18 +409,17 @@ export async function sendInfoRequest(imnc) {
 }
 
 
-export async function sendEditDataRequest(imnc, password, elements) {
-    console.log(elements);
+export async function sendUnlockRequest(code, password, elements) {
 
-    let url = `${protocol}${domain}/edit_view`;
+    let url = `${protocol}${domain}/unlock`;
     
     let request = {
-        imnc: imnc
+        code: code
     }
 
     request.password = await sha256(password);
 
-    console.log(password, request)
+    console.log(request)
 
     await superfetch(url, "POST", request, (data) => {
 
@@ -407,14 +427,30 @@ export async function sendEditDataRequest(imnc, password, elements) {
 
         if(data.success) {
 
+            elements.old_password.setAttribute("disabled", true);
+            elements.unlock.setAttribute("disabled", true);
+
             elements.name.value = data.name;
-            elements.description.email = data.email;
             elements.description.value = data.description;
-            elements.privacy_distance.checked = data.privacy_distance;
-            elements.privacy_coordinates.checked = data.privacy_coordinates;
-            
+            elements.email.value = data.email;
+            elements.splash.value = data.splash;
+            elements.website.value = data.website;
+
+
+            if(data.privacy_distance) {
+                elements.privacy_distance.parentElement.MaterialSwitch.on();
+            } else {
+                elements.privacy_distance.parentElement.MaterialSwitch.off();
+            }
+
+            if(data.privacy_coordinates) {
+                elements.privacy_coordinates.parentElement.MaterialSwitch.on();
+            } else {
+                elements.privacy_coordinates.parentElement.MaterialSwitch.off();
+            }
 
             elements.form.classList.remove("hidden");
+
 
         } else {
             showSnackBar(data.error);
@@ -423,26 +459,88 @@ export async function sendEditDataRequest(imnc, password, elements) {
     
     }, async (error) => {
         console.log(error);
-        showSnackBar(errors.fetch)
+        showSnackBar(errors.fetch);
         return false;
     })
 
 }
 
-export async function sendEditRequest(imnc, password, elements) {
-    //console.log(imnc, password, elements);
+export async function sendEditRequest(code, old_password, elements) {
+
+    let geolocation = await geoData(true);
 
     let request = {
-        imnc: imnc,
-        old_password: password,
+        code: code,
+        old_password: old_password,
         name: elements.name.value,
         description: elements.description.value,
+        email: elements.email.value,
         splash: elements.splash.value,
-        new_password: elements.new_password.value
+        website: elements.website.value,
+        update_coordinates: elements.update_coordinates.checked,
+        privacy_distance: elements.privacy_distance.checked,
+        privacy_coordinates: elements.privacy_coordinates.checked,
+        new_password: undefined,
+        coordinates: undefined
+    }
+
+    if(elements.want_to_change_pass.checked == true) {
+        request.new_password = await sha256(elements.new_password.value);
+    } else {
+        request.new_password = request.old_password;
     }
 
     console.log(request);
 
+
+    if(await geoPermission() == true) {
+
+        if(geolocation.accuracy < 250) {
+
+            request.coordinates = geolocation;
+
+            let url = `${protocol}${domain}/edit`;
+
+            await superfetch(url, "POST", request, (data) => {
+        
+                console.log(data);
+        
+                if(data.success) {
+        
+                    console.log("SUCCESS");
+                    window.location = `/micronation.html?m=${code}`;
+
+                    
+                } else {
+                    showSnackBar(data.reason);
+                }
+            
+        
+            
+            }, async (error) => {
+                console.log(error);
+                showSnackBar(errors.fetch)
+                return false;
+            })
+            
+        } else {
+            showSnackBar(errors.geo_inaccurate);
+        }
+    } else {
+        showSnackBar(errors.location);
+    }
+
+}
+
+export async function sendRemoveRequest(code, password) {
+    console.log(code, password);
+
+    let url = `${protocol}${domain}/remove`;
+
+    let request = {
+        code: code,
+        password: password
+    }
 
     await superfetch(url, "POST", request, (data) => {
 
@@ -450,11 +548,14 @@ export async function sendEditRequest(imnc, password, elements) {
 
         if(data.success) {
 
-            console.log("SUCC");
+            console.log("REMOVED");
+            window.location = `/micronations.html`;
+
             
         } else {
-            showSnackBar(data.error);
+            showSnackBar(data.reason);
         }
+    
 
     
     }, async (error) => {

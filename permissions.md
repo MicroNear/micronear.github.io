@@ -1,7 +1,7 @@
 <h3>Location Permission</h3>
 
 <p>
-  Micronear allows people to find micronations nearby and therefore it requires the Location permission in order to work
+  This part of Micronear requires the location permission in order to work.
 </p>
 
 <ul class="demo-list-icon mdl-list">
