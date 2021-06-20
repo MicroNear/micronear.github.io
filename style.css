@@ -25,6 +25,12 @@ span a {
     color: inherit;
 }
 
+.mdl-list__item .fixicons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .mdl-textfield__label {
     /*color: #ddd;*/
 }
