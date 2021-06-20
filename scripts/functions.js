@@ -41,7 +41,7 @@ export function verifyCode (code) {
 export async function sharePage() {
     const title = document.title;
     const url = document.location.href;
-    const text = "Share this micronation";
+    const text = "";
 
     if(navigator.share) {
         try {
