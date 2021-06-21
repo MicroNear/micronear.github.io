@@ -5,6 +5,8 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
 <h4> Social </h4>
 <a href="https://discord.gg/5edwBtNrZk">Micronear on Discord</a> <br>
 <a href="https://www.instagram.com/_micronear_/">Micronear on Instagram</a>
+<a href="mailto:micronear@protonmail.com">Send us an Email</a> <br>
+
 
 <hr>
 <h4> Facing problems? Try tips listed below: </h4>
@@ -12,20 +14,14 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
 <ul class="demo-list-icon mdl-list">
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
+    <i class="material-icons mdl-list__item-icon">restart_alt</i>
+    Update Micronear
+  </span>
+  </li>
+  <li class="mdl-list__item">
+    <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">browser_updated</i>
     Update Google Chrome
-  </span>
-  </li>
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-    <i class="material-icons mdl-list__item-icon">delete_sweep</i>
-    <span class="fixicons">Chrome > <i class="material-icons">more_vert</i> > <i class="material-icons">settings</i> > Privacy and Security > Clear browsing data > Advanced > Check all > Clear data</span>
-  </span>
-  </li>
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-    <i class="material-icons mdl-list__item-icon">restart_alt</i>
-    Reinstall Micronear
   </span>
   </li>
   <li class="mdl-list__item">
@@ -37,14 +33,14 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">web</i>
-    Open micronear . berrykingdom . xyz in Chrome
+    Open micronear . berrykingdom . xyz on PC
   </span>
   </li>
 </ul>
 
 
 <hr>
-<p>Leave us a review on Google Play!</p>
+<p>Support Micronear by leaving a review on Google Play!</p>
 
 <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
   <span class="mdl-chip mdl-chip--deletable">
