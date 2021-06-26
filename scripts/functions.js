@@ -292,7 +292,9 @@ export async function sendListRequest() {
         wrapper.innerHTML += listitem;
         });
 
-        let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html")
+        let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html");
+        wrapper.innerHTML += add_button;
+
 
     }, (error) => {
         showSnackBar(errors.fetch)
