@@ -275,7 +275,7 @@ function makeMicronationListItem(code, name, verified, icon, link) {
             </span>
         </span>
         <span class="mdl-list__item-secondary-content">
-            <i class="material-icons">${(verified) ? "verified" : null}</i>
+            ${(verified) ? '<i class="material-icons">verified</i>' : ""}
         </span>
         <span class="mdl-list__item-secondary-content">
             <i class="material-icons">${icon}</i>
