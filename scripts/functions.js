@@ -260,7 +260,9 @@ function makeMicronationListItem(code, name, verified, icon, link) {
         </span>
         <span class="mdl-list__item-secondary-content">
             <a href="${link}">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
                 <i class="material-icons">${icon}</i>
+            </button>
             </a>
         </span>
     </li>
