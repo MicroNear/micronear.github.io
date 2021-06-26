@@ -247,7 +247,7 @@ export async function sendFindRequest () {
 }
 
 function makeMicronationListItem(code, name, verified, icon, link) {
-    let listitem = `
+    let oldlistitem = `
     <li class="mdl-list__item mdl-list__item--three-line">
         <span class="mdl-list__item-primary-content">
             <span>${code}</span>
@@ -260,12 +260,27 @@ function makeMicronationListItem(code, name, verified, icon, link) {
         </span>
         <span class="mdl-list__item-secondary-content">
             <a href="${link}">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
                 <i class="material-icons">${icon}</i>
-            </button>
             </a>
         </span>
     </li>
+    `;
+
+    let listitem = `
+    <a href="${link}" class="mdl-list__item mdl-list__item--three-line">
+        <span class="mdl-list__item-primary-content">
+            <span>${code}</span>
+            <span class="mdl-list__item-text-body">
+                ${name}
+            </span>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+            <i class="material-icons">${(verified) ? "verified" : null}</i>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+            <i class="material-icons">${icon}</i>
+        </span>
+    </a>
     `;
 
     return listitem;
