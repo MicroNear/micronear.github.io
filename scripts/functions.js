@@ -246,6 +246,29 @@ export async function sendFindRequest () {
     
 }
 
+function makeMicronationListItem(code, name, verified, icon, link) {
+    let listitem = `
+    <li class="mdl-list__item mdl-list__item--three-line">
+        <span class="mdl-list__item-primary-content">
+            <span>${code}</span>
+            <span class="mdl-list__item-text-body">
+                ${name}
+            </span>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+            <i class="material-icons">${(verified) ? "verified" : null}</i>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+            <a href="${link}">
+                <i class="material-icons">${icon}</i>
+            </a>
+        </span>
+    </li>
+    `;
+
+    return listitem;
+}
+
 export async function sendListRequest() {
 
 
@@ -258,34 +281,18 @@ export async function sendListRequest() {
     await superfetch(url, "GET", null, (data) => {
         console.log(data);
 
-
-
         if(data.length == 0) {
             wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"
         }
 
         data.forEach(micronation => {
 
-            let listitem = `
-            <li class="mdl-list__item mdl-list__item--three-line">
-                <span class="mdl-list__item-primary-content">
-                    <span>${micronation.code}</span>
-                    <span class="mdl-list__item-text-body">
-                        ${micronation.name}
-                    </span>
-                </span>
-                <span class="mdl-list__item-secondary-content">
-                    <i class="material-icons">${(micronation.verified) ? "verified" : null}</i>
-                </span>
-                <span class="mdl-list__item-secondary-content">
-                    <a href="micronation.html?m=${micronation.code}">
-                        <i class="material-icons">open_in_new</i>
-                    </a>
-                </span>
-            </li>
-        `;
+            let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`)
+
         wrapper.innerHTML += listitem;
         });
+
+        let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html")
 
     }, (error) => {
         showSnackBar(errors.fetch)

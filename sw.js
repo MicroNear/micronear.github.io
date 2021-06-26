@@ -1,5 +1,4 @@
-const PRECACHE = 'Microner_v1.7.1';
-const RUNTIME = 'Micronear_v1.7.1';
+const PRECACHE, RUNTIME = 'Microner_v1.7.2';
 
 
 // A list of local resources we always want to be cached.
