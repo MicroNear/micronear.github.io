@@ -9,31 +9,5 @@
       "src": "images/logo.png",
       "sizes": "512x512",
       "type": "image/png"
-    }],
-    "theme_color": "white",
-    "orientation": "any",
-    "categories": ["social", "micronation", "maps", "micronations", "tools"],
-    "shortcuts" : [
-      {
-        "name": "All micronations",
-        "url": "/index.html"
-      },
-      {
-        "name": "Micronations nearby",
-        "url": "/find.html"
-      },
-      {
-        "name": "Add micronation",
-        "url": "/add.html"
-      }
-    ],
-    "iarc_rating_id": "ddf2f87f-465b-4549-99f6-49db27129731",
-    "related_applications": [
-      {
-        "platform": "play",
-        "url": "https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear",
-        "id": "xyz.berrykingdom.micronear"
-      }
-    ],
-    "prefer_related_applications": true
+    }]
   }
