@@ -4,8 +4,8 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
 <hr>
 <h4> Social </h4>
 <a href="https://discord.gg/5edwBtNrZk">Micronear on Discord</a> <br>
-<a href="https://www.instagram.com/_micronear_/">Micronear on Instagram</a>
-<a href="mailto:micronear@protonmail.com">Send us an Email</a> <br>
+<a href="https://www.instagram.com/_micronear_/">Micronear on Instagram</a> <br>
+<a href="mailto:micronear@protonmail.com">Contact Email</a> <br>
 
 
 <hr>

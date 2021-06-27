@@ -59,7 +59,7 @@
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="edit__terms">
       <input type="checkbox" id="edit__terms" class="mdl-checkbox__input" disabled checked />
-      <span class="mdl-checkbox__label">I agree to the privacy policy</span>
+      <span class="mdl-checkbox__label">I agree to the Privacy Policy</span>
     </label>
     <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="edit__remove">
       Remove

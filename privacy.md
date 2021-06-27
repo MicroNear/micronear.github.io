@@ -14,8 +14,20 @@
     The server will process geolocation data determined by the device used in order to find micronations near to the user.
 </p>
 
+<h4> Requesting your data </h4>
+<p>
+    To request your data, contact us on micronear@protonmail.com.
+</p>
+
 <h4> Removing your data </h4>
 <p>
-    Micronations will be removable from the micronation settings page.
-    This feature, however, isn't relased yet. Feel free to contact us on <a href="info.html">discord or instagram</a> to delete your account.
-</p></section>
+    Micronations can be easily removed from the Edit page. This action is, however, permanent and the micronation data can't be recovered.
+</p>
+
+<h4> Security </h4>
+<p>
+    The server accepts only end-to-end encrypted https connections.
+    The server may log parts of received data for security purposes.
+</p>
+
+</section>

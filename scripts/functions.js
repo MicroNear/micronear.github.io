@@ -14,12 +14,13 @@ if(testing) {
 
 export const errors = {
     generic: "An error occured",
-    location: "Couldn't access device location",
+    location: "Location permission is denied, you may change it in the app settings",
     fetch: "Couldn't connect, turn on WiFi or Data",
     add_internal_fault: "An internal error occured",
-    terms: "Agree to the terms in order to proceed",
-    micronaiton_not_found: "Couldn't fetch data about this micronation",
-    geo_inaccurate: "Your device couldn't provide accurate geolocation"
+    terms: "Agree to the Privacy Policy in order to proceed",
+    micronation_not_found: "Couldn't fetch data about this micronation",
+    geo_inaccurate: "Your device couldn't provide accurate geolocation",
+    browser_support: "This browser is not suppoorted, open Micronear in Chrome"
 }
 
 export function showSnackBar(message) {
@@ -82,17 +83,23 @@ export function round(value, precision) {
 
 export function geoPermission() {
 
-    return new Promise(function(resolve, reject) {
+    if(navigator.permissions) {
+        return new Promise(function(resolve, reject) {
 
-        navigator.permissions.query({name: 'geolocation'})
-        .then(function(PermissionStatus) {
-            if (PermissionStatus.state == 'granted') {
-                resolve(true);
-            }else {
-                resolve(false);
-            }
-        })
-    });
+            navigator.permissions.query({name: 'geolocation'})
+            .then(function(PermissionStatus) {
+                if (PermissionStatus.state == 'granted') {
+                    resolve(true);
+                }else {
+                    resolve(false);
+                }
+            })
+        });
+    } else {
+        showSnackBar(errors.browser_support);
+        return false;
+    }
+
 
 }
 
@@ -378,7 +385,7 @@ export async function sendInfoRequest(code) {
     
     await superfetch(url, "GET", null, (micronation) => {
 
-        console.log(micronation)
+        console.log(micronation);
     
         const elements = {
             name: document.querySelector("#mnpage__name"),
