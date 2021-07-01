@@ -111,16 +111,20 @@ export function addhttps(url) {
 }
 
 export function observeGeoPermission() {
-    navigator.permissions.query({name:'geolocation'}).then(function(result) {
-    if(result.state == "granted") {
-        window.location = "/index.html";
+    if("permissions" in navigator) {
+        navigator.permissions.query({name:'geolocation'}).then(function(result) {
+            if(result.state == "granted") {
+                window.location = "/index.html";
+            }
+              result.onchange = function() {
+                if(result.state == "granted") {
+                    window.location = "/index.html";
+                }
+              }
+        });
+    } else {
+        showSnackBar("Your browser might be incompatible, use Chrome")
     }
-      result.onchange = function() {
-        if(result.state == "granted") {
-            window.location = "/index.html";
-        }
-      }
-    });
 }
 
 export async function sha256(message) {
