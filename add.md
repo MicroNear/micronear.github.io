@@ -9,8 +9,8 @@
       <label class="mdl-textfield__label" for="add__mname">Micronation name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" maxlength="7" id="add__code" required="true" />
-        <label class="mdl-textfield__label" for="add__code">Micronational code</label>
+        <input class="mdl-textfield__input" type="text" maxlength="3" id="add__code" required="true" />
+        <label class="mdl-textfield__label" for="add__code">Country code</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">
       <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
