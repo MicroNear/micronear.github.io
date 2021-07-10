@@ -81,7 +81,7 @@ export function round(value, precision) {
     return Math.round(value * multiplier) / multiplier;
 }
 
-export function geoPermission() {
+export async function geoPermission() {
 
     if(navigator.permissions) {
         return new Promise(function(resolve, reject) {
