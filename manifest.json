@@ -8,8 +8,15 @@
     "icons": [{
       "src": "images/logo.png",
       "sizes": "512x512",
-      "type": "image/png"
-    }],
+      "type": "image/png",
+      "purpose": "any"
+    },{
+      "src": "images/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
     "theme_color": "white",
     "orientation": "any",
     "categories": ["social", "micronation", "maps", "micronations", "tools"],
