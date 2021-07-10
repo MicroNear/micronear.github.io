@@ -110,15 +110,15 @@ export function addhttps(url) {
     return url;
 }
 
-export function observeGeoPermission() {
+export function observeGeoPermission(r) {
     if("permissions" in navigator) {
         navigator.permissions.query({name:'geolocation'}).then(function(result) {
             if(result.state == "granted") {
-                window.location = "/index.html";
+                window.location = (r == "") ? "/index.html" : r;
             }
               result.onchange = function() {
                 if(result.state == "granted") {
-                    window.location = "/index.html";
+                    window.location = (r == "") ? "/index.html" : r;
                 }
               }
         });
@@ -382,6 +382,33 @@ export async function superfetch(url, method, body, datahandler, errorhandler) {
     )
 }
 
+export function roughUnixTimestamp(time) {
+
+    const system = {
+        millisecond: 1,
+        second: 1000,
+        minute: 60 * 1000,
+        hour: 60 * 60 * 1000,
+        day: 24 * 60 * 60 * 1000,
+        week: 7 * 24 * 60 * 60 * 1000,
+        month: 4.348214 * 7 * 24 * 60 * 60 * 1000,
+        year: 12 * 4.348214 * 7 * 24 * 60 * 60 * 1000 + 1
+    }
+
+    let system_keys = Object.keys(system);
+    
+    for(let x = 0; x < system_keys.length; x++) {
+        let amount_needed = system[system_keys[x + 1]];
+
+        if(amount_needed > time) {
+            let difference = time / system[system_keys[x]];
+            let rounded = Math.round(difference);
+            return `${rounded} ${system_keys[x]}${rounded > 1 ? "s" : ""}`;
+        }
+    }
+
+    
+}
 
 export async function sendInfoRequest(code) {
 
@@ -400,13 +427,16 @@ export async function sendInfoRequest(code) {
             map: document.querySelector("#mnpage__map"),
             website_text: document.querySelector("#mnpage__website_text"),
             website: document.querySelector("#mnpage__website"),
-            edit: document.querySelector("#mnpage__edit")
+            edit: document.querySelector("#mnpage__edit"),
+            time_added: document.querySelector("#mnpage__time_added"),
+            last_edit: document.querySelector("#mnpage__last_edit"),
         }
     
         elements.name.innerText = micronation.name;
         elements.edit.setAttribute("href", `edit.html?m=${micronation.code}`);
-        //elements.edit.classList.add("hidden");
         elements.code_text.innerText = micronation.code;
+        elements.time_added.innerText = roughUnixTimestamp(Date.now() - micronation.time_added);
+        elements.last_edit.innerText = roughUnixTimestamp(Date.now() - micronation.last_edit);
 
         if(micronation.verified == true) {
             elements.verified.classList.remove("hidden");
@@ -517,18 +547,16 @@ export async function sendEditRequest(code, old_password, elements) {
         update_coordinates: elements.update_coordinates.checked,
         privacy_distance: elements.privacy_distance.checked,
         privacy_coordinates: elements.privacy_coordinates.checked,
+        change_pass: elements.change_pass.checked,
         new_password: undefined,
         coordinates: undefined
     }
 
-    if(elements.want_to_change_pass.checked == true) {
+    if(elements.change_pass.checked == true) {
         request.new_password = await sha256(elements.new_password.value);
-    } else {
-        request.new_password = request.old_password;
     }
 
     console.log(request);
-
 
     if(await geoPermission() == true) {
 

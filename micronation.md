@@ -1,6 +1,8 @@
 <section>
     <h3 id="mnpage__name">Micronation</h3>
     <p id="mnpage__description">No description provided</p>
+    <p>Added <span id="mnpage__time_added"></span> ago</p>
+    <p>Updated <span id="mnpage__last_edit"></span> ago</p>
       <a href="#" class="nodecoration" id="mnpage__code">
       <span class="mdl-chip mdl-chip--deletable">
         <span class="mdl-chip__text" id="mnpage__code_text">CODE</span>

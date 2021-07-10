@@ -147,7 +147,7 @@ if(link == "/find.html") {
             }
         });
 
-        observeGeoPermission();
+        observeGeoPermission(r);
 
     } else {
         alert("Your browser is not supported.")
@@ -179,12 +179,11 @@ if(link == "/find.html") {
         old_password: document.querySelector("#edit__old_password"),
         unlock: document.querySelector("#edit__unlock"),
         name: document.querySelector("#edit__name"),
-        want_to_change_pass: document.querySelector("#edit__want_to_change_pass"),
+        change_pass: document.querySelector("#edit__want_to_change_pass"),
         splash: document.querySelector("#edit__splash"),
         description: document.querySelector("#edit__description"),
         email: document.querySelector("#edit__email"),
         update_coordinates: document.querySelector("#edit__update_coordinates"),
-        want_to_change_pass: document.querySelector("#edit__want_to_change_pass"),
         new_password_wrapper: document.querySelector("#edit__new_password_wrapper"),
         new_password: document.querySelector("#edit__new_password"),
         map: document.querySelector("#edit__map"),
@@ -197,8 +196,8 @@ if(link == "/find.html") {
         confirm_remove: document.querySelector("#edit__confirm_remove"),
     }
 
-    elements.want_to_change_pass.addEventListener("change", async e => {
-        if(elements.want_to_change_pass.checked == true) {
+    elements.change_pass.addEventListener("change", async e => {
+        if(elements.change_pass.checked == true) {
             elements.new_password_wrapper.classList.remove("hidden");
             elements.new_password.setAttribute("required", true);
         } else {
