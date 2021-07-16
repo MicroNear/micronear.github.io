@@ -1,6 +1,6 @@
 'use strict';
 
-export const testing = false;
+export const testing = true;
 const snackbar = document.getElementById("snackbar");
 
 let protocol = "https://"
@@ -32,7 +32,7 @@ export function showSnackBar(message) {
 }
 
 export function verifyCode (code) {
-    if(code.length > 1) {
+    if(code.length > 1 && code.length < 4) {
         return true;
     } else {
         return false;

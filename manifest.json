@@ -42,5 +42,27 @@
         "id": "xyz.berrykingdom.micronear"
       }
     ],
-    "prefer_related_applications": true
+    "prefer_related_applications": true,
+    "screenshots" : [
+      {
+        "src": "/screenshots/micronear1.webp",
+        "sizes": "472x944",
+        "type": "image/webp"
+      },
+      {
+        "src": "/screenshots/micronear2.webp",
+        "sizes": "472x944",
+        "type": "image/webp"
+      },
+      {
+        "src": "/screenshots/micronear3.webp",
+        "sizes": "472x944",
+        "type": "image/webp"
+      },
+      {
+        "src": "/screenshots/micronear4.webp",
+        "sizes": "472x944",
+        "type": "image/webp"
+      }
+    ]
   }

@@ -16,6 +16,16 @@ if ('serviceWorker' in navigator) {
     console.log("Browser not supported.");
 }
 
+const uppercase = document.querySelectorAll(".uppercase");
+uppercase.forEach(element => {
+    element.addEventListener("input", e => {
+        let p= e.target.selectionStart;
+        e.target.value = e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        e.target.value = e.target.value.toUpperCase();
+        e.target.setSelectionRange(p, p);
+    });
+})
+
 import {
     sha256,
     showSnackBar,
@@ -76,7 +86,7 @@ if(link == "/find.html") {
         terms: document.getElementById("add__terms"),
         buy: document.getElementById("add__buy")
     }
-
+    /*
     elements.code.addEventListener("input", e => {
         let p= e.target.selectionStart;
         e.target.value = e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -84,7 +94,7 @@ if(link == "/find.html") {
         e.target.setSelectionRange(p, p);
     });
 
-    /*
+
     elements.terms.addEventListener("change", (e) => {
         const attribute = (elements.terms.checked) ? false : true;
 
@@ -253,6 +263,13 @@ if(link == "/find.html") {
 
 } else if (link == "/info.html") {
     
+} else if (link == "/verification.html") {
+    let elements = {
+        code: document.querySelector("#verification__code"),
+        website: document.querySelector("#verification__website"),
+        password: document.querySelector("#verification__password"),
+        button: document.querySelector("#verification__request")
+    }
 } else {
     console.log(link);
 }
