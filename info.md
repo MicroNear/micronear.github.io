@@ -40,4 +40,4 @@
 <h5> Privacy Policy </h4>
 By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
 <h5> Copyright </h5>
-<p>&copy; Micronear, 2021, All rights reserved. </p>
+<p>&copy; Copyright Micronear, 2021, All rights reserved. </p>
