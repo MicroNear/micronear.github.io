@@ -281,6 +281,12 @@ if(time > mstart && time < mend) {
         password: document.querySelector("#verification__password"),
         button: document.querySelector("#verification__request")
     }
+} else if (link == "/articles.html") {
+    const o = document.getElementById("o");
+    setTimeout(function() {
+        o.innerText += "o";
+    }, 1*1000);
+
 } else {
     console.log(link);
 }
