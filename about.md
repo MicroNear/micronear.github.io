@@ -37,7 +37,7 @@
 </a>
 <hr>
 <h4> Legal </h4>
-<h5>Privacy Policy</h4>
+<h5>Privacy Policy</h5>
 <p>By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a></p>
 <h5> Copyright </h5>
 <p>&copy; Copyright Micronear, 2021, All rights reserved. </p>
