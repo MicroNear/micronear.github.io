@@ -282,10 +282,16 @@ if(time > mstart && time < mend) {
         button: document.querySelector("#verification__request")
     }
 } else if (link == "/articles.html") {
+
     const o = document.getElementById("o");
-    setTimeout(function() {
-        o.innerText += "o";
-    }, 1*1000);
+    addO(o);
+
+    function addO (o) {
+        setTimeout(function() {
+            o.innerText += "o";
+        }, 1*1000);
+        addO();
+    }
 
 } else {
     console.log(link);
