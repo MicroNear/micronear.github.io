@@ -55,7 +55,7 @@
     <li>Include https:// in links</li>
     <li>"mydogsnameisjohnny" is stronger password than "X97E4ZQ"</li>
     <li>Write down your password</li>
-    <li>Issues? <a href="info.html">Contact us</a></li>
+    <li>Issues? <a href="about.html">Contact us</a></li>
   </ul>
 
 </section>

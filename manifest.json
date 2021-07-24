@@ -16,6 +16,12 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+    ,{
+      "src": "images/monochrome-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "monochrome"
+    }
   ],
     "theme_color": "white",
     "orientation": "any",
