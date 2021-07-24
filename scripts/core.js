@@ -288,7 +288,6 @@ if(time > mstart && time < mend) {
     setInterval(function() {
         o.innerText += "o";
     }, 1*1000);
-    addO();
 
 } else {
     console.log(link);
