@@ -1,12 +1,12 @@
 <h2> Micronear </h2>
-By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
+<p>Micronation list & nearby micronation finder</p>
+<p>Web/PC version: micronear.berrykingdom.xyz</p>
 
 <hr>
 <h4> Social </h4>
 <a href="https://discord.gg/5edwBtNrZk">Micronear on Discord</a> <br>
 <a href="https://www.instagram.com/_micronear_/">Micronear on Instagram</a> <br>
 <a href="mailto:micronear@protonmail.com">Contact Email</a> <br>
-
 
 <hr>
 <h4> Facing problems? Try tips listed below: </h4>
@@ -20,27 +20,14 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
   </li>
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
-    <i class="material-icons mdl-list__item-icon">browser_updated</i>
-    Update Google Chrome
-  </span>
-  </li>
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
     <i class="material-icons mdl-list__item-icon">my_location</i>
     Grant the GPS permission (Settings > Apps > Micronear > Permissions)
   </span>
   </li>
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-    <i class="material-icons mdl-list__item-icon">web</i>
-    Open micronear . berrykingdom . xyz on PC
-  </span>
-  </li>
 </ul>
 
-
 <hr>
-<p>Support Micronear by leaving a review on Google Play!</p>
+<p>Leaving a review on Google Play is a great way to support our work!</p>
 
 <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
   <span class="mdl-chip mdl-chip--deletable">
@@ -49,5 +36,8 @@ By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
   </span>
 </a>
 <hr>
-<h4> Copyright </h4>
+<h4> Legal </h4>
+<h5> Privacy Policy </h4>
+By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a>
+<h5> Copyright </h5>
 <p>&copy; Micronear, 2021, All rights reserved. </p>
