@@ -284,14 +284,11 @@ if(time > mstart && time < mend) {
 } else if (link == "/articles.html") {
 
     const o = document.getElementById("o");
-    addO(o);
 
-    function addO (o) {
-        setTimeout(function() {
-            o.innerText += "o";
-        }, 1*1000);
-        addO();
-    }
+    setInterval(function() {
+        o.innerText += "o";
+    }, 1*1000);
+    addO();
 
 } else {
     console.log(link);
