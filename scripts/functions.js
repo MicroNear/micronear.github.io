@@ -32,7 +32,7 @@ export function showSnackBar(message) {
 }
 
 export function verifyCode (code) {
-    if(code.length > 1 && code.length < 4) {
+    if(code.length > 1 && code.length < 5) {
         return true;
     } else {
         return false;
@@ -183,6 +183,7 @@ export async function sendAddRequest (micronation) {
             );
 
         } else {
+            console.log(geolocation)
             showSnackBar(errors.geo_inaccurate);
         }
         

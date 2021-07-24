@@ -62,7 +62,18 @@ if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     }
 }
 
-if(link == "/find.html") {
+
+let time = Date.now();
+
+// 1. Aug, 16:10 - 18:10
+const mstart = 1627827019805;
+const mend = 1627834219805;
+
+
+if(time > mstart && time < mend) {
+    showSnackBar(`Maintenance break, ${~~((mend-time)/1000/60)} minutes left`);
+
+} else if (link == "/find.html") {
 
     await sendFindRequest();
 

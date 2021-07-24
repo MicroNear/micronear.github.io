@@ -75,3 +75,12 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
     visibility: hidden;
     display: none;
 }
+
+
+@media only screen and (min-width: 32.5em){
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
