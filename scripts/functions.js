@@ -203,10 +203,10 @@ export async function sendFindRequest () {
     let foundresults = document.querySelector("#found__results");
 
     if(await geoPermission()) {
-        
-        let geolocation = await geoData();
 
         foundresults.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
+        
+        let geolocation = await geoData();
 
         let url = `${protocol}${domain}/find`;
 
