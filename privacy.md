@@ -27,7 +27,7 @@
 <h4> Security </h4>
 <p>
     The server accepts only end-to-end encrypted https connections.
-    The server may log parts of received data for security purposes.
+    The server may log received data for security purposes.
 </p>
 
 </section>

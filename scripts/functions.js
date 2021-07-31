@@ -1,6 +1,6 @@
 'use strict';
 
-export const testing = false;
+export const testing = true;
 const snackbar = document.getElementById("snackbar");
 
 let protocol = "https://"
@@ -258,7 +258,7 @@ export async function sendFindRequest () {
     
 }
 
-function makeMicronationListItem(code, name, verified, icon, link) {
+export function makeMicronationListItem(code, name, verified, icon, link) {
     let oldlistitem = `
     <li class="mdl-list__item mdl-list__item--three-line">
         <span class="mdl-list__item-primary-content">
@@ -629,4 +629,27 @@ export async function sendRemoveRequest(code, password) {
         showSnackBar(errors.fetch)
         return false;
     })
+}
+
+export async function sendSearchRequest(term) {
+    const url = `${protocol}${domain}/search`;
+
+    const options = {
+        method: "POST",
+        type: "cors",
+        body: JSON.stringify({
+            term: term,
+        })
+    }
+
+    const data = fetch(url, options)
+    .then((response) => {
+        return response.json();
+    }).then(data => {
+        return data
+    })
+    .catch(error => {
+        showSnackBar(error)   
+    })
+    return data;
 }

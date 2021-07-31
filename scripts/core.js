@@ -44,7 +44,9 @@ import {
     sendUnlockRequest,
     sendEditRequest,
     sharePage,
-    sendRemoveRequest
+    sendRemoveRequest,
+    sendSearchRequest,
+    makeMicronationListItem
 } from '/scripts/functions.js';
 
 console.log(link);
@@ -79,7 +81,33 @@ if(time > mstart && time < mend) {
 
 } else if (link == "/index.html" || link == "/") {
 
-    await sendListRequest();
+    sendListRequest();
+
+    const searchinput = document.getElementById("search_input");
+    const searchresults =  document.getElementById("list__ul");
+
+    searchinput.addEventListener("input", async function(e) {
+        e.preventDefault();
+        searchresults.innerHTML = null;
+        
+        if(searchinput.value.length > 1) {
+            const results = await sendSearchRequest(searchinput.value);
+            console.log(results);
+    
+            results.forEach(micronation => {
+                const li = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`);
+                searchresults.innerHTML += li;
+            });
+
+            let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html");
+            searchresults.innerHTML += add_button;
+
+        } else {
+            sendListRequest();
+        }
+
+    })
+
 
 } else if (link == "/add.html") {
 
