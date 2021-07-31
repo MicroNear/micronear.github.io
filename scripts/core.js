@@ -290,23 +290,29 @@ if(time > mstart && time < mend) {
     });
 
 
-    var snackbarContainer = document.querySelector('#edit__confirm_remove');
+    let snackbarContainer = document.querySelector('#edit__confirm_remove');
 
-    var handler = async function(event) {
+    let handler = async function(event) {
         let password_hash = await sha256(elements.old_password.value);
         await sendRemoveRequest(code, password_hash);
     };
 
-    elements.remove.addEventListener('click', function() {
+    elements.remove.addEventListener('click', async function() {
         'use strict';
+        try {
   
-        var data = {
+        let data = {
           message: 'Are you sure?',
           timeout: 5000,
           actionHandler: handler,
           actionText: 'Remove'
         };
+
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        } catch (err) {
+            console.log(err)
+        }
+
     });
 
 
