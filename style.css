@@ -85,6 +85,9 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
     display: none;
 }
 
+form {
+    z-index: 1;
+}
 
 @media only screen and (min-width: 50em){
     form {
@@ -103,12 +106,14 @@ nav {
     z-index: 69;
 
     border-top: 1px solid grey;
-    background-color: #fff;
+    background-color: white;
 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    background-blend-mode: normal;
+    mix-blend-mode: normal;
 }
 
 nav > a.mdl-button {
