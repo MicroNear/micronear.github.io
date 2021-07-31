@@ -51,16 +51,16 @@
   <p>Micronear uses solely open source libraries to ensure maximum security and transparency.</p>
   <ul>
     <li>
-      <a href="https://fonts.google.com/icons?selected=Material+Icons">Material Icons</a> provided by Google LLC, under an <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a> license
+      <a href="https://fonts.google.com/icons?selected=Material+Icons">Material Icons</a> provided by Google LLC, under the <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a> license
     </li>
     <li>
-      <a href="https://getmdl.io/ ">Material Design Lite</a> provided by Google LLC, under an <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a> license
+      <a href="https://getmdl.io/ ">Material Design Lite</a> provided by Google LLC, under the <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a> license
     </li>
     <li>
-      <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> by <a href="https://fonts.google.com/?query=Christian+Robertson">Christian Robertson</a> provided by Google LLC under an <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a> license
+      <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> by <a href="https://fonts.google.com/?query=Christian+Robertson">Christian Robertson</a> provided by Google LLC under the <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a> license
     </li>
     <li>
-      <a href="https://deno.land/">DENO</a> by <a href="https://github.com/ry">Ryan Dahl</a> under a <a href="https://github.com/denoland/deno/blob/main/LICENSE.md">MIT</a> license
+      <a href="https://deno.land/">DENO</a> by <a href="https://github.com/ry">Ryan Dahl</a> under the <a href="https://github.com/denoland/deno/blob/main/LICENSE.md">MIT</a> license
     </li>
   </ul>
   <h5> Copyright </h5>
