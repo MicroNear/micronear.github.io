@@ -50,19 +50,27 @@ import {
 } from '/scripts/functions.js';
 
 console.log(link);
+console.log(await geoPermission());
 
 if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     try {
 
-    if(!await geoData(true)) {
-        console.log("Not cool");
-        const r = encodeURIComponent(window.location);
-        window.location = `permissions.html?r=${r}`; 
+    if('geolocation' in navigator) {
+        if(await geoPermission() != true) {
+            console.log("Not cool");
+            const r = encodeURIComponent(window.location);
+            window.location = `permissions.html?r=${r}`; 
+        }
+    
+
+    } else {
+        showSnackBar(errors.browser_support);
     }
 
     } catch (err) {
         console.log(err);
     }
+
 
 }
 
@@ -201,7 +209,7 @@ if(time > mstart && time < mend) {
         observeGeoPermission(r);
 
     } else {
-        alert("Your browser is not supported.")
+        showSnackBar(errors.browser_support);
     }
 
 

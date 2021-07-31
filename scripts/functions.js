@@ -83,8 +83,6 @@ export function round(value, precision) {
 
 export async function geoPermission() {
 
-    /*
-
     if(navigator.permissions) {
         return new Promise(function(resolve, reject) {
 
@@ -102,8 +100,6 @@ export async function geoPermission() {
         return false;
     }
 
-    */
-
 
 }
 
@@ -118,11 +114,15 @@ export function observeGeoPermission(r) {
     if("permissions" in navigator) {
         navigator.permissions.query({name:'geolocation'}).then(function(result) {
             if(result.state == "granted") {
-                window.location = (r == "") ? "/index.html" : r;
+                console.log(result.state)
+                //window.location = (r == "") ? "/index.html" : r;
             }
               result.onchange = function() {
+                console.log(result.state)
+
                 if(result.state == "granted") {
-                    window.location = (r == "") ? "/index.html" : r;
+                    
+                    //window.location = (r == "") ? "/index.html" : r;
                 }
               }
         });
@@ -151,7 +151,7 @@ export async function sendAddRequest (micronation) {
 
     let geolocation = await geoData(true);
 
-    if(await geoData() != false) {
+    if(await geoPermission()) {
 
         if(geolocation.accuracy < 250) {
 
@@ -202,7 +202,7 @@ export async function sendFindRequest () {
 
     let foundresults = document.querySelector("#found__results");
 
-    if(await geoData() != false) {
+    if(await geoPermission()) {
         
         let geolocation = await geoData();
 
@@ -563,7 +563,7 @@ export async function sendEditRequest(code, old_password, elements) {
 
     console.log(request);
 
-    if(await geoPermission() == true) {
+    if(await geoPermission()) {
 
         if(geolocation.accuracy < 250) {
 
