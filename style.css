@@ -100,7 +100,9 @@ nav {
     width: 100%;
     bottom: 0;
     height: 5rem;
+
     border-top: 1px solid grey;
+    background-color: #fff;
 
     display: flex;
     flex-direction: row;
