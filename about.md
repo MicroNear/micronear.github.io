@@ -46,7 +46,7 @@
 <section>
   <h4> Legal </h4>
   <h5>Privacy Policy</h5>
-  <p>By using Micronear, you agree to the <a href="privacy.html">Privacy Policy</a></p>
+  <p>By using Micronear, you agree to the <a href="terms.html">Terms of Service</a> and the <a href="privacy.html">Privacy Policy</a></p>
   <h5>Attributions to open source software</h5>
   <p>Micronear uses solely open source libraries to ensure maximum security and transparency.</p>
   <ul>
@@ -60,7 +60,7 @@
       <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> by <a href="https://fonts.google.com/?query=Christian+Robertson">Christian Robertson</a> provided by Google LLC under the <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a> license
     </li>
     <li>
-      <a href="https://deno.land/">DENO</a> by <a href="https://github.com/ry">Ryan Dahl</a> under the <a href="https://github.com/denoland/deno/blob/main/LICENSE.md">MIT</a> license
+      <a href="https://deno.land/">Deno</a> by <a href="https://github.com/ry">Ryan Dahl</a> under the <a href="https://github.com/denoland/deno/blob/main/LICENSE.md">MIT</a> license
     </li>
   </ul>
   <h5> Copyright </h5>
