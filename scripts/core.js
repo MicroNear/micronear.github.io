@@ -50,7 +50,6 @@ import {
 } from '/scripts/functions.js';
 
 console.log(link);
-console.log(await geoPermission());
 
 if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     try {
@@ -299,8 +298,7 @@ if(time > mstart && time < mend) {
 
     elements.remove.addEventListener('click', async function() {
         'use strict';
-        try {
-  
+
         let data = {
           message: 'Are you sure?',
           timeout: 5000,
@@ -309,9 +307,7 @@ if(time > mstart && time < mend) {
         };
 
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
-        } catch (err) {
-            console.log(err)
-        }
+
 
     });
 
