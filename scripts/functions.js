@@ -151,7 +151,7 @@ export async function sendAddRequest (micronation) {
 
     let geolocation = await geoData(true);
 
-    if(await geoPermission() == true) {
+    if(await geoData() != false) {
 
         if(geolocation.accuracy < 250) {
 
@@ -202,7 +202,7 @@ export async function sendFindRequest () {
 
     let foundresults = document.querySelector("#found__results");
 
-    if(await geoPermission() == true) {
+    if(await geoData() != false) {
         
         let geolocation = await geoData();
 
