@@ -45,6 +45,7 @@
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
       <span class="mdl-checkbox__label">I agree to the <a href="privacy.html">Terms of Service</a> and the <a href="privacy.html">Privacy Policy</a></span>
     </label>
+    <hr>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="add__buy">
       Add
     </button>
