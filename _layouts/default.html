@@ -32,36 +32,38 @@
 
     <div class="layout mdl-layout mdl-js-layout
             mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input placeholder="Search does not work yet" class="mdl-textfield__input" type="text" name="sample"
-                 id="fixed-header-drawer-exp">
-        </div>
-      </div>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Micronear</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="index.html">All micronations</a>
-      <a class="mdl-navigation__link" href="find.html">Micronations nearby</a>
-      <a class="mdl-navigation__link" href="add.html">Add your micronation</a>
-      <a class="mdl-navigation__link" href="articles.html">Articles</a>
-      <a class="mdl-navigation__link" href="about.html" >&copy; Micronear, 2021</a>
-    </nav>
-  </div>
   <main class="mdl-layout__content">
     <div class="page-content">
         {{ content }}
     </div>
+
+    <nav>
+      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/index.html">
+        <div>
+          <i class="material-icons">search</i>
+        </div>
+      </a>
+      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/find.html">
+        <div>
+          <i class="material-icons">my_location</i>
+        </div>
+      </a>
+      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/add.html">
+        <div>
+          <i class="material-icons">post_add</i>
+        </div>
+      </a>
+      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/articles.html">
+        <div>
+          <i class="material-icons">feed</i>
+        </div>
+      </a>
+      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/about.html">
+        <div>
+          <i class="material-icons">info</i>
+        </div>
+      </a>
+    </nav>
 
     <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
       <div class="mdl-snackbar__text"></div>
