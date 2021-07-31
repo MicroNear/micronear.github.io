@@ -5,19 +5,20 @@ const RUNTIME = PRECACHE;
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
   '/',
-  'index.html',
-  'find.html',
-  'add.html',
-  'permissions.html',
-  'micronation.html',
-  'style.css',
-  'scripts/core.js',
-  'scripts/functions.js',
-  'images/logo.png',
-  'privacy.html',
-  'info.html',
-  'edit.html',
-  '404.html'
+  '/index.html',
+  '/find.html',
+  '/add.html',
+  '/permissions.html',
+  '/micronation.html',
+  '/style.css',
+  '/scripts/core.js',
+  '/scripts/functions.js',
+  '/images/logo.png',
+  '/articles.html',
+  '/privacy.html',
+  '/info.html',
+  '/edit.html',
+  '/404.html'
 ];
 
 // The install handler takes care of precaching the resources we always need.
