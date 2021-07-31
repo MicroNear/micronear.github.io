@@ -16,7 +16,6 @@ const PRECACHE_URLS = [
   '/images/logo.png',
   '/articles.html',
   '/privacy.html',
-  '/terms.html',
   '/info.html',
   '/edit.html',
   '/404.html'
