@@ -83,6 +83,8 @@ export function round(value, precision) {
 
 export async function geoPermission() {
 
+    /*
+
     if(navigator.permissions) {
         return new Promise(function(resolve, reject) {
 
@@ -99,6 +101,8 @@ export async function geoPermission() {
         showSnackBar(errors.browser_support);
         return false;
     }
+
+    */
 
 
 }

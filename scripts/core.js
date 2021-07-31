@@ -53,15 +53,17 @@ console.log(link);
 
 if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     try {
-    let geopermission = await geoPermission();
-    if(!geopermission) {
+
+    if(!await geoData(true)) {
         console.log("Not cool");
         const r = encodeURIComponent(window.location);
         window.location = `permissions.html?r=${r}`; 
     }
+
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
+
 }
 
 
