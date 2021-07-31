@@ -1,4 +1,4 @@
-const PRECACHE = 'Microner_v2.2.3';
+const PRECACHE = 'Microner_v2.2.5';
 const RUNTIME = PRECACHE;
 
 
@@ -16,6 +16,7 @@ const PRECACHE_URLS = [
   '/images/logo.png',
   '/articles.html',
   '/privacy.html',
+  '/terms.html',
   '/info.html',
   '/edit.html',
   '/404.html'
