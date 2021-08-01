@@ -107,7 +107,8 @@ nav {
     bottom: 0;
     height: 5rem;
     z-index: 69;
-    border-top: 1px solid grey;
+    border-top: 1px solid gray;
+    color: darkslategrey;
     background-color: white;
 
     display: flex;
@@ -123,6 +124,7 @@ nav > a.mdl-button {
     margin: 0;
     width: 100%;
     min-width: unset;
+    color: inherit;
 
     display: flex;
     flex-direction: column;

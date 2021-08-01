@@ -36,7 +36,7 @@
     <a href="#" class="nodecoration" id="mnpage__edit">
         <span class="mdl-chip mdl-chip--deletable">
           <span class="mdl-chip__text" id="mnpage__website_text">Edit</span>
-          <button type="button" class="mdl-chip__action"><i class="material-icons">edit</i></button>
+          <button type="button" class="mdl-chip__action"><i class="material-icons">edit_location_alt</i></button>
         </span>
     </a>
 </section>
