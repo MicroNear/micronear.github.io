@@ -309,14 +309,18 @@ export async function sendListRequest() {
 
 
     let wrapper = document.getElementById("list__ul");
-    wrapper.innerHTML = null;
+    wrapper.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
+
 
     await superfetch(url, "GET", null, (data) => {
         console.log(data);
 
+        wrapper.innerHTML = null;
+
         if(data.length == 0) {
             wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"
         }
+
 
         data.forEach(micronation => {
 

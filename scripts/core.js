@@ -94,7 +94,7 @@ if (link == "/find.html") {
 
 } else if (link == "/index.html" || link == "/") {
 
-    sendListRequest();
+    await sendListRequest();
 
     const searchinput = document.getElementById("search_input");
     const searchresults =  document.getElementById("list__ul");
