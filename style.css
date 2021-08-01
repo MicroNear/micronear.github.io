@@ -85,6 +85,10 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
     display: none;
 }
 
+.mdl-snackbar {
+    z-index: 100;
+}
+
 @media only screen and (min-width: 50em){
     form {
         display: flex;
