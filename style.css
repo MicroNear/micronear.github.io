@@ -97,12 +97,16 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
     }
 }
 
+form {
+    z-index: 1;
+}
 
 nav {
     position: fixed;
     width: 100%;
     bottom: 0;
     height: 5rem;
+    z-index: 69;
     border-top: 1px solid grey;
     background-color: white;
 
