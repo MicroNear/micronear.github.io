@@ -73,6 +73,7 @@ if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
 
 }
 
+/*
 
 let time = Date.now();
 
@@ -84,7 +85,10 @@ const mend =    1627840219805;
 if(time > mstart && time < mend) {
     showSnackBar(`Maintenance break, ${~~((mend-time)/1000/60)} minutes left`);
 
-} else if (link == "/find.html") {
+*/
+
+
+if (link == "/find.html") {
 
     await sendFindRequest();
 
