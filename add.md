@@ -30,7 +30,7 @@
     </div>
     <p>Website, Wiki page or a Discord server, include https://</p>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" required="true" />
+      <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" />
       <label class="mdl-textfield__label" for="add__password">Password</label>
     </div>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
