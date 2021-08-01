@@ -85,10 +85,6 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
     display: none;
 }
 
-form {
-    z-index: 1;
-}
-
 @media only screen and (min-width: 50em){
     form {
         display: flex;
@@ -103,8 +99,6 @@ nav {
     width: 100%;
     bottom: 0;
     height: 5rem;
-    z-index: 69;
-
     border-top: 1px solid grey;
     background-color: white;
 
