@@ -25,7 +25,6 @@
   ],
     "theme_color": "white",
     "orientation": "any",
-    "categories": ["social", "micronation", "maps", "micronations", "tools"],
     "shortcuts" : [
       {
         "name": "All micronations",
@@ -40,6 +39,7 @@
         "url": "/add.html"
       }
     ],
+    "categories": ["social", "micronation", "maps", "micronations", "tools"],
     "iarc_rating_id": "ddf2f87f-465b-4549-99f6-49db27129731",
     "related_applications": [
       {
