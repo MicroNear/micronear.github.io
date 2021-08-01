@@ -112,6 +112,7 @@ nav {
     align-items: center;
     background-blend-mode: normal;
     mix-blend-mode: normal;
+    opacity: .5;
 }
 
 nav > a.mdl-button {
