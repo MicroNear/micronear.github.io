@@ -1,6 +1,8 @@
 'use strict';
 
-export const testing = false;
+import { existCheck } from "../../backend/functions";
+
+export const testing = true;
 const snackbar = document.getElementById("snackbar");
 
 let protocol = "https://"
@@ -8,7 +10,7 @@ let domain = "api.micronear.berrykingdom.xyz";
 
 if(testing) {
     protocol = "http://"
-    domain = "127.0.0.1:3001";
+    domain = "localhost:3001";
 }
 
 
@@ -95,6 +97,14 @@ export async function geoPermission() {
                 }
             })
         });
+    } else if (navigator.location) {
+
+        if(await geoData() != false) {
+            return true;
+        } else {
+            return false;
+        }
+
     } else {
         showSnackBar(errors.browser_support);
         return false;
@@ -200,6 +210,8 @@ export async function sendAddRequest (micronation) {
 
 export async function sendFindRequest () {
 
+    console.log("S")
+
     let foundresults = document.querySelector("#found__results");
 
     if(await geoPermission()) {
@@ -218,7 +230,7 @@ export async function sendFindRequest () {
         }
         data.forEach(micronation => {
             let card = `
-<div class="card mdl-card mdl-shadow--2dp" style="background-image: linear-gradient(to bottom, rgb(255 255 255 / 85%), rgb(18 50 66 / 25%)), url('${micronation.splash}')">
+<div class="card mdl-card mdl-shadow--2dp" style="background-image: linear-gradient(to bottom, rgb(255 255 255 / 85%), rgb(18 50 66 / 25%)), url('${protocol}${domain}/image/${micronation.code}')">
 
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">${micronation.name}</h2>
@@ -647,6 +659,30 @@ export async function sendSearchRequest(term) {
         type: "cors",
         body: JSON.stringify({
             term: term,
+        })
+    }
+
+    const data = fetch(url, options)
+    .then((response) => {
+        return response.json();
+    }).then(data => {
+        return data
+    })
+    .catch(error => {
+        showSnackBar(error)   
+    })
+    return data;
+}
+
+export async function sendVerificationRequest(code, password) {
+    const url = `${protocol}${domain}/verification`;
+
+    const options = {
+        method: "POST",
+        type: "cors",
+        body: JSON.stringify({
+            code: code,
+            password: password
         })
     }
 

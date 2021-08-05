@@ -46,7 +46,8 @@ import {
     sharePage,
     sendRemoveRequest,
     sendSearchRequest,
-    makeMicronationListItem
+    makeMicronationListItem,
+    sendVerificationRequest
 } from '/scripts/functions.js';
 
 console.log(link);
@@ -54,16 +55,11 @@ console.log(link);
 if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     try {
 
-    if('geolocation' in navigator) {
-        if(await geoPermission() != true) {
-            console.log("Not cool");
-            const r = encodeURIComponent(window.location);
-            window.location = `permissions.html?r=${r}`; 
-        }
-    
 
-    } else {
-        showSnackBar(errors.browser_support);
+    if(await geoPermission() != true) {
+        console.log("Not cool");
+        const r = encodeURIComponent(window.location);
+        window.location = `permissions.html?r=${r}`; 
     }
 
     } catch (err) {
@@ -312,19 +308,24 @@ if (link == "/find.html") {
 
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
 
-
     });
 
-
-} else if (link == "/info.html") {
-    
 } else if (link == "/verification.html") {
+    console.log(link);
     let elements = {
+        form: document.getElementById("verification__form"),
         code: document.querySelector("#verification__code"),
-        website: document.querySelector("#verification__website"),
         password: document.querySelector("#verification__password"),
-        button: document.querySelector("#verification__request")
     }
+
+    elements.form.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        let response = await sendVerificationRequest(elements.code.value, await sha256(elements.password.value));
+        console.log(response);
+    })
+
+
 } else if (link == "/articles.html") {
 
     const o = document.getElementById("o");
