@@ -2,7 +2,7 @@
 
 import { existCheck } from "../../backend/functions";
 
-export const testing = true;
+export const testing = false;
 const snackbar = document.getElementById("snackbar");
 
 let protocol = "https://"
