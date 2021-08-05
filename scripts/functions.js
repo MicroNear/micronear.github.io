@@ -1,7 +1,5 @@
 'use strict';
 
-import { existCheck } from "../../backend/functions";
-
 export const testing = false;
 const snackbar = document.getElementById("snackbar");
 
@@ -12,7 +10,6 @@ if(testing) {
     protocol = "http://"
     domain = "localhost:3001";
 }
-
 
 export const errors = {
     generic: "An error occured",
