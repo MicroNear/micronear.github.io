@@ -2,6 +2,7 @@
     "name": "Micronear - Micronation finder",
     "short_name": "Micronear",
     "start_url": "/index.html",
+    "scope": "/",
     "display": "standalone",
     "background_color": "#fff",
     "description": "Find new micronations and people",
@@ -28,15 +29,21 @@
     "shortcuts" : [
       {
         "name": "All micronations",
-        "url": "/index.html"
+        "url": "/index.html",
+        "icons": [{ "src": "/images/icon_1.png", "sizes": "512x512" }]
+
       },
       {
         "name": "Micronations nearby",
-        "url": "/find.html"
+        "url": "/find.html",
+        "icons": [{ "src": "/images/icon_1.png", "sizes": "512x512" }]
+
       },
       {
         "name": "Add micronation",
-        "url": "/add.html"
+        "url": "/add.html",
+        "icons": [{ "src": "/images/icon_1.png", "sizes": "512x512" }]
+
       }
     ],
     "categories": ["social", "micronation", "maps", "micronations", "tools"],

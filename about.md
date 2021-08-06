@@ -45,7 +45,6 @@
 <hr>
 <section>
   <h4> Legal </h4>
-  <h5>Privacy Policy</h5>
   <p>By using Micronear, you agree to the <a href="terms.html">Terms of Service</a> and the <a href="privacy.html">Privacy Policy</a></p>
   <h5>Attributions to open source software</h5>
   <p>Micronear uses solely open source libraries to ensure maximum security and transparency.</p>

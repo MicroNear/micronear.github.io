@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
     <meta property="og:title" content="Micronear" />
     <meta property="og:type" content="app" />
     <meta property="og:url" content="https://micronear.berrykingdom.xyz" />
-    <meta property="og:image" content="https://micronear.berrykingdom.xyz/images/icon_1.png" />
+    <meta property="og:image" content="https://micronear.berrykingdom.xyz/images/logo.png" />
     <meta name="theme-color" content="#4CAF50">
     <script>
       window.onerror = function (errorMsg, url, lineNumber) {
@@ -34,7 +35,22 @@
             mdl-layout--fixed-header">
   <main class="mdl-layout__content">
     <div class="page-content">
-        {{ content }}
+        <section>
+  <h3>All micronations</h3>
+  <form>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" maxlength="30" type="text" id="search_input" />
+      <label class="mdl-textfield__label" for="sample3">Search</label>
+    </div>
+  </form>
+</section>
+
+<section id="list">
+  <ul id="list__ul" class="list-micronations mdl-list">
+
+  </ul>
+</section>
+
     </div>
 
     <nav>

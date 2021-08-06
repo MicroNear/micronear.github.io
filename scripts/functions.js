@@ -194,8 +194,7 @@ export async function sendAddRequest (micronation) {
             );
 
         } else {
-            console.log(geolocation)
-            showSnackBar(errors.geo_inaccurate);
+            showSnackBar(`Your device provided inaccurate location (${geolocation.accuracy}m), try again later`);
         }
         
 
@@ -607,7 +606,7 @@ export async function sendEditRequest(code, old_password, elements) {
             })
             
         } else {
-            showSnackBar(errors.geo_inaccurate);
+            showSnackBar(`Your device provided inaccurate location (${geolocation.accuracy}m), try again later`);
         }
     } else {
         showSnackBar(errors.location);

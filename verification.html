@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
     <meta property="og:title" content="Micronear" />
     <meta property="og:type" content="app" />
     <meta property="og:url" content="https://micronear.berrykingdom.xyz" />
-    <meta property="og:image" content="https://micronear.berrykingdom.xyz/images/icon_1.png" />
+    <meta property="og:image" content="https://micronear.berrykingdom.xyz/images/logo.png" />
     <meta name="theme-color" content="#4CAF50">
     <script>
       window.onerror = function (errorMsg, url, lineNumber) {
@@ -34,7 +35,35 @@
             mdl-layout--fixed-header">
   <main class="mdl-layout__content">
     <div class="page-content">
-        {{ content }}
+        <section id="verification">
+    <h3>
+        <span class="material-icons">
+        verified
+        </span>
+        Verification
+    </h3>
+      <div>
+        <p>Fill the form below to request verification. Make sure that the website contains a link to your micronation on Micronear.</p>
+      </div>
+      <form id="verification__form" class="">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input uppercase" type="text" maxlength="3" id="verification__code" required="true" />
+        <label class="mdl-textfield__label" for="verification__code">Country code</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" maxlength="256" id="verification__password" />
+        <label class="mdl-textfield__label" for="verification__password">Password</label>
+      </div>
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="verification__terms">
+        <input type="checkbox" id="verification__terms" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">I agree to the Privacy Policy</span>
+      </label>
+      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="verification__request">
+        Request verification
+      </button>
+    </form>
+  </section>
+
     </div>
 
     <nav>
