@@ -1,3 +1,4 @@
+async function main() {
 'use strict';
 
 const link = window.location.pathname;
@@ -337,3 +338,7 @@ if (link == "/find.html") {
 } else {
     console.log(link);
 }
+
+}
+
+main();
