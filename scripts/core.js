@@ -1,3 +1,28 @@
+import {
+    sha256,
+    showSnackBar,
+    verifyCode,
+    findGetParameter,
+    round,
+    geoPermission,
+    observeGeoPermission,
+    sendAddRequest,
+    sendFindRequest,
+    sendListRequest,
+    geoData,
+    superfetch,
+    sendInfoRequest,
+    errors,
+    sendUnlockRequest,
+    sendEditRequest,
+    sharePage,
+    sendRemoveRequest,
+    sendSearchRequest,
+    makeMicronationListItem,
+    sendVerificationRequest
+} from '/scripts/functions.js';
+
+
 async function main() {
 'use strict';
 
@@ -27,29 +52,6 @@ uppercase.forEach(element => {
     });
 })
 
-import {
-    sha256,
-    showSnackBar,
-    verifyCode,
-    findGetParameter,
-    round,
-    geoPermission,
-    observeGeoPermission,
-    sendAddRequest,
-    sendFindRequest,
-    sendListRequest,
-    geoData,
-    superfetch,
-    sendInfoRequest,
-    errors,
-    sendUnlockRequest,
-    sendEditRequest,
-    sharePage,
-    sendRemoveRequest,
-    sendSearchRequest,
-    makeMicronationListItem,
-    sendVerificationRequest
-} from '/scripts/functions.js';
 
 console.log(link);
 
