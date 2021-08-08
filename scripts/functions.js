@@ -1,6 +1,6 @@
 'use strict';
 
-export const testing = false;
+const testing = false;
 const snackbar = document.getElementById("snackbar");
 
 let protocol = "https://"
@@ -11,7 +11,7 @@ if(testing) {
     domain = "localhost:3001";
 }
 
-export const errors = {
+const errors = {
     generic: "An error occured",
     location: "Location permission is denied, you may change it in the app settings",
     fetch: "Couldn't connect, turn on WiFi or Data",
@@ -22,7 +22,7 @@ export const errors = {
     browser_support: "This browser is not suppoorted, open Micronear in Chrome"
 }
 
-export function showSnackBar(message) {
+function showSnackBar(message) {
     if(snackbar.MaterialSnackbar != undefined) {
         snackbar.MaterialSnackbar.showSnackbar({message: message});
     } else {
@@ -30,7 +30,7 @@ export function showSnackBar(message) {
     }
 }
 
-export function verifyCode (code) {
+function verifyCode (code) {
     if(code.length > 1 && code.length < 5) {
         return true;
     } else {
@@ -38,7 +38,7 @@ export function verifyCode (code) {
     }
 }
 
-export async function sharePage() {
+async function sharePage() {
     const title = document.title;
     const url = document.location.href;
     const text = "";
@@ -62,7 +62,7 @@ export async function sharePage() {
 
   }
 
-export function findGetParameter(parameterName) {
+function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
     location.search
@@ -75,12 +75,12 @@ export function findGetParameter(parameterName) {
     return result;
 }
 
-export function round(value, precision) {
+function round(value, precision) {
     var multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
 }
 
-export async function geoPermission() {
+async function geoPermission() {
 
     if(navigator.permissions) {
         return new Promise(function(resolve, reject) {
@@ -110,14 +110,14 @@ export async function geoPermission() {
 
 }
 
-export function addhttps(url) {
+function addhttps(url) {
     if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
         url = "https://" + url;
     }
     return url;
 }
 
-export function observeGeoPermission(r) {
+function observeGeoPermission(r) {
     if("permissions" in navigator) {
         navigator.permissions.query({name:'geolocation'}).then(function(result) {
             if(result.state == "granted") {
@@ -138,7 +138,7 @@ export function observeGeoPermission(r) {
     }
 }
 
-export async function sha256(message) {
+async function sha256(message) {
     // encode as UTF-8
     const msgBuffer = new TextEncoder('utf-8').encode(message);
   
@@ -154,7 +154,7 @@ export async function sha256(message) {
     return hashHex;
 }
 
-export async function sendAddRequest (micronation) {
+async function sendAddRequest (micronation) {
 
     let geolocation = await geoData(true);
 
@@ -204,7 +204,7 @@ export async function sendAddRequest (micronation) {
 
 }
 
-export async function sendFindRequest () {
+async function sendFindRequest () {
 
     console.log("S")
 
@@ -270,7 +270,7 @@ export async function sendFindRequest () {
     
 }
 
-export function makeMicronationListItem(code, name, verified, icon, link) {
+function makeMicronationListItem(code, name, verified, icon, link) {
     let oldlistitem = `
     <li class="mdl-list__item mdl-list__item--three-line">
         <span class="mdl-list__item-primary-content">
@@ -310,7 +310,7 @@ export function makeMicronationListItem(code, name, verified, icon, link) {
     return listitem;
 }
 
-export async function sendListRequest() {
+async function sendListRequest() {
 
 
     let url = `${protocol}${domain}/micronations`;
@@ -350,7 +350,7 @@ export async function sendListRequest() {
 
 }
 
-export async function geoData (enableHighAccuracy) {
+async function geoData (enableHighAccuracy) {
 
     const options = {
         enableHighAccuracy: enableHighAccuracy
@@ -378,7 +378,7 @@ export async function geoData (enableHighAccuracy) {
     
 }
 
-export async function superfetch(url, method, body, datahandler, errorhandler) {
+async function superfetch(url, method, body, datahandler, errorhandler) {
 
     body = JSON.stringify(body);
 
@@ -399,7 +399,7 @@ export async function superfetch(url, method, body, datahandler, errorhandler) {
     )
 }
 
-export function roughUnixTimestamp(time) {
+function roughUnixTimestamp(time) {
 
     const system = {
         millisecond: 1,
@@ -427,7 +427,7 @@ export function roughUnixTimestamp(time) {
     
 }
 
-export async function sendInfoRequest(code) {
+async function sendInfoRequest(code) {
 
     let url = `${protocol}${domain}/micronation/${code}`;
     
@@ -493,7 +493,7 @@ export async function sendInfoRequest(code) {
 }
 
 
-export async function sendUnlockRequest(code, password, elements) {
+async function sendUnlockRequest(code, password, elements) {
 
     let url = `${protocol}${domain}/unlock`;
     
@@ -549,7 +549,7 @@ export async function sendUnlockRequest(code, password, elements) {
 
 }
 
-export async function sendEditRequest(code, old_password, elements) {
+async function sendEditRequest(code, old_password, elements) {
 
     let geolocation = await geoData(true);
 
@@ -614,7 +614,7 @@ export async function sendEditRequest(code, old_password, elements) {
 
 }
 
-export async function sendRemoveRequest(code, password) {
+async function sendRemoveRequest(code, password) {
     console.log(code, password);
 
     let url = `${protocol}${domain}/remove`;
@@ -647,7 +647,7 @@ export async function sendRemoveRequest(code, password) {
     })
 }
 
-export async function sendSearchRequest(term) {
+async function sendSearchRequest(term) {
     const url = `${protocol}${domain}/search`;
 
     const options = {
@@ -670,7 +670,7 @@ export async function sendSearchRequest(term) {
     return data;
 }
 
-export async function sendVerificationRequest(code, password) {
+async function sendVerificationRequest(code, password) {
     const url = `${protocol}${domain}/verification`;
 
     const options = {
