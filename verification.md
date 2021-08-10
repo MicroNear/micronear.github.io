@@ -6,7 +6,7 @@
         Verification
     </h3>
       <div>
-        <p>Fill the form below to request verification. There are only three rules:</p>
+        <p>Fill the form below to request the "verified" badge. Your micronation has to follow these requirements:</p>
         <ul class="mdl-list">
         <li class="mdl-list__item">
           <span class="mdl-list__item-primary-content">
@@ -27,7 +27,7 @@
         </span>
         </li>
       </ul>
-      <p>We don't require micronations to share their location on map</p>
+      <p>We require the applicants to share approximate distance of their micronation from the users. Sharing precise location on map is optional.</p>
       </div>
       <form id="verification__form" class="">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
