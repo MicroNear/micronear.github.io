@@ -23,7 +23,7 @@
         <li class="mdl-list__item">
           <span class="mdl-list__item-primary-content">
           <i class="material-icons mdl-list__item-icon">social_distance</i>
-            Distance from your micronation shown to the users
+            Micronear allowed to display the distance between your micronation and the users
         </span>
         </li>
       </ul>
