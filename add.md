@@ -13,22 +13,22 @@
         <label class="mdl-textfield__label" for="add__code">Country code</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">
-      <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
-      <label class="mdl-textfield__label" for="add__description">Description in English</label>
+      <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000" required></textarea>
+      <label class="mdl-textfield__label" for="add__description">Short description in English</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="add__email" />
       <label class="mdl-textfield__label" for="add__email">Public email</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__msplash" />
-      <label class="mdl-textfield__label" for="add__msplash">Splash screen or flag link</label>
+      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mflag" />
+      <label class="mdl-textfield__label" for="add__mflag">Flag (link)</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" />
-      <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
+      <label class="mdl-textfield__label" for="add__mwebsite">Website (link)</label>
     </div>
-    <p>Website, Wiki page or a Discord server, include https://</p>
+    <p>Website, Wiki page or a Discord server</p>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" />
       <label class="mdl-textfield__label" for="add__password">Password</label>
@@ -53,10 +53,9 @@
 
   <h5>Tips</h5>
   <ul>
-    <li>Include https:// in links</li>
+    <li>Include https:// in all links</li>
     <li>"mydogsnameisjohnny" is stronger password than "X97E4ZQ"</li>
     <li>Write down your password</li>
-    <li>Issues? <a href="about.html">Contact us</a></li>
   </ul>
-
+  <p><a href="about.html">Contact us</a></p>
 </section>

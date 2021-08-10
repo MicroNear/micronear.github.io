@@ -9,7 +9,7 @@
         <button type="button" class="mdl-chip__action"><i class="material-icons">flag</i></button>
       </span>
     </a>
-    <a href="#" class="nodecoration hidden" id="mnpage__verified">
+    <a href="/verification.html" class="nodecoration hidden" id="mnpage__verified">
       <span class="mdl-chip mdl-chip--deletable">
         <span class="mdl-chip__text">Verified</span>
         <button type="button" class="mdl-chip__action"><i class="material-icons">verified</i></button>

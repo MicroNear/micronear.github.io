@@ -29,14 +29,14 @@
       <label class="mdl-textfield__label" for="edit__email">Public email</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="url" maxlength="256" id="edit__splash" />
-      <label class="mdl-textfield__label" for="edit__splash">Splash screen or flag link</label>
+      <input class="mdl-textfield__input" type="url" maxlength="256" id="edit__flag" />
+      <label class="mdl-textfield__label" for="edit__flag">Flag (link)</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="url" maxlength="256" id="edit__website" />
       <label class="mdl-textfield__label" for="edit__website">Website</label>
     </div>
-    <p>Website, Wiki page or a Discord server, include https://</p>
+    <p>Website, Wiki page or a Discord server</p>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="edit__update_coordinates">
       <input type="checkbox" id="edit__update_coordinates" class="mdl-checkbox__input" />
       <span class="mdl-checkbox__label">Update coordinates</span>

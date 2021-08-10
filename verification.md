@@ -10,11 +10,11 @@
       </div>
       <form id="verification__form" class="">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input uppercase" type="text" maxlength="3" id="verification__code" required />
+        <input class="mdl-textfield__input uppercase" type="text" maxlength="3" autocomplete="username" id="verification__code" required />
         <label class="mdl-textfield__label" for="verification__code">Country code</label>
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="password" maxlength="256" id="verification__password" required />
+        <input class="mdl-textfield__input" type="password" maxlength="256" autocomplete="current-password" id="verification__password" required />
         <label class="mdl-textfield__label" for="verification__password">Password</label>
       </div>
       <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="verification__terms">

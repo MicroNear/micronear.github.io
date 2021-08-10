@@ -179,11 +179,10 @@ async function sendAddRequest (micronation) {
                     window.location = `/micronation.html?m=${data.code}`;
 
                 } else {
-                    if(data.reason != "") {
-                        showSnackBar(data.reason);
+                    if(data.message != "") {
+                        showSnackBar(data.message);
                     } else {
                         showSnackBar(errors.add_internal_fault);
-
                     }
                 }
 
@@ -232,7 +231,7 @@ async function sendFindRequest () {
     <h2 class="mdl-card__title-text">${micronation.name}</h2>
   </div>
   <div class="mdl-card__supporting-text">
-    ${micronation.description}
+    ${(micronation.description != undefined) ? micronation.description : "No description provided"}
   </div>
 
     <div class="mdl-card__actions mdl-card--border">
@@ -517,7 +516,7 @@ async function sendUnlockRequest(code, password, elements) {
             elements.name.value = data.name;
             elements.description.value = data.description;
             elements.email.value = data.email;
-            elements.splash.value = data.splash;
+            elements.flag.value = data.flag;
             elements.website.value = data.website;
 
 
@@ -559,7 +558,7 @@ async function sendEditRequest(code, old_password, elements) {
         name: elements.name.value,
         description: elements.description.value,
         email: elements.email.value,
-        splash: elements.splash.value,
+        flag: elements.flag.value,
         website: elements.website.value,
         update_coordinates: elements.update_coordinates.checked,
         privacy_distance: elements.privacy_distance.checked,
@@ -594,7 +593,7 @@ async function sendEditRequest(code, old_password, elements) {
 
                     
                 } else {
-                    showSnackBar(data.reason);
+                    showSnackBar(data.message);
                 }
             
         
@@ -635,7 +634,7 @@ async function sendRemoveRequest(code, password) {
 
             
         } else {
-            showSnackBar(data.reason);
+            showSnackBar(data.message);
         }
     
 
@@ -671,7 +670,7 @@ async function sendSearchRequest(term) {
 }
 
 async function sendVerificationRequest(code, password) {
-    const url = `${protocol}${domain}/verification`;
+    const url = `${protocol}${domain}/verify`;
 
     const options = {
         method: "POST",
@@ -802,7 +801,7 @@ if (link == "/find.html") {
         description: document.getElementById("add__description"),
         code: document.getElementById("add__code"),
         email: document.getElementById("add__email"),
-        splash: document.getElementById("add__msplash"),
+        flag: document.getElementById("add__mflag"),
         website: document.getElementById("add__mwebsite"),
         password: document.getElementById("add__password"),
         distance: document.getElementById("add__distance"),
@@ -840,7 +839,7 @@ if (link == "/find.html") {
             name: elements.name.value,
             code: elements.code.value,
             email: elements.email.value,
-            splash: elements.splash.value,
+            flag: elements.flag.value,
             description: elements.description.value,
             website: elements.website.value,
             password: elements.password.value,
@@ -914,7 +913,7 @@ if (link == "/find.html") {
         unlock: document.querySelector("#edit__unlock"),
         name: document.querySelector("#edit__name"),
         change_pass: document.querySelector("#edit__want_to_change_pass"),
-        splash: document.querySelector("#edit__splash"),
+        flag: document.querySelector("#edit__flag"),
         description: document.querySelector("#edit__description"),
         email: document.querySelector("#edit__email"),
         update_coordinates: document.querySelector("#edit__update_coordinates"),
@@ -998,6 +997,7 @@ if (link == "/find.html") {
         e.preventDefault();
 
         let response = await sendVerificationRequest(elements.code.value, await sha256(elements.password.value));
+        console.log(response.message);
         console.log(response);
     })
 
