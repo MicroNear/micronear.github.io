@@ -513,11 +513,11 @@ async function sendUnlockRequest(code, password, elements) {
             elements.old_password.setAttribute("disabled", true);
             elements.unlock.setAttribute("disabled", true);
 
-            elements.name.value = data.name;
-            elements.description.value = data.description;
-            elements.email.value = data.email;
-            elements.flag.value = data.flag;
-            elements.website.value = data.website;
+            elements.name.value = (data.name != undefined) ? data.name : null;
+            elements.description.value = (data.description != undefined) ? data.description : null;
+            elements.email.value = (data.email != undefined) ? data.email : null;
+            elements.flag.value = (data.flag != undefined) ? data.flag : null;
+            elements.website.value = (data.website != undefined) ? data.website : null;
 
 
             if(data.privacy_distance) {
