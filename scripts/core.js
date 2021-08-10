@@ -997,7 +997,7 @@ if (link == "/find.html") {
         e.preventDefault();
 
         let response = await sendVerificationRequest(elements.code.value, await sha256(elements.password.value));
-        console.log(response.message);
+        showSnackBar(response.message);
         console.log(response);
     })
 
