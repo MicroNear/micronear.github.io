@@ -6,7 +6,28 @@
         Verification
     </h3>
       <div>
-        <p>Fill the form below to request verification. Make sure that your website is hyperlinked with your Micronear page.</p>
+        <p>Fill the form below to request verification. There are only three rules:</p>
+        <ul class="mdl-list">
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-icon">contact_mail</i>
+            Valid contact information on your Micronear page
+        </span>
+        </li>
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-icon">link</i>
+            Website hyperlinked with your Micronear page
+        </span>
+        </li>
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-icon">social_distance</i>
+            Distance from your micronation shown to users
+        </span>
+        </li>
+      </ul>
+      <p>We don't require micronations to share their location on map</p>
       </div>
       <form id="verification__form" class="">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
