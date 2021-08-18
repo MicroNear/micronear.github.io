@@ -16,18 +16,12 @@
         </li>
         <li class="mdl-list__item">
           <span class="mdl-list__item-primary-content">
-          <i class="material-icons mdl-list__item-icon">link</i>
-            Website/wiki containing a link to your Micronear page
-        </span>
-        </li>
-        <li class="mdl-list__item">
-          <span class="mdl-list__item-primary-content">
           <i class="material-icons mdl-list__item-icon">social_distance</i>
             Micronear allowed to display the distance between your micronation and the users
         </span>
         </li>
       </ul>
-      <p>We require the applicants to share approximate distance of their micronation from the users. Sharing precise location on map is optional.</p>
+      <p>Sharing precise location on map is optional.</p>
       </div>
       <form id="verification__form" class="">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
