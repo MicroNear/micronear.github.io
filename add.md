@@ -53,9 +53,14 @@
 
   <h5>Tips</h5>
   <ul>
+    <li>Country code examples: DR, MOL, SEA, SKL</li>
+    <li>Country code for <b>Nonexistent</b> Republic should be <b>NE</b> or <b>NX</b>, not <b>N</b>R.</li>
+    <li>Country code for Kingdom of <b>Noone</b> should be <b>NN</b>, not KO<b>N</b>.</li>
     <li>Include https:// in all links</li>
+    <li>"Show distance from users" option won't display the location on map</li>
     <li>"mydogsnameisjohnny" is stronger password than "X97E4ZQ"</li>
     <li>Write down your password</li>
   </ul>
-  <p><a href="about.html">Contact us</a></p>
+  <p>
+  <a href="about.html">Contact us</a></p>
 </section>
