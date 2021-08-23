@@ -7,7 +7,7 @@
     </h3>
       <div>
         <p>Fill the form below to request the "verified" badge. Your micronation has to follow these requirements:</p>
-        <ul class="mdl-list">
+      <ul class="mdl-list">
         <li class="mdl-list__item">
           <span class="mdl-list__item-primary-content">
           <i class="material-icons mdl-list__item-icon">contact_mail</i>

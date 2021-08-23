@@ -1009,11 +1009,12 @@ if (link == "/find.html") {
 
 } else if (link == "/articles.html") {
 
-    const o = document.getElementById("o");
+    /*const o = document.getElementById("o");
 
     setInterval(function() {
         o.innerText += "o";
     }, 1*1000);
+    */
 
 } else {
     console.log(link);
