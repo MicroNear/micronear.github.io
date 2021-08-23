@@ -836,7 +836,7 @@ if (link == "/find.html") {
 
     */
 
-    elements.form.addEventListener("submit", (e) => {
+    elements.form.addEventListener("submit", async (e) => {
         
         e.preventDefault();
 
