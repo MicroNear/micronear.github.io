@@ -162,12 +162,11 @@ async function sha256(message) {
 
 async function sendAddRequest (micronation) {
 
-    let geolocation = await geoData(true);
-
     if(await geoPermission()) {
 
-        if(geolocation.accuracy < 250) {
+        let geolocation = await geoData(true);
 
+        if(geolocation.accuracy < 250) {
 
             micronation.coordinates = geolocation;
 
@@ -858,7 +857,7 @@ if (link == "/find.html") {
 
             if(data.terms == true) {
 
-                sendAddRequest(data);
+                await sendAddRequest(data);
 
             } else {
                 showSnackBar(errors.terms);
