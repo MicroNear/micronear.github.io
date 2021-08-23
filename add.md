@@ -9,7 +9,7 @@
       <label class="mdl-textfield__label" for="add__mname">Micronation name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input uppercase" type="text" maxlength="3" id="add__code" required="true" />
+        <input class="mdl-textfield__input uppercase" type="text" maxlength="4" id="add__code" required="true" />
         <label class="mdl-textfield__label" for="add__code">Country code</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">

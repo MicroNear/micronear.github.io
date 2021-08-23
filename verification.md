@@ -25,7 +25,7 @@
       </div>
       <form id="verification__form" class="">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input uppercase" type="text" maxlength="3" autocomplete="username" id="verification__code" required />
+        <input class="mdl-textfield__input uppercase" type="text" maxlength="4" autocomplete="username" id="verification__code" required />
         <label class="mdl-textfield__label" for="verification__code">Country code</label>
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
