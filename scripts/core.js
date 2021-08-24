@@ -484,7 +484,7 @@ async function sendInfoRequest(code) {
         }
 
         if(micronation.privacy_coordinates == true) {
-            elements.map.setAttribute("href", `geo:${micronation.coordinates.latitude},${micronation.coordinates.longitude}`);
+            elements.map.setAttribute("href", `https://maps.google.com/?q=${micronation.coordinates.latitude},${micronation.coordinates.longitude}`);
             elements.map.classList.remove("hidden");
         }
     
