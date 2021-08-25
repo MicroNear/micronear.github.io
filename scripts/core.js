@@ -581,7 +581,7 @@ async function sendEditRequest(code, old_password, elements) {
 
     if(await geoPermission()) {
 
-        if(geolocation.accuracy < 250) {
+        if(!(elements.update_coordinates.checked) || (geolocation.accuracy < 250)) {
 
             request.coordinates = geolocation;
 
