@@ -18,7 +18,7 @@
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="add__email" />
-      <label class="mdl-textfield__label" for="add__email">Public email</label>
+      <label class="mdl-textfield__label" for="add__email">Email for diplomacy</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mflag" />

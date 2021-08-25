@@ -26,7 +26,7 @@
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="edit__email" />
-      <label class="mdl-textfield__label" for="edit__email">Public email</label>
+      <label class="mdl-textfield__label" for="edit__email">Email for diplomacy</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="url" maxlength="256" id="edit__flag" />
@@ -39,7 +39,7 @@
     <p>Website, Wiki page or a Discord server</p>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="edit__update_coordinates">
       <input type="checkbox" id="edit__update_coordinates" class="mdl-checkbox__input" />
-      <span class="mdl-checkbox__label">Update coordinates</span>
+      <span class="mdl-checkbox__label">Update the coordinates with my location</span>
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="edit__want_to_change_pass">
       <input type="checkbox" id="edit__want_to_change_pass" class="mdl-checkbox__input" />
