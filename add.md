@@ -9,7 +9,7 @@
       <label class="mdl-textfield__label" for="add__mname">Micronation name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input uppercase" type="text" maxlength="4" id="add__code" required="true" />
+        <input class="mdl-textfield__input uppercase" type="text" maxlength="4" id="add__code" required="true" autocomplete="country/>
         <label class="mdl-textfield__label" for="add__code">Country code</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">
@@ -17,20 +17,20 @@
       <label class="mdl-textfield__label" for="add__description">Short description in English</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="email" id="add__email" />
+      <input class="mdl-textfield__input" type="email" id="add__email" autocomplete="email />
       <label class="mdl-textfield__label" for="add__email">Email for diplomacy</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mflag" />
+      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mflag" autocomplete="url" />
       <label class="mdl-textfield__label" for="add__mflag">Flag (link)</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" />
+      <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" autocomplete="url" />
       <label class="mdl-textfield__label" for="add__mwebsite">Website (link)</label>
     </div>
     <p>Website, Wiki page or a Discord server</p>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" />
+      <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
       <label class="mdl-textfield__label" for="add__password">Password</label>
     </div>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
@@ -42,7 +42,7 @@
       <span class="mdl-switch__label">Visible on map</span>
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
-      <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
+      <input type="checkbox" id="add__terms" class="mdl-checkbox__input" required />
       <span class="mdl-checkbox__label">I agree to the <a href="terms.html">Terms of Service</a> and the <a href="privacy.html">Privacy Policy</a></span>
     </label>
     <hr>

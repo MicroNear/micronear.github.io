@@ -8,7 +8,7 @@
             <label class="mdl-textfield__label" for="edit__code">Code</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="password" maxlength="256" id="edit__old_password" required="true" />
+            <input class="mdl-textfield__input" type="password" maxlength="256" id="edit__old_password" required="true" autocomplete="current-password />
             <label class="mdl-textfield__label" for="edit__password">Password</label>
         </div>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="edit__unlock">
@@ -46,7 +46,7 @@
       <span class="mdl-checkbox__label">Change password</span>
     </label>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label hidden" id="edit__new_password_wrapper">
-      <input class="mdl-textfield__input" type="password" maxlength="256" minlength="8" id="edit__new_password" />
+      <input class="mdl-textfield__input" type="password" maxlength="256" minlength="8" id="edit__new_password" autocomplete="new-password"/>
       <label class="mdl-textfield__label" for="edit__new_password">New Password</label>
     </div>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="edit__privacy_distance">

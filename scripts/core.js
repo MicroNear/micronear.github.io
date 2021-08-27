@@ -1,5 +1,8 @@
 'use strict';
 
+const API_VERSION = 1;
+const API_TARGET = "micronear";
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/sw.js');
@@ -166,7 +169,7 @@ async function sendAddRequest (micronation) {
 
         let geolocation = await geoData(true);
 
-        if(geolocation.accuracy < 250) {
+        if(geolocation.accuracy < 250 || testing) {
 
             micronation.coordinates = geolocation;
 
@@ -176,26 +179,20 @@ async function sendAddRequest (micronation) {
 
             console.log(micronation);
             
-            await superfetch(url, "POST", micronation, (data) => {
-                console.log(data);
+            let data = await superfetch(url, "POST", micronation);
+            console.log(data);
 
-                if(data.success == true) {
+            if(data.success == true) {
 
-                    window.location = `/micronation.html?m=${data.code}`;
+                window.location = `/micronation.html?m=${data.code}`;
 
+            } else {
+                if(data.message != "") {
+                    showSnackBar(data.message);
                 } else {
-                    if(data.message != "") {
-                        showSnackBar(data.message);
-                    } else {
-                        showSnackBar(errors.add_internal_fault);
-                    }
+                    showSnackBar(errors.add_internal_fault);
                 }
-
-                }, (error) => {
-                    showSnackBar(errors.fetch)
-                    console.log(error);
-                }
-            );
+            }
 
         } else {
             showSnackBar(`Your device provided inaccurate location (${geolocation.accuracy}m), try again later`);
@@ -210,8 +207,6 @@ async function sendAddRequest (micronation) {
 
 async function sendFindRequest () {
 
-    console.log("S")
-
     let foundresults = document.querySelector("#found__results");
 
     if(await geoPermission()) {
@@ -222,7 +217,7 @@ async function sendFindRequest () {
 
         let url = `${protocol}${domain}/find`;
 
-    await superfetch(url, "POST", geolocation, (data) => {
+        let data = await superfetch(url, "POST", geolocation);
 
         let wrapper = document.createElement("div");
         if(data.length == 0) {
@@ -258,15 +253,6 @@ async function sendFindRequest () {
         });
         foundresults.innerHTML = null;
         found__results.appendChild(wrapper);
-
-
-
-    }, (error) => {
-        showSnackBar(errors.fetch);
-        console.log(error);
-    })
-
-
 
     } else {
         showSnackBar(errors.location);
@@ -324,34 +310,25 @@ async function sendListRequest() {
     wrapper.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
 
 
-    await superfetch(url, "GET", null, (data) => {
-        console.log(data);
+    let data = await superfetch(url, "GET", null);
+    console.log(data);
 
-        wrapper.innerHTML = null;
+    wrapper.innerHTML = null;
 
-        if(data.length == 0) {
-            wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"
-        }
-
-
-        data.forEach(micronation => {
-
-            let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`)
-
-        wrapper.innerHTML += listitem;
-        });
-
-        let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html");
-        wrapper.innerHTML += add_button;
+    if(data.length == 0) {
+        wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"
+    }
 
 
-    }, (error) => {
-        showSnackBar(errors.fetch)
-        console.log(error);
-    })
+    data.forEach(micronation => {
 
+        let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`)
 
+    wrapper.innerHTML += listitem;
+    });
 
+    let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html");
+    wrapper.innerHTML += add_button;
 }
 
 async function geoData (enableHighAccuracy) {
@@ -382,25 +359,31 @@ async function geoData (enableHighAccuracy) {
     
 }
 
-async function superfetch(url, method, body, datahandler, errorhandler) {
+async function superfetch(url, method, body) {
+    body = (body == undefined) ? {} : body;
 
+    body.api = {
+        version: API_VERSION,
+        target: API_TARGET
+    }
     body = JSON.stringify(body);
 
     const options = {
         method: method,
-        type: "cors"
+        type: "cors",
     }
 
     if(method != "GET") {
         options.body = body;
     }
 
-    fetch(url, options)
+    let data = fetch(url, options)
     .then((response) => {
         return response.json();
-    }).then(data => datahandler(data))
-    .catch(error => errorhandler(error)
-    )
+    }).then(data => {return data})
+    .catch(error => showSnackBar(error))
+
+    return data;
 }
 
 function roughUnixTimestamp(time) {
@@ -435,7 +418,7 @@ async function sendInfoRequest(code) {
 
     let url = `${protocol}${domain}/micronation/${code}`;
     
-    await superfetch(url, "GET", null, (micronation) => {
+    let micronation =  await superfetch(url, "GET", null);
 
         console.log(micronation);
     
@@ -488,11 +471,7 @@ async function sendInfoRequest(code) {
             elements.map.classList.remove("hidden");
         }
     
-    }, async (error) => {
-        console.log(error);
-        showSnackBar(errors.fetch)
-        return false;
-    })
+    
 
 }
 
@@ -509,7 +488,7 @@ async function sendUnlockRequest(code, password, elements) {
 
     console.log(request)
 
-    await superfetch(url, "POST", request, (data) => {
+    let data = await superfetch(url, "POST", request);
 
         console.log(data)
 
@@ -544,18 +523,10 @@ async function sendUnlockRequest(code, password, elements) {
             showSnackBar(data.error);
         }
 
-    
-    }, async (error) => {
-        console.log(error);
-        showSnackBar(errors.fetch);
-        return false;
-    })
 
 }
 
 async function sendEditRequest(code, old_password, elements) {
-
-    let geolocation = await geoData(true);
 
     let request = {
         code: code,
@@ -581,33 +552,29 @@ async function sendEditRequest(code, old_password, elements) {
 
     if(await geoPermission()) {
 
-        if(!(elements.update_coordinates.checked) || (geolocation.accuracy < 250)) {
+        let geolocation = await geoData(true);
+
+
+        if(!(elements.update_coordinates.checked) || (geolocation.accuracy < 250) || testing) {
 
             request.coordinates = geolocation;
 
             let url = `${protocol}${domain}/edit`;
 
-            await superfetch(url, "POST", request, (data) => {
+            let data = await superfetch(url, "POST", request);
         
-                console.log(data);
+            console.log(data);
         
-                if(data.success) {
+            if(data.success) {
         
-                    console.log("SUCCESS");
-                    window.location = `/micronation.html?m=${code}`;
+                console.log("SUCCESS");
+                window.location = `/micronation.html?m=${code}`;
 
-                    
-                } else {
+                
+            } else {
                     showSnackBar(data.message);
-                }
-            
-        
-            
-            }, async (error) => {
-                console.log(error);
-                showSnackBar(errors.fetch)
-                return false;
-            })
+            }
+    
             
         } else {
             showSnackBar(`Your device provided inaccurate location (${geolocation.accuracy}m), try again later`);
@@ -628,27 +595,20 @@ async function sendRemoveRequest(code, password) {
         password: password
     }
 
-    await superfetch(url, "POST", request, (data) => {
+    let data = await superfetch(url, "POST", request);
 
-        console.log(data);
+    console.log(data);
 
-        if(data.success) {
+    if(data.success) {
 
-            console.log("REMOVED");
-            window.location = `/`;
+        console.log("REMOVED");
+        window.location = `/`;
 
             
-        } else {
+    } else {
             showSnackBar(data.message);
-        }
+    }
     
-
-    
-    }, async (error) => {
-        console.log(error);
-        showSnackBar(errors.fetch)
-        return false;
-    })
 }
 
 async function sendSearchRequest(term) {
