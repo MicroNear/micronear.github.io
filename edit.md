@@ -8,7 +8,7 @@
             <label class="mdl-textfield__label" for="edit__code">Code</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="password" maxlength="256" id="edit__old_password" required="true" autocomplete="current-password />
+            <input class="mdl-textfield__input" type="password" maxlength="256" id="edit__old_password" required="true" autocomplete="current-password" />
             <label class="mdl-textfield__label" for="edit__password">Password</label>
         </div>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="edit__unlock">
