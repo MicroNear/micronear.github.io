@@ -9,7 +9,7 @@
       <label class="mdl-textfield__label" for="add__mname">Micronation name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input uppercase" type="text" maxlength="4" id="add__code" required="true" autocomplete="country/>
+        <input class="mdl-textfield__input uppercase" type="text" maxlength="4" id="add__code" required="true" autocomplete="country"/>
         <label class="mdl-textfield__label" for="add__code">Country code</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield">
@@ -17,7 +17,7 @@
       <label class="mdl-textfield__label" for="add__description">Short description in English</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="email" id="add__email" autocomplete="email />
+      <input class="mdl-textfield__input" type="email" id="add__email" autocomplete="email" />
       <label class="mdl-textfield__label" for="add__email">Email for diplomacy</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
