@@ -769,9 +769,6 @@ if (link == "/find.html") {
                 searchresults.innerHTML += li;
             });
 
-            let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html");
-            searchresults.innerHTML += add_button;
-
         } else {
             sendListRequest(index_page);
         }
