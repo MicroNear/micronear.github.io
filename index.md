@@ -57,26 +57,3 @@
     </a>
   </ul>
 </section>
-
-<section id="switchpage">
-  <div>
-    <button class="mdl-button mdl-js-button mdl-button--icon">
-      <i class="material-icons">first_page</i>
-    </button>
-    <button class="mdl-button mdl-js-button mdl-button--icon">
-      <i class="material-icons">chevron_left</i>
-    </button>
-    <form id="switchpage_custompage">
-      <button class="mdl-button mdl-js-button mdl-button--icon">
-        <input type="number">
-        <i class="material-icons">numbers</i>
-      </button>
-    </form>
-    <button class="mdl-button mdl-js-button mdl-button--icon">
-      <i class="material-icons">navigate_next</i>
-    </button>
-    <button class="mdl-button mdl-js-button mdl-button--icon">
-      <i class="material-icons">last_page</i>
-    </button>
-  </div>
-</section>
