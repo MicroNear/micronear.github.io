@@ -1,7 +1,9 @@
 'use strict';
 
+const TESTING = false;
 const API_VERSION = 1;
 const API_TARGET = "micronear";
+const MAX_MICRONATIONS_PER_PAGE = 10;
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -9,13 +11,12 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-const testing = false;
 const snackbar = document.getElementById("snackbar");
 
 let protocol = "https://"
 let domain = "api.micronear.berrykingdom.xyz";
 
-if(testing) {
+if(TESTING) {
     protocol = "http://"
     domain = "localhost:3001";
 }
@@ -35,7 +36,7 @@ function showSnackBar(message) {
     if(snackbar.MaterialSnackbar != undefined) {
         snackbar.MaterialSnackbar.showSnackbar({message: message});
     } else {
-        window.setTimeout(showSnackBar, 100, message);
+        window.setTimeout(showSnackBar, 400, message);
     }
 }
 
@@ -72,7 +73,7 @@ async function sharePage() {
   }
 
 function findGetParameter(parameterName) {
-    var result = null,
+    var result = undefined,
         tmp = [];
     location.search
         .substr(1)
@@ -169,7 +170,7 @@ async function sendAddRequest (micronation) {
 
         let geolocation = await geoData(true);
 
-        if(geolocation.accuracy < 250 || testing) {
+        if(geolocation.accuracy < 250 || TESTING) {
 
             micronation.coordinates = geolocation;
 
@@ -300,10 +301,8 @@ function makeMicronationListItem(code, name, verified, icon, link) {
     return listitem;
 }
 
-async function sendListRequest() {
-
-
-    let url = `${protocol}${domain}/micronations`;
+async function sendListRequest(page) {
+    let url = `${protocol}${domain}/micronations/${page}`;
 
 
     let wrapper = document.getElementById("list__ul");
@@ -311,24 +310,26 @@ async function sendListRequest() {
 
 
     let data = await superfetch(url, "GET", null);
-    console.log(data);
 
     wrapper.innerHTML = null;
 
-    if(data.length == 0) {
-        wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"
+    if(typeof data != typeof []) {
+        showSnackBar(data);
+    } else {
+
+        if(data.length == 0) {
+            wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"
+        }
+
+        data.forEach(micronation => {
+
+            let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`)
+    
+        wrapper.innerHTML += listitem;
+        });
+
     }
 
-
-    data.forEach(micronation => {
-
-        let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`)
-
-    wrapper.innerHTML += listitem;
-    });
-
-    let add_button = makeMicronationListItem("ADD", "Add your micronation", false, "add", "/add.html");
-    wrapper.innerHTML += add_button;
 }
 
 async function geoData (enableHighAccuracy) {
@@ -381,7 +382,7 @@ async function superfetch(url, method, body) {
     .then((response) => {
         return response.json();
     }).then(data => {return data})
-    .catch(error => showSnackBar(error))
+    .catch(error => showSnackBar("ERROR: " + error))
 
     return data;
 }
@@ -490,38 +491,41 @@ async function sendUnlockRequest(code, password, elements) {
 
     let data = await superfetch(url, "POST", request);
 
-        console.log(data)
+    console.log(data)
 
-        if(data.success) {
-
-            elements.old_password.setAttribute("disabled", true);
-            elements.unlock.setAttribute("disabled", true);
-
-            elements.name.value = (data.name != undefined) ? data.name : null;
-            elements.description.value = (data.description != undefined) ? data.description : null;
-            elements.email.value = (data.email != undefined) ? data.email : null;
-            elements.flag.value = (data.flag != undefined) ? data.flag : null;
-            elements.website.value = (data.website != undefined) ? data.website : null;
-
-
-            if(data.privacy_distance) {
-                elements.privacy_distance.parentElement.MaterialSwitch.on();
-            } else {
-                elements.privacy_distance.parentElement.MaterialSwitch.off();
-            }
-
-            if(data.privacy_coordinates) {
-                elements.privacy_coordinates.parentElement.MaterialSwitch.on();
-            } else {
-                elements.privacy_coordinates.parentElement.MaterialSwitch.off();
-            }
-
-            elements.form.classList.remove("hidden");
-
-
-        } else {
-            showSnackBar(data.error);
+    if(data.success) {
+        if(data.is_admin) {
+            elements.code.removeAttribute("disabled", "true");
         }
+
+        elements.old_password.setAttribute("disabled", true);
+        elements.unlock.setAttribute("disabled", true);
+
+        elements.name.value = (data.name != undefined) ? data.name : null;
+        elements.description.value = (data.description != undefined) ? data.description : null;
+        elements.email.value = (data.email != undefined) ? data.email : null;
+        elements.flag.value = (data.flag != undefined) ? data.flag : null;
+        elements.website.value = (data.website != undefined) ? data.website : null;
+
+
+        if(data.privacy_distance) {
+            elements.privacy_distance.parentElement.MaterialSwitch.on();
+        } else {
+            elements.privacy_distance.parentElement.MaterialSwitch.off();
+        }
+
+        if(data.privacy_coordinates) {
+            elements.privacy_coordinates.parentElement.MaterialSwitch.on();
+        } else {
+            elements.privacy_coordinates.parentElement.MaterialSwitch.off();
+        }
+
+        elements.form.classList.remove("hidden");
+
+
+    } else {
+        showSnackBar(data.message);
+    }
 
 
 }
@@ -529,7 +533,7 @@ async function sendUnlockRequest(code, password, elements) {
 async function sendEditRequest(code, old_password, elements) {
 
     let request = {
-        code: code,
+        new_code: elements.code.value,
         old_password: old_password,
         name: elements.name.value,
         description: elements.description.value,
@@ -555,11 +559,11 @@ async function sendEditRequest(code, old_password, elements) {
         let geolocation = await geoData(true);
 
 
-        if(!(elements.update_coordinates.checked) || (geolocation.accuracy < 250) || testing) {
+        if(!(elements.update_coordinates.checked) || (geolocation.accuracy < 250) || TESTING) {
 
             request.coordinates = geolocation;
 
-            let url = `${protocol}${domain}/edit`;
+            let url = `${protocol}${domain}/edit/${code}`;
 
             let data = await superfetch(url, "POST", request);
         
@@ -568,11 +572,11 @@ async function sendEditRequest(code, old_password, elements) {
             if(data.success) {
         
                 console.log("SUCCESS");
-                window.location = `/micronation.html?m=${code}`;
+                window.location = `/micronation.html?m=${request.new_code}`;
 
                 
             } else {
-                    showSnackBar(data.message);
+                showSnackBar(data.message);
             }
     
             
@@ -588,10 +592,9 @@ async function sendEditRequest(code, old_password, elements) {
 async function sendRemoveRequest(code, password) {
     console.log(code, password);
 
-    let url = `${protocol}${domain}/remove`;
+    let url = `${protocol}${domain}/remove/${code}`;
 
     let request = {
-        code: code,
         password: password
     }
 
@@ -730,7 +733,25 @@ if (link == "/find.html") {
 
 } else if (link == "/index.html" || link == "/") {
 
-    await sendListRequest();
+    const switchpage = {
+        back: {
+            full: document.getElementById("switchpage_back_full"),
+            one:  document.getElementById("switchpage_back_one"),
+        },
+        next: {
+            one:  document.getElementById("switchpage_next_one"),
+            full: document.getElementById("switchpage_next_full"),
+        }
+    }
+
+    const count_span = document.getElementById("allmicronations_count");
+
+    let url = `${protocol}${domain}/`;
+    const total_micronations =  await superfetch(url, "GET", null);
+    count_span.innerText = total_micronations;
+    let max_pages = Math.ceil(total_micronations/MAX_MICRONATIONS_PER_PAGE) - 1;
+
+    let index_page = parseInt(0);
 
     const searchinput = document.getElementById("search_input");
     const searchresults =  document.getElementById("list__ul");
@@ -752,11 +773,63 @@ if (link == "/find.html") {
             searchresults.innerHTML += add_button;
 
         } else {
-            sendListRequest();
+            sendListRequest(index_page);
         }
 
-    })
+    });
 
+    function updateSwitchPageButtons() {    
+        if(index_page == 0) {
+            switchpage.back.full.setAttribute("disabled", "true");
+        } else {
+            switchpage.back.full.removeAttribute("disabled", "true");
+        }
+    
+        if(index_page == 0) {
+            switchpage.back.one.setAttribute("disabled", "true");
+        } else {
+            switchpage.back.one.removeAttribute("disabled", "true");
+        }
+    
+        if(index_page == max_pages) {
+            switchpage.next.one.setAttribute("disabled", "true");
+        } else {
+            switchpage.next.one.removeAttribute("disabled", "true");
+        }
+    
+        if(index_page == max_pages) {
+            switchpage.next.full.setAttribute("disabled", "true");
+        } else {
+            switchpage.next.full.removeAttribute("disabled", "true");
+        }
+        sendListRequest(index_page);
+    }
+
+    updateSwitchPageButtons();
+
+    switchpage.back.full.addEventListener("click", e => {
+        index_page = 0;
+        sendListRequest(index_page);
+        updateSwitchPageButtons();
+    });
+
+    switchpage.back.one.addEventListener("click", e => {
+        index_page = (index_page-1 < 0) ? 0 : index_page - 1;;
+        sendListRequest(index_page);
+        updateSwitchPageButtons();
+    });
+
+    switchpage.next.one.addEventListener("click", e => {
+        index_page = (index_page+1 > max_pages) ? max_pages : index_page+1;;
+        sendListRequest(index_page);
+        updateSwitchPageButtons();
+    });
+
+    switchpage.next.full.addEventListener("click", e => {
+        index_page = max_pages;
+        sendListRequest(index_page);
+        updateSwitchPageButtons();
+    });
 
 } else if (link == "/add.html") {
 

@@ -129,3 +129,13 @@ nav > a.mdl-button {
     align-items: center;
     justify-content: center;
 }
+
+#switchpage {
+    display: flex;
+}
+
+#switchpage > div {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+}

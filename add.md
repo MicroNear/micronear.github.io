@@ -42,7 +42,7 @@
       <span class="mdl-switch__label">Visible on map</span>
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
-      <input type="checkbox" id="add__terms" class="mdl-checkbox__input" required />
+      <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
       <span class="mdl-checkbox__label">I agree to the <a href="terms.html">Terms of Service</a> and the <a href="privacy.html">Privacy Policy</a></span>
     </label>
     <hr>
