@@ -6,6 +6,14 @@
     </p>
     <h4> Terms </h4>
     <p>
-        Fictional micronations (micronations without any territory) are not allowed.
+        You must not:
+        <ul>
+            <li>Add a micronation without permission from the micronation's government.</li>
+            <li>Use any illegal and/or pornographic image as flag.</li>
+            <li>Spread misinformation, incorrect data or false contact details.</li>
+        </ul>
+        You must use a flag that is licensed under public domain.
+        The flag must not be protected by copyright or trademark.
+        We reserve right to remove micronations if they violate these terms.
     </p>
 </section>

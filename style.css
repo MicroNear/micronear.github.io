@@ -21,6 +21,10 @@ section {
     margin-bottom: 2rem;
 }
 
+img {
+    max-width: 100%;
+}
+
 
 span a, ul a, ol a {
     text-decoration: none;

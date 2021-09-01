@@ -926,6 +926,8 @@ if (link == "/find.html") {
 
     const code = findGetParameter("m");
     const share = document.querySelector("#mnpage__code");
+    const flag = document.getElementById("mnpage__flag");
+    flag.setAttribute("src", `${protocol}${domain}/image/${code}`);
 
 
     if(!(code == null || code == undefined)) {

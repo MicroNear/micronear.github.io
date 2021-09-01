@@ -1,8 +1,6 @@
 <section id="add">
 
   <h3>Add a micronation</h3>
-    <strong>Fictional micronations are not allowed</strong>
-
   <form id="add__form">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="text" maxlength="256" id="add__mname" required="true" />
@@ -43,7 +41,7 @@
     </label>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
-      <span class="mdl-checkbox__label">I agree to the <a href="terms.html">Terms of Service</a> and the <a href="privacy.html">Privacy Policy</a></span>
+      <span class="mdl-checkbox__label">I agree to the <a href="/terms.html">Terms of Service</a> and the <a href="/privacy.html">Privacy Policy</a></span>
     </label>
     <hr>
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="add__buy">

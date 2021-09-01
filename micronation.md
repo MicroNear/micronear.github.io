@@ -1,8 +1,6 @@
 <section>
     <h3 id="mnpage__name">Micronation</h3>
     <p id="mnpage__description">No description provided</p>
-    <p>Created <span id="mnpage__time_added"></span> ago</p>
-    <p>Edited <span id="mnpage__last_edit"></span> ago</p>
       <a href="#" class="nodecoration" id="mnpage__code">
       <span class="mdl-chip mdl-chip--deletable">
         <span class="mdl-chip__text" id="mnpage__code_text">CODE</span>
@@ -39,4 +37,11 @@
           <button type="button" class="mdl-chip__action"><i class="material-icons">edit_location_alt</i></button>
         </span>
     </a>
+</section>
+<section>
+  <img alt="Flag" id="mnpage__flag">
+</section>
+<section>
+    <p>Created <span id="mnpage__time_added"></span> ago</p>
+    <p>Edited <span id="mnpage__last_edit"></span> ago</p>
 </section>
