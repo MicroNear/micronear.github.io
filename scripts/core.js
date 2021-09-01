@@ -303,6 +303,7 @@ function makeMicronationListItem(code, name, verified, icon, link) {
 
 async function sendListRequest(page) {
     let url = `${protocol}${domain}/micronations/${page}`;
+    const shown_span = document.getElementById("shownmicronations_count");
 
 
     let wrapper = document.getElementById("list__ul");
@@ -316,6 +317,7 @@ async function sendListRequest(page) {
     if(typeof data != typeof []) {
         showSnackBar(data);
     } else {
+        shown_span.innerText = data.length;
 
         if(data.length == 0) {
             wrapper.innerHTML += "<p>The server couldn't provide any micronations</p>"

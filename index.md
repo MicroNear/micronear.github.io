@@ -1,6 +1,6 @@
 <section>
   <h3>All micronations</h3>
-  <p>Displaying 5 of <span id="allmicronations_count">##</span> micronations.</p>
+  <p>Displaying <span id="shownmicronations_count">##</span> of <span id="allmicronations_count">##</span> micronations.</p>
   <form>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" maxlength="30" type="text" id="search_input">
