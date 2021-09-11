@@ -368,6 +368,15 @@ async function superfetch(url, method, body) {
     return data;
 }
 
+function isJSON(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
 function roughUnixTimestamp(time) {
 
     const system = {
@@ -881,7 +890,7 @@ async function updateForm() {
     }
 
     if(step == 2) {
-        if(JSON.parse(elements.location.value).hasOwnProperty("accuracy")) {
+        if(isJSON(elements.location.value) && JSON.parse(elements.location.value).hasOwnProperty("accuracy")) {
             multiform.next.removeAttribute("disabled")
         } else {
             multiform.next.setAttribute("disabled", "true");
