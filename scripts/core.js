@@ -881,7 +881,9 @@ async function updateForm() {
     }
 
     if(step == 2) {
-        if(!JSON.stringify(elements.location.value).hasOwnProperty("accuracy")) {
+        if(JSON.parse(elements.location.value).hasOwnProperty("accuracy")) {
+            multiform.next.removeAttribute("disabled")
+        } else {
             multiform.next.setAttribute("disabled", "true");
         }
 
@@ -927,7 +929,6 @@ elements.buy.addEventListener("click", async (e) => {
         password: elements.password.value,
         privacy_distance: elements.distance.checked,
         privacy_coordinates: elements.coordinates.checked,
-        coordinates: elements.location.value,
         terms: elements.terms.checked,
         coordinates: JSON.parse(elements.location.value)
     }
@@ -948,7 +949,7 @@ elements.buy.addEventListener("click", async (e) => {
 
 
     } else {
-        showSnackBar("Code in wrong format");
+        showSnackBar(`Country code ${data.code} is invalid`);
     }
 
 });
