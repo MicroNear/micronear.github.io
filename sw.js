@@ -1,4 +1,4 @@
-const PRECACHE = 'Microner_v2.6.7';
+const PRECACHE = 'Microner_v2.6.8';
 const RUNTIME = PRECACHE;
 
 
@@ -20,7 +20,11 @@ const PRECACHE_URLS = [
   '/terms.html',
   '/about.html',
   '/edit.html',
-  '/404.html'
+  '/404.html',
+  'https://fonts.googleapis.com/icon?family=Material+Icons',
+  'https://code.getmdl.io/1.3.0/material.blue-green.min.css',
+  'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700',
+  'https://code.getmdl.io/1.3.0/material.min.js'
 ];
 
 // The install handler takes care of precaching the resources we always need.
