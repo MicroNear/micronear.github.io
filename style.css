@@ -10,7 +10,10 @@ html {
 
 body {
     -webkit-touch-callout: none;
-    
+}
+
+hr {
+    width: 100%;
 }
 
 p {
@@ -21,6 +24,17 @@ section {
     margin-bottom: 2rem;
 }
 
+.form_step {
+    visibility: hidden;
+    display: none;
+    flex-direction: column;
+}
+
+.form_step.shown {
+    visibility: visible;
+    display: flex;
+}
+
 img {
     max-width: 100%;
 }
@@ -28,9 +42,17 @@ img {
 
 span a, ul a, ol a {
     text-decoration: none;
-    color: currentColor;
 }
 
+button.mdl-button, input, textarea, .mdl-progress {
+    margin: 1rem;
+}
+
+.form_controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 .mdl-list__item, .mdl-list__item-text-body {
     color: inherit;
@@ -72,6 +94,10 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
 .layout .mdl-card__title,
 .layout .mdl-card__supporting-text {
     color: inherit;
+}
+
+.mdl-checkbox {
+    height: unset;
 }
 
 .icon_chip span {

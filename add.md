@@ -14,23 +14,21 @@
       <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000" required></textarea>
       <label class="mdl-textfield__label" for="add__description">Short description in English</label>
     </div>
+    <hr>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="add__email" autocomplete="email" />
       <label class="mdl-textfield__label" for="add__email">Email for diplomacy</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mflag" autocomplete="url" />
-      <label class="mdl-textfield__label" for="add__mflag">Flag (link)</label>
+      <label class="mdl-textfield__label" for="add__mflag">Flag image link</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" autocomplete="url" />
-      <label class="mdl-textfield__label" for="add__mwebsite">Website (link)</label>
+      <label class="mdl-textfield__label" for="add__mwebsite">Website link</label>
     </div>
     <p>Website, Wiki page or a Discord server</p>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
-      <label class="mdl-textfield__label" for="add__password">Password</label>
-    </div>
+    <hr>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
       <input type="checkbox" id="add__distance" class="mdl-switch__input" checked="" />
       <span class="mdl-switch__label">Show distance from users</span>
@@ -39,6 +37,17 @@
       <input type="checkbox" id="add__coordinates" class="mdl-switch__input" />
       <span class="mdl-switch__label">Visible on map</span>
     </label>
+    <div id="location_notice" class="hidden">
+      <p>Micronear needs access to your location in order to find micronations near to you.</p>
+      <button id="location_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Enable Location
+      </button>
+    </div>
+    <hr>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
+      <label class="mdl-textfield__label" for="add__password">Password</label>
+    </div>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
       <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
       <span class="mdl-checkbox__label">I agree to the <a href="/terms.html">Terms of Service</a> and the <a href="/privacy.html">Privacy Policy</a></span>

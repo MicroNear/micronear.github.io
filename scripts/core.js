@@ -1,7 +1,7 @@
 'use strict';
 
 const TESTING = false;
-const API_VERSION = 1;
+const API_VERSION = 2;
 const API_TARGET = "micronear";
 const MAX_MICRONATIONS_PER_PAGE = 10;
 
@@ -29,7 +29,8 @@ const errors = {
     terms: "Agree to the Privacy Policy in order to proceed",
     micronation_not_found: "Couldn't fetch data about this micronation",
     geo_inaccurate: "Your device couldn't provide accurate geolocation",
-    browser_support: "This browser is not suppoorted, open Micronear in Chrome"
+    browser_support: "This browser is not suppoorted, open Micronear in Chrome",
+    geo_denied: "Location access denied"
 }
 
 function showSnackBar(message) {
@@ -104,19 +105,9 @@ async function geoPermission() {
                 }
             })
         });
-    } else if (navigator.location) {
-
-        if(await geoData() != false) {
-            return true;
-        } else {
-            return false;
-        }
-
     } else {
-        showSnackBar(errors.browser_support);
         return false;
     }
-
 
 }
 
@@ -127,6 +118,7 @@ function addhttps(url) {
     return url;
 }
 
+/*
 function observeGeoPermission(r) {
     if("permissions" in navigator) {
         navigator.permissions.query({name:'geolocation'}).then(function(result) {
@@ -143,10 +135,8 @@ function observeGeoPermission(r) {
                 }
               }
         });
-    } else {
-        showSnackBar("Your browser might be incompatible, use Chrome")
-    }
 }
+*/
 
 async function sha256(message) {
     // encode as UTF-8
@@ -166,13 +156,9 @@ async function sha256(message) {
 
 async function sendAddRequest (micronation) {
 
-    if(await geoPermission()) {
+    if(micronation.coordinates.hasOwnProperty("accuracy")) {
 
-        let geolocation = await geoData(true);
-
-        if(geolocation.accuracy < 250 || TESTING) {
-
-            micronation.coordinates = geolocation;
+        if(micronation.coordinates.accuracy < 250 || TESTING) {
 
             micronation.password = await sha256(micronation.password)
 
@@ -201,63 +187,56 @@ async function sendAddRequest (micronation) {
         
 
     } else {
-        showSnackBar(errors.location);
+        showSnackBar("Enable location to continue");
     }
 
 }
 
-async function sendFindRequest () {
+async function sendFindRequest (geolocation) {
 
     let foundresults = document.querySelector("#found__results");
 
-    if(await geoPermission()) {
 
-        foundresults.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
-        
-        let geolocation = await geoData();
+    foundresults.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
+    
+    let url = `${protocol}${domain}/find`;
 
-        let url = `${protocol}${domain}/find`;
+    let data = await superfetch(url, "POST", geolocation);
 
-        let data = await superfetch(url, "POST", geolocation);
-
-        let wrapper = document.createElement("div");
-        if(data.length == 0) {
-            wrapper.innerHTML += `<p>We couldn't find any micronations within 800km, would you like to <a href="/add.html">add your micronation</a>?</p>`;
-        }
-        data.forEach(micronation => {
-            let card = `
+    let wrapper = document.createElement("div");
+    if(data.length == 0) {
+        wrapper.innerHTML += `<p>We couldn't find any micronations within 800km, would you like to <a href="/add.html">add your micronation</a>?</p>`;
+    }
+    data.forEach(micronation => {
+        let card = `
 <div class="card mdl-card mdl-shadow--2dp" style="background-image: linear-gradient(to bottom, rgb(255 255 255 / 85%), rgb(18 50 66 / 25%)), url('${protocol}${domain}/image/${micronation.code}')">
 
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">${micronation.name}</h2>
-  </div>
-  <div class="mdl-card__supporting-text">
-    ${(micronation.description != undefined) ? micronation.description : "No description provided"}
-  </div>
-
-    <div class="mdl-card__actions mdl-card--border">
-        <a href="micronation.html?m=${micronation.code}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            More
-        </a>
-        <span>${round(micronation.proximity, 1)}km</span>
-    </div>
-
-  <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">${(micronation.verified) ? "verified" : null}</i>
-    </button>
-  </div>
+<div class="mdl-card__title">
+<h2 class="mdl-card__title-text">${micronation.name}</h2>
 </div>
-            
-            `;
-            wrapper.innerHTML += card;
-        });
-        foundresults.innerHTML = null;
-        found__results.appendChild(wrapper);
+<div class="mdl-card__supporting-text">
+${(micronation.description != undefined) ? micronation.description : "No description provided"}
+</div>
 
-    } else {
-        showSnackBar(errors.location);
-    }
+<div class="mdl-card__actions mdl-card--border">
+    <a href="micronation.html?m=${micronation.code}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        More
+    </a>
+    <span>${round(micronation.proximity, 1)}km</span>
+</div>
+
+<div class="mdl-card__menu">
+<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+    <i class="material-icons">${(micronation.verified) ? "verified" : null}</i>
+</button>
+</div>
+</div>
+        
+        `;
+        wrapper.innerHTML += card;
+    });
+    foundresults.innerHTML = null;
+    found__results.appendChild(wrapper);
     
 }
 
@@ -315,7 +294,7 @@ async function sendListRequest(page) {
     wrapper.innerHTML = null;
 
     if(typeof data != typeof []) {
-        showSnackBar(data);
+        showSnackBar((data == null) ? "Failed to fetch data" : data);
     } else {
         shown_span.innerText = data.length;
 
@@ -355,7 +334,7 @@ async function geoData (enableHighAccuracy) {
             resolve(data);
         }, (error) => {
             resolve(false);
-            showSnackBar(error.message);
+            showSnackBar(errors.geo_denied);
             console.log(error);
         }, options);
     });
@@ -697,6 +676,7 @@ uppercase.forEach(element => {
 
 console.log(link);
 
+/*
 if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
     try {
 
@@ -713,6 +693,7 @@ if(link == "/find.html" || link == "/add.html" || link == "/edit.html") {
 
 
 }
+*/
 
 /*
 
@@ -731,7 +712,24 @@ if(time > mstart && time < mend) {
 
 if (link == "/find.html") {
 
-    await sendFindRequest();
+    let location_notice = document.getElementById("location_notice");
+    let location_button = document.getElementById("location_button");
+
+    if(await geoPermission()) {
+        let location = await geoData(true);
+        await sendFindRequest(location);
+    } else {
+        location_notice.classList.remove("hidden");
+        location_button.addEventListener("click", async e => {
+            let location = await geoData(true);
+            if(location) {
+                await sendFindRequest(location);
+                location_notice.classList.add("hidden");
+            } else {
+                showSnackBar(errors.location);
+            }
+        })
+    }
 
 } else if (link == "/index.html" || link == "/") {
 
@@ -750,7 +748,7 @@ if (link == "/find.html") {
 
     let url = `${protocol}${domain}/`;
     const total_micronations =  await superfetch(url, "GET", null);
-    count_span.innerText = total_micronations;
+    count_span.innerText = (total_micronations == undefined) ? count_span.innerText : total_micronations;
     let max_pages = Math.ceil(total_micronations/MAX_MICRONATIONS_PER_PAGE) - 1;
 
     let index_page = parseInt(0);
@@ -832,61 +830,111 @@ if (link == "/find.html") {
 
 } else if (link == "/add.html") {
 
-    const elements = {
-        form: document.getElementById("add__form"),
-        name: document.getElementById("add__mname"),
-        description: document.getElementById("add__description"),
-        code: document.getElementById("add__code"),
-        email: document.getElementById("add__email"),
-        flag: document.getElementById("add__mflag"),
-        website: document.getElementById("add__mwebsite"),
-        password: document.getElementById("add__password"),
-        distance: document.getElementById("add__distance"),
-        coordinates: document.getElementById("add__coordinates"),
-        terms: document.getElementById("add__terms"),
-        buy: document.getElementById("add__buy")
+const elements = {
+    form: document.getElementById("add__form"),
+    name: document.getElementById("add__mname"),
+    description: document.getElementById("add__description"),
+    code: document.getElementById("add__code"),
+    email: document.getElementById("add__email"),
+    flag: document.getElementById("add__mflag"),
+    website: document.getElementById("add__mwebsite"),
+    password: document.getElementById("add__password"),
+    distance: document.getElementById("add__distance"),
+    coordinates: document.getElementById("add__coordinates"),
+    terms: document.getElementById("add__terms"),
+    buy: document.getElementById("add__buy"),
+    location: document.getElementById("add__location"),
+}
+
+
+elements.form.addEventListener("submit", (e) => {
+    e.preventDefault();
+})
+
+const multiform = {
+    form: document.getElementById("add__form"),
+    back: document.getElementById("form_back"),
+    next: document.getElementById("form_next"),
+    steps: document.getElementsByClassName("form_step")
+}
+
+let location_notice = document.getElementById("location_notice");
+let location_button = document.getElementById("location_button");
+
+let step = 0;
+let total_steps = multiform.form.dataset.steps;
+
+async function updateForm() {
+    document.querySelector(`.form_step.shown`).classList.remove("shown");
+    document.querySelector(`.form_step[data-step='${step}']`).classList.add("shown");
+
+    if(step == 0) {
+        multiform.back.setAttribute("disabled", "true");
+    } else {
+        multiform.back.removeAttribute("disabled")
     }
-    /*
-    elements.code.addEventListener("input", e => {
-        let p= e.target.selectionStart;
-        e.target.value = e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        e.target.value = e.target.value.toUpperCase();
-        e.target.setSelectionRange(p, p);
-    });
+    
+    if(step == total_steps) {
+        multiform.next.setAttribute("disabled", "true");
+    } else {
+        multiform.next.removeAttribute("disabled")
+    }
 
-
-    elements.terms.addEventListener("change", (e) => {
-        const attribute = (elements.terms.checked) ? false : true;
-
-        if(elements.terms.checked) {
-            elements.buy.removeAttribute("disabled")
-        } else {
-            elements.buy.setAttribute("disabled", true);
+    if(step == 2) {
+        if(!JSON.stringify(elements.location.value).hasOwnProperty("accuracy")) {
+            multiform.next.setAttribute("disabled", "true");
         }
 
-    })
+        location_button.addEventListener("click", async e => {
+            let location = await geoData(true);
+            if(location.hasOwnProperty("accuracy")) {
+                multiform.next.removeAttribute("disabled")
+                elements.location.value = JSON.stringify(location);
+                location_button.setAttribute("disabled", "true")
+            } else {
+                showSnackBar(errors.location);
+            }
+        })
+    }
+}
 
-    */
 
-    elements.form.addEventListener("submit", async (e) => {
-        
-        e.preventDefault();
+multiform.next.addEventListener("click", e => {
+    if(multiform.form.checkValidity()) {
+        step++;
+        updateForm();
+    }
+});
 
-        let data = {
-            name: elements.name.value,
-            code: elements.code.value,
-            email: elements.email.value,
-            flag: elements.flag.value,
-            description: elements.description.value,
-            website: elements.website.value,
-            password: elements.password.value,
-            privacy_distance: elements.distance.checked,
-            privacy_coordinates: elements.coordinates.checked,
-            terms: elements.terms.checked,
-        }
+multiform.back.addEventListener("click", e => {
+    step--;
+    updateForm();
+});
 
-        if(verifyCode(data.code))  {
+updateForm();
 
+elements.buy.addEventListener("click", async (e) => {
+    
+    e.preventDefault();
+
+    let data = {
+        name: elements.name.value,
+        code: elements.code.value,
+        email: elements.email.value,
+        flag: elements.flag.value,
+        description: elements.description.value,
+        website: elements.website.value,
+        password: elements.password.value,
+        privacy_distance: elements.distance.checked,
+        privacy_coordinates: elements.coordinates.checked,
+        coordinates: elements.location.value,
+        terms: elements.terms.checked,
+        coordinates: JSON.parse(elements.location.value)
+    }
+
+    if(verifyCode(data.code))  {
+
+        if(data.coordinates.hasOwnProperty("accuracy")) {
             if(data.terms == true) {
 
                 await sendAddRequest(data);
@@ -894,14 +942,17 @@ if (link == "/find.html") {
             } else {
                 showSnackBar(errors.terms);
             }
-
         } else {
-            showSnackBar("Code in wrong format");
+            showSnackBar("Enable location to continue")
         }
 
 
+    } else {
+        showSnackBar("Code in wrong format");
+    }
 
-    });
+});
+
 } else if (link == "/permissions.html") {
 
     const r = findGetParameter("r");
@@ -917,7 +968,7 @@ if (link == "/find.html") {
             }
         });
 
-        observeGeoPermission(r);
+        //observeGeoPermission(r);
 
     } else {
         showSnackBar(errors.browser_support);
