@@ -14,7 +14,7 @@ if ('serviceWorker' in navigator) {
 const snackbar = document.getElementById("snackbar");
 
 let protocol = "https://"
-let domain = "api.micronear.berrykingdom.xyz";
+let domain = "api.bloomflare.dev";
 
 if(TESTING) {
     protocol = "http://"
