@@ -183,7 +183,7 @@ async function sendAddRequest (micronation) {
             }
 
         } else {
-            showSnackBar(`Your device provided inaccurate location (${geolocation.accuracy}m), try again later`);
+            showSnackBar(`Your device provided inaccurate location (${micronation.coordinates.accuracy}m), try again later`);
         }
         
 
@@ -582,7 +582,7 @@ async function sendEditRequest(code, old_password, elements) {
     
             
         } else {
-            showSnackBar(`Your device provided inaccurate location (${geolocation.accuracy}m), try again later`);
+            showSnackBar(`Your device provided inaccurate location (${request.coordinates.accuracy}m), try again later`);
         }
     } else {
         showSnackBar(errors.location_needed);
