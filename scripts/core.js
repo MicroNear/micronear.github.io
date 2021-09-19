@@ -30,7 +30,8 @@ const errors = {
     micronation_not_found: "Couldn't fetch data about this micronation",
     geo_inaccurate: "Your device couldn't provide accurate geolocation",
     browser_support: "This browser is not suppoorted, open Micronear in Chrome",
-    geo_denied: "Location access denied"
+    geo_denied: "Location access denied",
+    location_needed: "Location access needed"
 }
 
 function showSnackBar(message) {
@@ -538,20 +539,30 @@ async function sendEditRequest(code, old_password, elements) {
         coordinates: undefined
     }
 
+    if(isJSON(elements.location.value)) {
+        request.coordinates = JSON.parse(elements.location.value)
+    }
+
     if(elements.change_pass.checked == true) {
         request.new_password = await sha256(elements.new_password.value);
     }
 
-    console.log(request);
+    console.log(request.coordinates)
+    console.log(isJSON(request.coordinates));
 
-    if(await geoPermission()) {
+    if(
+        (
+            request.update_coordinates == true
+            &&
+            typeof request.coordinates == 'object'
+            &&
+            request.coordinates.hasOwnProperty("accuracy")
+        )
+        ||
+        request.update_coordinates == false
+    ) {
 
-        let geolocation = await geoData(true);
-
-
-        if(!(elements.update_coordinates.checked) || (geolocation.accuracy < 250) || TESTING) {
-
-            request.coordinates = geolocation;
+        if(!(elements.update_coordinates.checked) || (request.coordinates.accuracy < 250) || TESTING) {
 
             let url = `${protocol}${domain}/edit/${code}`;
 
@@ -574,7 +585,7 @@ async function sendEditRequest(code, old_password, elements) {
             showSnackBar(`Your device provided inaccurate location (${geolocation.accuracy}m), try again later`);
         }
     } else {
-        showSnackBar(errors.location);
+        showSnackBar(errors.location_needed);
     }
 
 }
@@ -1019,6 +1030,7 @@ elements.buy.addEventListener("click", async (e) => {
         update_coordinates: document.querySelector("#edit__update_coordinates"),
         new_password_wrapper: document.querySelector("#edit__new_password_wrapper"),
         new_password: document.querySelector("#edit__new_password"),
+        location: document.querySelector("#edit__location"),
         map: document.querySelector("#edit__map"),
         website_text: document.querySelector("#edit__website_text"),
         website: document.querySelector("#edit__website"),
@@ -1027,6 +1039,8 @@ elements.buy.addEventListener("click", async (e) => {
         terms: document.querySelector("#edit__terms"),
         remove: document.querySelector("#edit__remove"),
         confirm_remove: document.querySelector("#edit__confirm_remove"),
+        location_notice: document.getElementById("location_notice"),
+        location_button: document.getElementById("location_button")
     }
 
     elements.change_pass.addEventListener("change", async e => {
@@ -1036,6 +1050,26 @@ elements.buy.addEventListener("click", async (e) => {
         } else {
             elements.new_password_wrapper.classList.add("hidden");
             elements.new_password.removeAttribute("required", true);
+        }
+    });
+
+    elements.location_button.addEventListener("click", async e => {
+        let location = await geoData(true);
+        if(location.hasOwnProperty("accuracy")) {
+            elements.location.value = JSON.stringify(location);
+            elements.location_button.setAttribute("disabled", "true")
+        } else {
+            showSnackBar(errors.location);
+        }
+    })
+
+    elements.update_coordinates.addEventListener("change", async e => {
+        if(elements.update_coordinates.checked == true) {
+            elements.location_notice.classList.remove("hidden");
+            elements.location.setAttribute("required", true);
+        } else {
+            elements.location_notice.classList.add("hidden");
+            elements.location.removeAttribute("required", true);
         }
     });
 
