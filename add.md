@@ -19,8 +19,11 @@
           <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
           <label class="mdl-textfield__label" for="add__password">New password</label>
         </div>
+        <p>
+          Write down your password, you'll need it to update your micronation in the future.
+        </p>
         <div class="mdl-textfield mdl-js-textfield">
-          <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000" required></textarea>
+          <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000" minlength="10" required></textarea>
           <label class="mdl-textfield__label" for="add__description">Short description in English</label>
         </div>
       </div>
@@ -53,6 +56,11 @@
           <input type="checkbox" id="add__coordinates" class="mdl-switch__input" />
           <span class="mdl-switch__label">Show on map</span>
         </label>
+        <p id="locationprivacywarning" class="hidden">
+          <strong>Your physical security is important!</strong>
+          If you are at home right now, <strong>do not enable</strong> the <strong>"Show on map" option</strong>. <br>
+          <em>You can update the location of your micronation later<em>
+        </p>
       </div>
       <div class="form_step" data-step="3">
         <h4>Submit</h4>

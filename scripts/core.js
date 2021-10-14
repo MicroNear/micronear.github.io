@@ -880,6 +880,7 @@ const multiform = {
 
 let location_notice = document.getElementById("location_notice");
 let location_button = document.getElementById("location_button");
+let location_privacywarning = document.getElementById("locationprivacywarning");
 
 let step = 0;
 let total_steps = multiform.form.dataset.steps;
@@ -910,9 +911,10 @@ async function updateForm() {
         location_button.addEventListener("click", async e => {
             let location = await geoData(true);
             if(location.hasOwnProperty("accuracy")) {
-                multiform.next.removeAttribute("disabled")
+                multiform.next.removeAttribute("disabled");
                 elements.location.value = JSON.stringify(location);
-                location_button.setAttribute("disabled", "true")
+                location_button.setAttribute("disabled", "true");
+                location_privacywarning.classList.remove("hidden");
             } else {
                 showSnackBar(errors.location);
             }
