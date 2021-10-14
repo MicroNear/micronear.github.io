@@ -19,7 +19,6 @@
           <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
           <label class="mdl-textfield__label" for="add__password">New password</label>
         </div>
-
         <div class="mdl-textfield mdl-js-textfield">
           <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
           <label class="mdl-textfield__label" for="add__description">Short description in English</label>
