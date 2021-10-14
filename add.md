@@ -19,11 +19,9 @@
           <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
           <label class="mdl-textfield__label" for="add__password">New password</label>
         </div>
-        <p>
-          Write down your password, you'll need it to update your micronation in the future.
-        </p>
+
         <div class="mdl-textfield mdl-js-textfield">
-          <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000" minlength="10" required></textarea>
+          <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
           <label class="mdl-textfield__label" for="add__description">Short description in English</label>
         </div>
       </div>
