@@ -91,7 +91,6 @@
     <li>Longer passwords such as "micronationswilltakeover" are stronger and easier to remember than passwords like "Q9E4P1D7S2".</li>
     <li>Write down your password.</li>
   </ul>
-  <p>
-  <a href="about.html">Contact us</a></p>
+  <h5>Need help?</h5>
+  <a href="about.html">Contact us</a>
 </section>
-
