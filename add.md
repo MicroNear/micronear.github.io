@@ -34,7 +34,7 @@
           <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" autocomplete="url" />
           <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
         </div>
-        <p>If you don't have a website, use your Wiki page, Instagram or a Discord server</p>
+        <p>If you don't have a website, use your Wiki page, Instagram or a Discord server. Include https://.</p>
       </div>
       <div class="form_step" data-step="2">
         <h4>Location</h4>
@@ -78,25 +78,19 @@
       </div>
     </form>
     <hr>
-  <h5>Tips</h5>
-  <ul>
-    <li>Include https:// in all links</li>
-    <li>"mydogsnameisjohnny" is stronger password than "X97E4ZQ"</li>
-    <li>Write down your password</li>
-  </ul>
-  <p><a href="about.html">Contact us</a></p>
 </section>
 <hr>
 <section id="tips">
-  <h5>Tips</h5>
+  <h5>Choosing a country code</h5>
   <ul>
-    <li>Country code examples: DR, MOL, SEA, SKL</li>
-    <li>Country code for <b>Nonexistent</b> Republic should be <b>NE</b> or <b>NX</b>, not <b>N</b>R.</li>
-    <li>Country code for Kingdom of <b>Noone</b> should be <b>NN</b>, not KO<b>N</b>.</li>
-    <li>Include https:// in all links</li>
-    <li>"Show distance from users" option won't display the location on map</li>
-    <li>"mydogsnameisjohnny" is stronger password than "X97E4ZQ"</li>
-    <li>Write down your password</li>
+    <li>Country code is a 2, 3 or 4-letter code representing your micronation.</li>
+    <li>Don't include "Kingdom" or "Republic" in your code. For example Nonexistent Republic should be NE or NEX, not NR.</li>
+    <li>Valid examples: DR, MOL, SEA, SKL.</li>
+  </ul>
+  <h5>Privacy & Security</h5>
+  <ul>
+    <li>Password "myteacherabusesme" is stronger than "Q9E4P1D7S2".</li>
+    <li>Write down your password to a piece of paper.</li>
   </ul>
   <p>
   <a href="about.html">Contact us</a></p>
