@@ -20,7 +20,7 @@
           <label class="mdl-textfield__label" for="add__password">New password</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-          <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000" required></textarea>
+          <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
           <label class="mdl-textfield__label" for="add__description">Short description in English</label>
         </div>
       </div>
