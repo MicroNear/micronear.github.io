@@ -1,7 +1,7 @@
 <section>
   <h2> Micronear </h2>
   <p>Micronation list & nearby micronation finder</p>
-  <p>&copy; Copyright Bloomflare, 2021, All rights reserved. </p>
+  <p>&copy; Copyright 2020 - 2021, Bloomflare, c. . All rights reserved. </p>
 </section>
 <hr>
 <section>
