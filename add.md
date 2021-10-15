@@ -55,8 +55,7 @@
         </label>
         <p id="locationprivacywarning" class="hidden">
           <strong>Your physical security is important!</strong>
-          If you are at home right now, <strong>do not enable</strong> the <strong>"Show on map" option</strong>. <br>
-          <em>We don't really know if you are at home right now, this warning is shown to everyone.<em>
+          The <strong>Show on map</strong> option will make this location <strong>visible to anyone</strong>. <br>
         </p>
       </div>
       <div class="form_step" data-step="3">
