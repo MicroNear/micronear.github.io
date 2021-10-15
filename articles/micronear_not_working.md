@@ -1,5 +1,19 @@
 <section>
-    <h4>What to do if Micronear isn't working properly?</h4>
-    <p>Sadly, if Micronear isn't working properly even though it's up to date alongside Google Chrome, your device might be incompatible.</p>
-    <p>This issue will most likely be fixed in the future, but feel free to contact us (@_micronear_) on instagram to add your micronation.</p>
+  <h4> Facing problems? Try following tips:</h4>
+
+  <ul class="mdl-list">
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+      <i class="material-icons mdl-list__item-icon">restart_alt</i>
+      Update Micronear by swiping down
+    </span>
+    </li>
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+      <i class="material-icons mdl-list__item-icon">my_location</i>
+      Grant the location permission (Settings > Apps > Micronear > Permissions)
+    </span>
+    </li>
+  </ul>
+
 </section>

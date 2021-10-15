@@ -19,12 +19,12 @@
     <h4> Removing your data </h4>
     <p>
         Micronations can be easily removed from the Edit page. This action is, however, permanent and the micronation data can't be recovered.
-        Alternatively, reach out to us on bloomflare@protonmail.com.
+        Alternatively, <a href="/about.html">reach out</a> to us.
     </p>
     <h4> Security </h4>
     <p>
         The server accepts only end-to-end encrypted https connections secured by TLS.
-        The micronations are regularly backed up.
+        The micronations are regularly backed up to avoid data loss.
         The server may log parts of received data for security purposes.
     </p>
 </section>

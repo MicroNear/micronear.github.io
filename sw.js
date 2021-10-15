@@ -1,4 +1,4 @@
-const PRECACHE = 'Microner_v2.8.1';
+const PRECACHE = 'Microner_v2.8.2';
 const RUNTIME = PRECACHE;
 
 // A list of local resources we always want to be cached.
