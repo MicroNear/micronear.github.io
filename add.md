@@ -93,6 +93,6 @@
   </ul>
   <h5>Need help?</h5>
   <a href="/about.html" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-          Contact us
+    Contact us
   </a>
 </section>
