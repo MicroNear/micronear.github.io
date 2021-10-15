@@ -92,5 +92,7 @@
     <li>Write down your password.</li>
   </ul>
   <h5>Need help?</h5>
-  <a href="about.html">Contact us</a>
+  <a href="/about.html" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+          Contact us
+  </a>
 </section>
