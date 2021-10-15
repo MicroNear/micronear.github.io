@@ -77,7 +77,6 @@
         </button>
       </div>
     </form>
-    <hr>
 </section>
 <hr>
 <section id="tips">
@@ -89,8 +88,8 @@
   </ul>
   <h5>Privacy & Security</h5>
   <ul>
-    <li>Password "myteacherabusesme" is stronger than "Q9E4P1D7S2".</li>
-    <li>Write down your password to a piece of paper.</li>
+    <li>Longer passwords such as "micronationswilltakeover" are stronger and easier to remember than passwords like "Q9E4P1D7S2".</li>
+    <li>Write down your password.</li>
   </ul>
   <p>
   <a href="about.html">Contact us</a></p>
