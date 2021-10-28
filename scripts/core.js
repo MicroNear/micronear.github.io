@@ -546,6 +546,8 @@ async function sendUnlockRequest(code, password, elements) {
     if(data.success) {
         if(data.is_admin) {
             elements.code.removeAttribute("disabled", "true");
+            elements.privacy_distance.setAttribute("disabled", "true")
+            elements.privacy_coordinates.setAttribute("disabled", "true")
         }
 
         elements.old_password.setAttribute("disabled", true);
