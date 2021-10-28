@@ -398,7 +398,8 @@ function timeago(ms) {
       , weeks: "%w weeks ago"
       , month: "a month ago"
       , months: "%M months ago"
-      , years: "more than a year ago"
+      , year: "a year ago"
+      , years: "%Y years ago"
       , never: "never"
     };
 
@@ -446,6 +447,12 @@ function timeago(ms) {
     if (ago < YEAR) { // 45 years, approximately the epoch
       while (ago >= MONTH) { ago -= MONTH; part += 1; }
       return locale.months.replace(/%\w?/, part);
+    }
+
+    if (ago < (2 * YEAR)) { return locale.year; }
+    if (ago < NEVER) { // 45 years, approximately the epoch
+      while (ago >= YEAR) { ago -= YEAR; part += 1; }
+      return locale.years.replace(/%\w?/, part);
     }
   
     if (ago < NEVER) {
