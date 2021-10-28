@@ -381,14 +381,17 @@ function isJSON(str) {
 function roughUnixTimestamp(time) {
 
     const system = {
-        millisecond: 1,
-        second: 1000,
-        minute: 60 * 1000,
-        hour: 60 * 60 * 1000,
-        day: 24 * 60 * 60 * 1000,
-        week: 7 * 24 * 60 * 60 * 1000,
-        month: 4.348214 * 7 * 24 * 60 * 60 * 1000,
-        year: 12 * 4.348214 * 7 * 24 * 60 * 60 * 1000 + 1
+        now:            -999999999,
+        millisecond:    1,
+        second:         1000,
+        minute:         1000*   60,
+        hour:           1000*   60* 60,
+        day:            1000*   60* 60* 24,
+        week:           1000*   60* 60* 24* 7,
+        month:          1000*   60* 60* 24* 30.4,
+        year:           1000*   60* 60* 24* 365.3,
+        decade:         1000*   60* 60* 24* 365.3*  10,
+        century:        1000*   60* 60* 24* 365.3*  100,
     }
 
     let system_keys = Object.keys(system);
@@ -399,7 +402,7 @@ function roughUnixTimestamp(time) {
         if(amount_needed > time) {
             let difference = time / system[system_keys[x]];
             let rounded = Math.round(difference);
-            return `${rounded} ${system_keys[x]}${rounded > 1 ? "s" : ""}`;
+            return `${rounded} ${system_keys[x]}${(rounded > 1 && system_keys[x]!= "now") ? "s" : ""}`;
         }
     }
 
