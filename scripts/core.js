@@ -384,8 +384,7 @@ const MONTH_NAMES = [
   ];
   
   
-function getFormattedDate(timestamp, prefomattedDate = false, hideYear = false) {
-    let date = Date(timestamp)
+function getFormattedDate(date, prefomattedDate = false, hideYear = false) {
     const day = date.getDate();
     const month = MONTH_NAMES[date.getMonth()];
     const year = date.getFullYear();
@@ -410,11 +409,11 @@ function getFormattedDate(timestamp, prefomattedDate = false, hideYear = false) 
   
     // 10. January 2017. at 10:20
     return `${ day }. ${ month } ${ year }. at ${ hours }:${ minutes }`;
-  }
+}
   
   
   // --- Main function
-  function timeAgo(dateParam) {
+function timeAgo(dateParam) {
     if (!dateParam) {
       return null;
     }
@@ -475,8 +474,8 @@ async function sendInfoRequest(code) {
         elements.edit.setAttribute("href", `edit.html?m=${micronation.code}`);
         elements.code_text.innerText = micronation.code;
         let time = Date.now();
-        elements.time_added.innerText = getFormattedDate(time - micronation.time_added);
-        elements.last_edit.innerText = getFormattedDate(time - micronation.last_edit);
+        elements.time_added.innerText = timeAgo(time);
+        elements.last_edit.innerText = timeAgo(time);
 
         if(micronation.verified == true) {
             elements.verified.classList.remove("hidden");
