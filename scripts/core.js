@@ -378,34 +378,75 @@ function isJSON(str) {
     return true;
 }
 
-function roughUnixTimestamp(time) {
-
-    const system = {
-        now:            -999999999,
-        millisecond:    1,
-        second:         1000,
-        minute:         1000*   60,
-        hour:           1000*   60* 60,
-        day:            1000*   60* 60* 24,
-        week:           1000*   60* 60* 24* 7,
-        month:          1000*   60* 60* 24* 30.4,
-        year:           1000*   60* 60* 24* 365.3,
-        decade:         1000*   60* 60* 24* 365.3*  10,
-        century:        1000*   60* 60* 24* 365.3*  100,
+const MONTH_NAMES = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  
+  
+function getFormattedDate(timestamp, prefomattedDate = false, hideYear = false) {
+    let date = Date(timestamp)
+    const day = date.getDate();
+    const month = MONTH_NAMES[date.getMonth()];
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    let minutes = date.getMinutes();
+  
+    if (minutes < 10) {
+      // Adding leading zero to minutes
+      minutes = `0${ minutes }`;
     }
-
-    let system_keys = Object.keys(system);
-    
-    for(let x = 0; x < system_keys.length; x++) {
-
-        if(system[system_keys[x]] > time) {
-            let difference = time / system[system_keys[x]];
-            let rounded = Math.round(difference);
-            return `${rounded} ${system_keys[x]}${(rounded > 1 && system_keys[x]!= "now") ? "s" : ""}`;
-        }
+  
+    if (prefomattedDate) {
+      // Today at 10:20
+      // Yesterday at 10:20
+      return `${ prefomattedDate } at ${ hours }:${ minutes }`;
     }
-
-    
+  
+    if (hideYear) {
+      // 10. January at 10:20
+      return `${ day }. ${ month } at ${ hours }:${ minutes }`;
+    }
+  
+    // 10. January 2017. at 10:20
+    return `${ day }. ${ month } ${ year }. at ${ hours }:${ minutes }`;
+  }
+  
+  
+  // --- Main function
+  function timeAgo(dateParam) {
+    if (!dateParam) {
+      return null;
+    }
+  
+    const date = typeof dateParam === 'object' ? dateParam : new Date(dateParam);
+    const DAY_IN_MS = 86400000; // 24 * 60 * 60 * 1000
+    const today = new Date();
+    const yesterday = new Date(today - DAY_IN_MS);
+    const seconds = Math.round((today - date) / 1000);
+    const minutes = Math.round(seconds / 60);
+    const isToday = today.toDateString() === date.toDateString();
+    const isYesterday = yesterday.toDateString() === date.toDateString();
+    const isThisYear = today.getFullYear() === date.getFullYear();
+  
+  
+    if (seconds < 5) {
+      return 'now';
+    } else if (seconds < 60) {
+      return `${ seconds } seconds ago`;
+    } else if (seconds < 90) {
+      return 'about a minute ago';
+    } else if (minutes < 60) {
+      return `${ minutes } minutes ago`;
+    } else if (isToday) {
+      return getFormattedDate(date, 'Today'); // Today at 10:20
+    } else if (isYesterday) {
+      return getFormattedDate(date, 'Yesterday'); // Yesterday at 10:20
+    } else if (isThisYear) {
+      return getFormattedDate(date, false, true); // 10. January at 10:20
+    }
+  
+    return getFormattedDate(date); // 10. January 2017. at 10:20
 }
 
 async function sendInfoRequest(code) {
@@ -434,8 +475,8 @@ async function sendInfoRequest(code) {
         elements.edit.setAttribute("href", `edit.html?m=${micronation.code}`);
         elements.code_text.innerText = micronation.code;
         let time = Date.now();
-        elements.time_added.innerText = roughUnixTimestamp(time - micronation.time_added);
-        elements.last_edit.innerText = roughUnixTimestamp(time - micronation.last_edit);
+        elements.time_added.innerText = getFormattedDate(time - micronation.time_added);
+        elements.last_edit.innerText = getFormattedDate(time - micronation.last_edit);
 
         if(micronation.verified == true) {
             elements.verified.classList.remove("hidden");
