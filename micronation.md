@@ -42,6 +42,6 @@
   <img alt="Flag" id="mnpage__flag">
 </section>
 <section>
-    <p>Created <span id="mnpage__time_added"></span> ago</p>
-    <p>Edited <span id="mnpage__last_edit"></span> ago</p>
+    <p>Created <span id="mnpage__time_added"></span></p>
+    <p>Edited <span id="mnpage__last_edit"></span></p>
 </section>
