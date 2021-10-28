@@ -378,76 +378,85 @@ function isJSON(str) {
     return true;
 }
 
-const MONTH_NAMES = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
   
+function timeago(ms) {
+    let ago = Math.floor(ms / 1000);
+    let part = 0;
+
+
+    const locale = {
+        moment: "a moment ago"
+      , moments: "moments ago"
+      , seconds: "%s seconds ago"
+      , minute: "a minute ago"
+      , minutes: "%m minutes ago"
+      , hour: "an hour ago"
+      , hours: "%h hours ago"
+      , day: "a day ago"
+      , days: "%D days ago"
+      , week: "a week ago"
+      , weeks: "%w weeks ago"
+      , month: "a month ago"
+      , months: "%M months ago"
+      , years: "more than a year ago"
+      , never: "never"
+    };
+
+    const MOMENT = 0;
+    const MOMENTS = 2;
+    const SECONDS = 5;
+    const MINUTE = 60;
+    const HOUR = 60 * MINUTE;
+    const DAY = 24 * HOUR;
+    const WEEK = 7 * DAY;
+    const MONTH = 30 * DAY;
+    const YEAR = 365 * DAY;
+    // workaround for when `ms = Date.now() - 0`
+    const NEVER = 45 * YEAR;
   
-function getFormattedDate(date, prefomattedDate = false, hideYear = false) {
-    const day = date.getDate();
-    const month = MONTH_NAMES[date.getMonth()];
-    const year = date.getFullYear();
-    const hours = date.getHours();
-    let minutes = date.getMinutes();
+    if (ago < MOMENTS) { return locale.moment; }
+    if (ago < SECONDS) { return locale.moments; }
+    if (ago < MINUTE) { return locale.seconds.replace(/%\w?/, ago); }
   
-    if (minutes < 10) {
-      // Adding leading zero to minutes
-      minutes = `0${ minutes }`;
+    if (ago < (2 * MINUTE)) { return locale.minute; }
+    if (ago < HOUR) {
+      while (ago >= MINUTE) { ago -= MINUTE; part += 1; }
+      return locale.minutes.replace(/%\w?/, part);
     }
   
-    if (prefomattedDate) {
-      // Today at 10:20
-      // Yesterday at 10:20
-      return `${ prefomattedDate } at ${ hours }:${ minutes }`;
+    if (ago < (2 * HOUR)) { return locale.hour; }
+    if (ago < DAY) {
+      while (ago >= HOUR) { ago -= HOUR; part += 1; }
+      return locale.hours.replace(/%\w?/, part);
     }
   
-    if (hideYear) {
-      // 10. January at 10:20
-      return `${ day }. ${ month } at ${ hours }:${ minutes }`;
+    if (ago < (2 * DAY)) { return locale.day; }
+    if (ago < WEEK) {
+      while (ago >= DAY) { ago -= DAY; part += 1; }
+      return locale.days.replace(/%\w?/, part);
     }
   
-    // 10. January 2017. at 10:20
-    return `${ day }. ${ month } ${ year }. at ${ hours }:${ minutes }`;
-}
-  
-  
-  // --- Main function
-function timeAgo(dateParam) {
-    if (!dateParam) {
-      return null;
+    if (ago < (2 * WEEK)) { return locale.week; }
+    if (ago < MONTH) {
+      while (ago >= WEEK) { ago -= WEEK; part += 1; }
+      return locale.weeks.replace(/%\w?/, part);
     }
   
-    const date = typeof dateParam === 'object' ? dateParam : new Date(dateParam);
-    const DAY_IN_MS = 86400000; // 24 * 60 * 60 * 1000
-    const today = new Date();
-    const yesterday = new Date(today - DAY_IN_MS);
-    const seconds = Math.round((today - date) / 1000);
-    const minutes = Math.round(seconds / 60);
-    const isToday = today.toDateString() === date.toDateString();
-    const isYesterday = yesterday.toDateString() === date.toDateString();
-    const isThisYear = today.getFullYear() === date.getFullYear();
-  
-  
-    if (seconds < 5) {
-      return 'now';
-    } else if (seconds < 60) {
-      return `${ seconds } seconds ago`;
-    } else if (seconds < 90) {
-      return 'about a minute ago';
-    } else if (minutes < 60) {
-      return `${ minutes } minutes ago`;
-    } else if (isToday) {
-      return getFormattedDate(date, 'Today'); // Today at 10:20
-    } else if (isYesterday) {
-      return getFormattedDate(date, 'Yesterday'); // Yesterday at 10:20
-    } else if (isThisYear) {
-      return getFormattedDate(date, false, true); // 10. January at 10:20
+    if (ago < (2 * MONTH)) { return locale.month; }
+    if (ago < YEAR) { // 45 years, approximately the epoch
+      while (ago >= MONTH) { ago -= MONTH; part += 1; }
+      return locale.months.replace(/%\w?/, part);
     }
   
-    return getFormattedDate(date); // 10. January 2017. at 10:20
+    if (ago < NEVER) {
+      return locale.years;
+    }
+  
+    return locale.never;
 }
 
+  
+    
 async function sendInfoRequest(code) {
 
     let url = `${protocol}${domain}/micronation/${code}`;
