@@ -483,8 +483,8 @@ async function sendInfoRequest(code) {
         elements.edit.setAttribute("href", `edit.html?m=${micronation.code}`);
         elements.code_text.innerText = micronation.code;
         let time = Date.now();
-        elements.time_added.innerText = timeago(time);
-        elements.last_edit.innerText = timeago(time);
+        elements.time_added.innerText = timeago(Date.now() - time);
+        elements.last_edit.innerText = timeago(Date.now() - time);
 
         if(micronation.verified == true) {
             elements.verified.classList.remove("hidden");
