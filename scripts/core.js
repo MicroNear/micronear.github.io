@@ -397,9 +397,8 @@ function roughUnixTimestamp(time) {
     let system_keys = Object.keys(system);
     
     for(let x = 0; x < system_keys.length; x++) {
-        let amount_needed = system[system_keys[x + 1]];
 
-        if(amount_needed > time) {
+        if(system[system_keys[x]] > time) {
             let difference = time / system[system_keys[x]];
             let rounded = Math.round(difference);
             return `${rounded} ${system_keys[x]}${(rounded > 1 && system_keys[x]!= "now") ? "s" : ""}`;
@@ -434,8 +433,9 @@ async function sendInfoRequest(code) {
         elements.name.innerText = micronation.name;
         elements.edit.setAttribute("href", `edit.html?m=${micronation.code}`);
         elements.code_text.innerText = micronation.code;
-        elements.time_added.innerText = roughUnixTimestamp(Date.now() - micronation.time_added);
-        elements.last_edit.innerText = roughUnixTimestamp(Date.now() - micronation.last_edit);
+        let time = Date.now();
+        elements.time_added.innerText = roughUnixTimestamp(time - micronation.time_added);
+        elements.last_edit.innerText = roughUnixTimestamp(time - micronation.last_edit);
 
         if(micronation.verified == true) {
             elements.verified.classList.remove("hidden");
