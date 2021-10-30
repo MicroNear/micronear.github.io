@@ -1,7 +1,7 @@
 <section>
   <h2> Micronear </h2>
   <p>Micronation list & nearby micronation finder</p>
-  <p>&copy; Copyright 2020 - 2021, Bloomflare, c. . All rights reserved. </p>
+  <p>&copy; Copyright 2020 - 2021, Cupertino Alliance. All rights reserved. </p>
   <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
     <span class="mdl-chip mdl-chip--deletable">
       <span class="mdl-chip__text" id="mnpage__website_text">Review on Google Play</span>
@@ -12,9 +12,9 @@
 <hr>
 <section>
   <h4> Contact </h4>
-  <a href="https://discord.gg/5edwBtNrZk">Discord</a> <br>
-  <a href="https://www.instagram.com/_micronear_/">Instagram</a> <br>
-  <a href="mailto:bloomflare@protonmail.com">Email</a> <br>
+  <a href="https://discord.com/invite/7FFunBaT6m">Discord</a> <br>
+  <a href="https://www.instagram.com/cupertinoalliance/">Instagram</a> <br>
+  <a href="mailto:general@cupertinoalliance.ca">Email</a> <br>
 </section>
 <hr>
 <section>
