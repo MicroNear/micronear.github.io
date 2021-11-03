@@ -1,6 +1,7 @@
 <section>
   <h2> Micronear </h2>
   <p>Micronation list & nearby micronation finder</p>
+  <p>Developed in Berry Empire, hosted in New Athens</p>
   <p>&copy; Copyright 2020 - 2021, Cupertino Alliance. All rights reserved. </p>
   <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
     <span class="mdl-chip mdl-chip--deletable">
@@ -34,6 +35,9 @@
     </li>
     <li>
       <a href="https://deno.land/">Deno</a> by <a href="https://github.com/ry">Ryan Dahl</a> under the <a href="https://github.com/denoland/deno/blob/main/LICENSE.md">MIT</a> license
+    </li>
+    <li>
+      <a href="https://www.mongodb.com/">MongoDB</a> under the <a href="https://www.mongodb.com/licensing/server-side-public-license">SSPL</a> license
     </li>
   </ul>
 </section>
