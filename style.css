@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #FFC107;
+    --color-primary: #3F51B5;
 }
 
 
@@ -137,7 +137,7 @@ nav {
     height: 5rem;
     z-index: 3;
     border-top: 1px solid gray;
-    color: darkslategrey;
+    color: var(--color-primary);
     background-color: white;
 
     display: flex;

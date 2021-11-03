@@ -4,6 +4,7 @@ const TESTING = false;
 const API_VERSION = 2;
 const API_TARGET = "micronear";
 const MAX_MICRONATIONS_PER_PAGE = 10;
+const ACCURACY_TO_ADD = 2500;
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -159,7 +160,7 @@ async function sendAddRequest (micronation) {
 
     if(micronation.coordinates.hasOwnProperty("accuracy")) {
 
-        if(micronation.coordinates.accuracy < 250 || TESTING) {
+        if(micronation.coordinates.accuracy < ACCURACY_TO_ADD || TESTING) {
 
             micronation.password = await sha256(micronation.password)
 
@@ -623,7 +624,7 @@ async function sendEditRequest(code, old_password, elements) {
         request.update_coordinates == false
     ) {
 
-        if(!(elements.update_coordinates.checked) || (request.coordinates.accuracy < 250) || TESTING) {
+        if(!(elements.update_coordinates.checked) || (request.coordinates.accuracy < ACCURACY_TO_ADD) || TESTING) {
 
             let url = `${protocol}${domain}/edit/${code}`;
 
