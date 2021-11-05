@@ -1,8 +1,6 @@
 <section>
   <h2> Micronear </h2>
   <p>Micronation list & nearby micronation finder</p>
-  <p>Developed in Berry Empire, hosted in New Athens</p>
-  <p>&copy; Copyright 2020 - 2021, Cupertino Alliance. All rights reserved. </p>
   <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
     <span class="mdl-chip mdl-chip--deletable">
       <span class="mdl-chip__text" id="mnpage__website_text">Review on Google Play</span>
@@ -40,4 +38,13 @@
       <a href="https://www.mongodb.com/">MongoDB</a> under the <a href="https://www.mongodb.com/licensing/server-side-public-license">SSPL</a> license
     </li>
   </ul>
+</section>
+<section>
+  <img src="/images/cupertinoalliance.png">
+</section>
+<section>
+  <p>Developed by volunteers from the <a href="/micronation.html?m=BK">Berry Empire</a>, </p>
+  <p>Hosted in <a href="/micronation.html?m=FNNA">New Athens</a>.</p>
+  <hr>
+  <p>&copy; Copyright 2021, Cupertino Alliance. All rights reserved. </p>
 </section>
