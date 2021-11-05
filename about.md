@@ -43,7 +43,7 @@
   <img src="/images/cupertinoalliance.png">
 </section>
 <section>
-  <p>Developed by volunteers from the <a href="/micronation.html?m=BK">Berry Empire</a>, </p>
+  <p>Developed by volunteers from the <a href="/micronation.html?m=RR">Berry Empire</a>, </p>
   <p>Hosted in <a href="/micronation.html?m=FNNA">New Athens</a>.</p>
   <hr>
   <p>&copy; Copyright 2021, Cupertino Alliance. All rights reserved. </p>
