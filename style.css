@@ -21,6 +21,11 @@ p {
     margin: 0;
 }
 
+.danger {
+    border-radius: 5px;
+    background-color: lightcoral;
+}
+
 section {
     margin-bottom: 2rem;
 }
