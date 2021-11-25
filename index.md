@@ -57,9 +57,3 @@
     </a>
   </ul>
 </section>
-
-<section id="domain" class="danger">
-  <h3>Micronear has moved</h3>
-  <p>If you downloaded Microenar from Google Play, it probably won't work as we recently changed the domain.</p><br>
-  <p><b>To continue using Microenar, open micronear.cupertinoalliance.com in Google Chrome and choose "Install" or "Add to homescreen" in the menu.</b></p>
-</section>
