@@ -468,7 +468,11 @@ elements.buy.addEventListener("click", async (e) => {
 
         let response = await sendVerificationRequest(elements.code.value, await sha256(elements.password.value));
         showSnackBar(response.message);
-        console.log(response);
+        if(response.success) {
+            setTimeout(() => {
+                window.location = "/verification";
+            }, 1000)
+        }
     });
 
     const verification_requests_element = document.querySelector("#verification_requests")
