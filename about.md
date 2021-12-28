@@ -45,7 +45,7 @@
   <p>Developed by volunteers from the <a href="/micronation?m=RR">Berry Empire</a>, </p>
   <p>Hosted in <a href="/micronation?m=FNNA">New Athens</a>.</p>
   <p>Micronear is a property of the Cupertino Alliance.</p>
-  <p><a href="log">Log</a> | <a href="manual">admin manual</a></p>
+  <p><a href="log">Log</a> | <a href="manual">Maintenance</a></p>
   <hr>
-  <p>&copy; Copyright 2022, Cupertino Alliance. All rights reserved. </p>
+  <p>&copy; Copyright 2021-2022, Cupertino Alliance. All rights reserved. </p>
 </section>

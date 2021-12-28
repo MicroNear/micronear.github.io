@@ -721,7 +721,7 @@ async function sendVerificationRequest(code, password) {
     .catch(error => {
         showSnackBar(error)   
     })
-    return data;
+    return data;    
 }
 
 
@@ -1197,17 +1197,67 @@ elements.buy.addEventListener("click", async (e) => {
         let response = await sendVerificationRequest(elements.code.value, await sha256(elements.password.value));
         showSnackBar(response.message);
         console.log(response);
+    });
+
+    const verification_requests_element = document.querySelector("#verification_requests")
+    const url = `${protocol}${domain}/verification_requests`;
+    let data = await superfetch(url, "GET", {"limit": 20});
+
+    if(data.length > 0) {
+        verification_requests_element.innerHTML = "";
+        
+        data.forEach(entry => {
+            const newelem = `
+            <li class="mdl-list__item">
+            <a href="/micronation.html?m=AA" class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                    <span class="mdl-list__item-text-body">
+                        ${entry.code}
+                    </span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                    <i class="material-icons">access_time</i>
+                </span>
+            </a>
+          </li>`
+
+          verification_requests_element.appendChild(newelem);
+        });
+    }
+
+
+} else if (link == "/log") {
+
+    const logelem = document.querySelector("#log");
+    
+    let url = `${protocol}${domain}/log`;
+
+    let data = await superfetch(url, "GET");
+
+    data.forEach(entry => {
+        let icon;
+        switch(entry.type) {
+            case "added":
+                icon = "add_location_alt";
+            case "removed":
+                icon = "delete_forever";
+            case "edited":
+                icon = "edit";
+            case "verified":
+                icon = "flaky";
+            case "backedup":
+                icon = "cloud_done";
+        }
+
+        const newelem = `
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-icon">${icon}</i>
+                ${entry.text}
+            </span>
+        </li>`
+        logelem.appendChild(newelem);
     })
-
-
-} else if (link == "/articles") {
-
-    /*const o = document.getElementById("o");
-
-    setInterval(function() {
-        o.innerText += "o";
-    }, 1*1000);
-    */
 
 } else {
     console.log(link);

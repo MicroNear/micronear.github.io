@@ -60,13 +60,13 @@
       <li class="mdl-list__item">
         <a href="/micronation.html?m=AA" class="mdl-list__item mdl-list__item--three-line">
             <span class="mdl-list__item-primary-content">
-                <span>AA</span>
+                <span>No requests</span>
                 <span class="mdl-list__item-text-body">
-                    Republic of Avalonia
+                    No pending verification requests
                 </span>
             </span>
             <span class="mdl-list__item-secondary-content">
-                <i class="material-icons">open_in_new</i>
+                <i class="material-icons">task_alt</i>
             </span>
         </a>
       </li>
