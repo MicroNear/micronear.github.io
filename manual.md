@@ -74,12 +74,15 @@ Use your admin key just like password on the verification page. If you verify a 
 - Update (install) deno
 - Update mongo
 
-## Frontend (webapp)
+## Frontend (app)
 Micronear is a Web App - it's a website wrapped into an app. It uses HTML, CSS, JS and markdown. It is hosted on GitHub pages for free.
 
 ### Updating frontend
 Change the version number in `/sw.js` to force users' devices to load new code (to update the app).
 When changing the domain, the app also needs to be recompiled and reuploaded to the Google Play Store. Use https://pwabuilder.com and enable "location delegation".
+
+### iOS
+Micronear can be compiled using pwabuilder.com and added to the App Store, but you need a macbook and 100$/y to do it.
 
 ### Frontend note
 The front end uses outdated Material Design Lite library. Please do rewrite it into React, Vue, Material.js, Material Components, or something similar to improve the performance and UX.
