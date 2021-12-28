@@ -1208,7 +1208,7 @@ elements.buy.addEventListener("click", async (e) => {
         data.forEach(entry => {
             const newelem = `
             <li class="mdl-list__item">
-            <a href="/micronation.html?m=AA" class="mdl-list__item mdl-list__item--three-line">
+            <a href="/micronation.html?m=${entry.code}" class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
                     <span class="mdl-list__item-text-body">
                         ${entry.code}

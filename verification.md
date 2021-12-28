@@ -58,7 +58,7 @@
   <h3>Verification requests</h3>
     <ul id="verification_requests" class="mdl-list">
       <li class="mdl-list__item">
-        <a href="/micronation.html?m=AA" class="mdl-list__item mdl-list__item--three-line">
+        <span class="mdl-list__item mdl-list__item--three-line">
             <span class="mdl-list__item-primary-content">
                 <span>No requests</span>
                 <span class="mdl-list__item-text-body">
@@ -68,7 +68,7 @@
             <span class="mdl-list__item-secondary-content">
                 <i class="material-icons">task_alt</i>
             </span>
-        </a>
+        </span>
       </li>
   </ul>
 </section>
