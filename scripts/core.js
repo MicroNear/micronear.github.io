@@ -1209,8 +1209,11 @@ elements.buy.addEventListener("click", async (e) => {
             const newelem = `
             <a href="/micronation.html?m=${entry.code}" class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
-                    <span class="mdl-list__item-text-body">
-                        ${entry.code}
+                    <span class="mdl-list__item-primary-content">
+                        <span>${entry.code}</span>
+                        <span class="mdl-list__item-text-body">
+                            ${time.toGMTString()}
+                        </span>
                     </span>
                 </span>
                 <span class="mdl-list__item-secondary-content">
