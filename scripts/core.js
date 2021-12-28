@@ -512,22 +512,27 @@ elements.buy.addEventListener("click", async (e) => {
     let data = await superfetch(url, "GET");
 
     data.forEach(entry => {
-        let icon;
+
+        let icon = "info";
         switch(entry.type) {
             case "added":
                 icon = "add_location_alt";
+                break;
             case "removed":
                 icon = "delete_forever";
+                break;
             case "edited":
                 icon = "edit";
+                break;
             case "verified":
                 icon = "flaky";
+                break;
             case "requestedverification":
                 icon = "task";
+                break;
             case "backedup":
                 icon = "cloud_done";
-            default:
-                icon = "info"
+                break;
         }
 
         const newelem = `
