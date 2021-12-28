@@ -1,4 +1,4 @@
-const PRECACHE = 'Microner_v3.1.1';
+const PRECACHE = 'Microner_v3.1.2';
 const RUNTIME = PRECACHE;
 
 // A list of local resources we always want to be cached.
@@ -19,6 +19,7 @@ const PRECACHE_URLS = [
   '/terms',
   '/about',
   '/edit',
+  '/manual',
   '/404',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://code.getmdl.io/1.3.0/material.blue-green.min.css',
