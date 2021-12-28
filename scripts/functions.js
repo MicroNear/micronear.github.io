@@ -298,10 +298,6 @@ export async function geoData (enableHighAccuracy) {
 export async function superfetch(url, method, body) {
     body = (body == undefined) ? {} : body;
 
-    body.api = {
-        version: API_VERSION,
-        target: API_TARGET
-    }
     body = JSON.stringify(body);
 
     const options = {
