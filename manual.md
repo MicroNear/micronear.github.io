@@ -86,3 +86,5 @@ Micronear can be compiled using pwabuilder.com and added to the App Store, but y
 
 ### Frontend note
 The front end uses outdated Material Design Lite library. Please do rewrite it into React, Vue, Material.js, Material Components, or something similar to improve the performance and UX.
+
+<br><br><br>
