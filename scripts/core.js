@@ -30,7 +30,6 @@ import {
     findGetParameter,
     round,
     geoPermission,
-    addhttps,
     sha256,
     sendAddRequest,
     sendFindRequest,

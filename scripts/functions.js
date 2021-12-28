@@ -91,13 +91,6 @@ export async function geoPermission() {
 
 }
 
-export function addhttps(url) {
-    if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
-        url = "https://" + url;
-    }
-    return url;
-}
-
 export async function sha256(message) {
     const msgBuffer = new TextEncoder('utf-8').encode(message);
     const hashBuffer = await window.crypto.subtle.digest('SHA-256', msgBuffer);
@@ -447,7 +440,6 @@ export async function sendInfoRequest(code) {
         }
 
         if(micronation.hasOwnProperty("website")) {
-            //const fixedURL = addhttps(micronation.web);
             elements.website.setAttribute("href", micronation.website);
 
             let domain = (new URL(micronation.website));
