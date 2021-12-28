@@ -536,9 +536,8 @@ elements.buy.addEventListener("click", async (e) => {
         }
 
         const newelem = `
-        <li class="mdl-list__item">
+        <li class="mdl-list__item mdl-list__item--three-line">
             <span class="mdl-list__item-primary-content">
-                <i class="material-icons mdl-list__item-icon">${icon}</i>
                 <span class="mdl-list__item-primary-content">
                     <span>${entry.text}</span>
                     <span class="mdl-list__item-text-body">
@@ -546,7 +545,10 @@ elements.buy.addEventListener("click", async (e) => {
                     </span>
                 </span>
             </span>
-        </li>`
+            <span class="mdl-list__item-secondary-content">
+                <i class="material-icons">${icon}</i>
+            </span>
+        </li>`;
         logelem.innerHTML += newelem;
     })
 
