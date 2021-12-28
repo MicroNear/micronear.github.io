@@ -170,3 +170,7 @@ nav > a.mdl-button {
     justify-content: space-evenly;
     flex: 1;
 }
+
+.mdl-list__item {
+	width: 100%;
+}
