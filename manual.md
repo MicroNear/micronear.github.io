@@ -30,8 +30,8 @@ Some useful linux commands:
 - (optional) For increased security, create a MongoDB account for Micronear and insert the credentials to `micronear/mongoauth.js`. Then edit the MongoDB config to require authentication.
 - Set up your DNS server. Create a record pointing from desired subdomain to the ip of your server. This step is required in order to obtain a TLS certificate. For example, create an "A" record pointing from "api" (or api.yourdomain.com) to the WAN IP of your server.
 - A TLS certificate is needed to enable HTTPS and encrypt the connection. Certbot can issue such certificates for free. Install Certbot on your server and request a TLS certificate for the subdomain mentioned above. (https://certbot.eff.org/instructions?ws=other&os=ubuntufocal). Then copy paths of the certificates from terminal.
-- Edit the `micronear/backend/app.js` file and insert the copied paths of the certificates.
-- Set the TESTING variable to false in `micronear/backend/app.js`. This will enable the TLS to encrypt the connection (HTTP + Secure = HTTPS).
+- Edit the `micronear/app.js` file and insert the copied paths of the certificates.
+- Set the TESTING variable to false in `micronear/app.js`. This will enable the TLS to encrypt the connection (HTTP + Secure = HTTPS).
 
 #### Starting a MongoDB server
 `sudo service mongod start`
@@ -45,13 +45,20 @@ Mongo must be running and there must not be any webserver making use of the 443 
 Backup the data periodically. It's highly advised to encrypt the backups.
 
 #### Importing the database
-If you have a backup, transfer it to the `micronear/` folder and cd there. Decrypt the file, if it's been encrypted and then import it using `sudo /home/micronear/.deno/bin/deno run --allow-all --unstable backend/importdb.js decryptedbackup.json`.
+If you have a backup, transfer it to the `micronear/` folder and cd there. Decrypt the file, if it's been encrypted and then import it using `sudo /home/micronear/.deno/bin/deno run --allow-all --unstable importdb.js decryptedbackup.json`.
 
 #### Exporting the database
-To export the database, cd into `micronear/` and run `sudo /home/micronear/.deno/bin/deno run --allow-all --unstable backend/exportdb.js dump.json`. This will create a database dump in json. Do encrypt it and remove the original dump.
+To export the database, cd into `micronear/` and run `sudo /home/micronear/.deno/bin/deno run --allow-all --unstable exportdb.js dump.json`. This will create a database dump in json. Do encrypt it and remove the original dump.
 
 ### Administration
-All admin keys are listed in the `micronear/backend/apikeys.js` file.
+All admin keys are listed in the `micronear/apikeys.js` file.
+
+`apikeys.js`
+```js
+export const mongodatabase = "micronear"
+export const mongousername = "cupertino"
+export const mongopassword = "cupertino2021"
+```
 
 #### Adding an admin
 Add a new entry to the apikeys file. Follow this format: `"sha256(newpassword)": "Name of the Admin",`.

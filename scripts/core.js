@@ -26,6 +26,7 @@ async function main() {
 'use strict';
 
 const link = window.location.pathname.replace(/\.[^/.]+$/, ""); // Remove extensions (.html, .jpg, ...) from the link so both "file" and "file.html" will work.
+console.log(link);
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -50,9 +51,6 @@ uppercase.forEach(element => {
         e.target.setSelectionRange(p, p);
     });
 })
-
-const link = window.location.pathname.replace(/\.[^/.]+$/, ""); // Remove extensions (.html, .jpg, ...) from the link so both "file" and "file.html" will work.
-console.log(link);
 
 if (link == "/find") {
 
