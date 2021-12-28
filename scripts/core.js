@@ -1242,8 +1242,12 @@ elements.buy.addEventListener("click", async (e) => {
                 icon = "edit";
             case "verified":
                 icon = "flaky";
+            case "requestedverification":
+                icon = "task";
             case "backedup":
                 icon = "cloud_done";
+            default:
+                icon = "info"
         }
 
         const newelem = `
