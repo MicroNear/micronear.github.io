@@ -22,7 +22,7 @@ if(TESTING) {
     domain = "localhost:3001";
 }
 
-import {*} from "/scripts/functions.js";
+import * from "/scripts/functions.js";
 
 async function main() {
 'use strict';
