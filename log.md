@@ -1,6 +1,6 @@
-<section id="log">
+<section>
     <h1> Log </h1>
-    <ul id="list__ul" class="mdl-list">
+    <ul id="log" class="mdl-list">
         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
                 <i class="material-icons mdl-list__item-icon">auto_delete</i>
