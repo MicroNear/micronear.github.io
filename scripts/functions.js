@@ -1,5 +1,14 @@
 'use strict';
 
+const TESTING = false;
+const MAX_MICRONATIONS_PER_PAGE = 10;
+const ACCURACY_TO_ADD = 2500;
+
+const snackbar = document.getElementById("snackbar");
+
+export const protocol = (TESTING) ? "http://" : "https://";
+export const domain = (TESTING) ? "localhost:3001" : "api.cupertinoalliance.com";
+
 export const errors = {
     generic: "An error occured",
     location: "Location permission is denied, you may change it in the app settings",

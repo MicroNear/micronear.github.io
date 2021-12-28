@@ -1,25 +1,9 @@
 'use strict';
 
-const TESTING = false;
-const API_VERSION = 2;
-const API_TARGET = "micronear";
-const MAX_MICRONATIONS_PER_PAGE = 10;
-const ACCURACY_TO_ADD = 2500;
-
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/sw.js');
     });
-}
-
-const snackbar = document.getElementById("snackbar");
-
-let protocol = "https://"
-let domain = "api.cupertinoalliance.com";
-
-if(TESTING) {
-    protocol = "http://"
-    domain = "localhost:3001";
 }
 
 import {
@@ -45,6 +29,9 @@ import {
     sendRemoveRequest,
     sendSearchRequest,
     sendVerificationRequest,
+    MAX_MICRONATIONS_PER_PAGE,
+    protocol,
+    domain
 } from "/scripts/functions.js";
 
 async function main() {
