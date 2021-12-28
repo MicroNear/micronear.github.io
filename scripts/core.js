@@ -485,7 +485,7 @@ elements.buy.addEventListener("click", async (e) => {
                     <span class="mdl-list__item-primary-content">
                         <span>${entry.code}</span>
                         <span class="mdl-list__item-text-body">
-                            ${entry.time.toGMTString()}
+                            ${(entry.time).toGMTString()}
                         </span>
                     </span>
                 </span>
