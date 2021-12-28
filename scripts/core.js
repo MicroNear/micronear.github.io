@@ -725,7 +725,6 @@ async function sendVerificationRequest(code, password) {
 }
 
 
-
 async function main() {
 'use strict';
 
@@ -1221,7 +1220,7 @@ elements.buy.addEventListener("click", async (e) => {
             </a>
           </li>`
 
-          verification_requests_element.appendChild(newelem);
+          verification_requests_element.innerHTML += newelem;
         });
     }
 
@@ -1256,7 +1255,7 @@ elements.buy.addEventListener("click", async (e) => {
                 ${entry.text}
             </span>
         </li>`
-        logelem.appendChild(newelem);
+        logelem.innerHTML += newelem;
     })
 
 } else {
