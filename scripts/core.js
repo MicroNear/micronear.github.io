@@ -539,7 +539,12 @@ elements.buy.addEventListener("click", async (e) => {
         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
                 <i class="material-icons mdl-list__item-icon">${icon}</i>
-                ${entry.text}
+                <span class="mdl-list__item-primary-content">
+                    <span>${entry.text}</span>
+                    <span class="mdl-list__item-text-body">
+                        ${Date(entry.time).toGMTString()}
+                    </span>
+                </span>
             </span>
         </li>`
         logelem.innerHTML += newelem;
