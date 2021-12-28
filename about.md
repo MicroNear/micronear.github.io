@@ -11,14 +11,13 @@
 <hr>
 <section>
   <h4> Contact </h4>
-  <a href="https://discord.com/invite/7FFunBaT6m">Discord</a> <br>
-  <a href="https://www.instagram.com/cupertinoalliance/">Instagram</a> <br>
+  <a href="https://discord.com/invite/7FFunBaT6m">Discord (preferred)</a> <br>
   <a href="mailto:general@cupertinoalliance.ca">Email</a> <br>
 </section>
 <hr>
 <section>
   <h4> Legal </h4>
-  <p>By using Micronear, you agree to the <a href="terms.html">Terms of Service</a> and the <a href="privacy.html">Privacy Policy</a></p>
+  <p>By using Micronear, you agree to the <a href="terms">Terms of Service</a> and the <a href="privacy">Privacy Policy</a></p>
   <h5>Attributions to open source software</h5>
   <p>Micronear uses solely open source libraries to ensure maximum security and transparency.</p>
   <ul>
@@ -43,8 +42,10 @@
   <img src="/images/cupertinoalliance.png">
 </section>
 <section>
-  <p>Developed by volunteers from the <a href="/micronation.html?m=RR">Berry Empire</a>, </p>
-  <p>Hosted in <a href="/micronation.html?m=FNNA">New Athens</a>.</p>
+  <p>Developed by volunteers from the <a href="/micronation?m=RR">Berry Empire</a>, </p>
+  <p>Hosted in <a href="/micronation?m=FNNA">New Athens</a>.</p>
+  <p>Micronear is a property of the Cupertino Alliance.</p>
+  <p><a href="log">Log</a> | <a href="manual">admin manual</a></p>
   <hr>
-  <p>&copy; Copyright 2021, Cupertino Alliance. All rights reserved. </p>
+  <p>&copy; Copyright 2022, Cupertino Alliance. All rights reserved. </p>
 </section>

@@ -42,7 +42,7 @@
 
 <section id="add_ad">
   <ul class="list-micronations mdl-list">
-    <a href="/add.html" class="mdl-list__item mdl-list__item--three-line">
+    <a href="/add" class="mdl-list__item mdl-list__item--three-line">
       <span class="mdl-list__item-primary-content">
           <span>ADD</span>
           <span class="mdl-list__item-text-body">

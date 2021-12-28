@@ -729,7 +729,7 @@ async function sendVerificationRequest(code, password) {
 async function main() {
 'use strict';
 
-const link = window.location.pathname;
+const link = window.location.pathname.replace(/\.[^/.]+$/, ""); // Remove extensions (.html, .jpg, ...) from the link so both "file" and "file.html" will work.
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -792,7 +792,7 @@ if(time > mstart && time < mend) {
 */
 
 
-if (link == "/find.html") {
+if (link == "/find") {
 
     let location_notice = document.getElementById("location_notice");
     let location_button = document.getElementById("location_button");
@@ -813,7 +813,7 @@ if (link == "/find.html") {
         })
     }
 
-} else if (link == "/index.html" || link == "/") {
+} else if (link == "/index" || link == "/") {
 
     const switchpage = {
         back: {
@@ -910,7 +910,7 @@ if (link == "/find.html") {
         updateSwitchPageButtons();
     });
 
-} else if (link == "/add.html") {
+} else if (link == "/add") {
 
 const elements = {
     form: document.getElementById("add__form"),
@@ -1038,7 +1038,7 @@ elements.buy.addEventListener("click", async (e) => {
 
 });
 
-} else if (link == "/permissions.html") {
+} else if (link == "/permissions") {
 
     const r = findGetParameter("r");
 
@@ -1049,7 +1049,7 @@ elements.buy.addEventListener("click", async (e) => {
         
         button.addEventListener("click", async (e) => {
             if(await geoData(false) != false) {
-                window.location = (r == "") ? "/index.html" : r;
+                window.location = (r == "") ? "/index" : r;
             }
         });
 
@@ -1060,7 +1060,7 @@ elements.buy.addEventListener("click", async (e) => {
     }
 
 
-} else if (link == "/micronation.html") {
+} else if (link == "/micronation") {
 
     const code = findGetParameter("m");
     const share = document.querySelector("#mnpage__code");
@@ -1077,7 +1077,7 @@ elements.buy.addEventListener("click", async (e) => {
     } else {
         showSnackBar(errors.generic);
     }
-} else if (link == "/edit.html") {
+} else if (link == "/edit") {
 
 
     const elements = {
@@ -1183,7 +1183,7 @@ elements.buy.addEventListener("click", async (e) => {
 
     });
 
-} else if (link == "/verification.html") {
+} else if (link == "/verification") {
     console.log(link);
     let elements = {
         form: document.getElementById("verification__form"),
@@ -1200,7 +1200,7 @@ elements.buy.addEventListener("click", async (e) => {
     })
 
 
-} else if (link == "/articles.html") {
+} else if (link == "/articles") {
 
     /*const o = document.getElementById("o");
 
