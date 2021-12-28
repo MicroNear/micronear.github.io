@@ -22,7 +22,31 @@ if(TESTING) {
     domain = "localhost:3001";
 }
 
-import * from "/scripts/functions.js";
+import {
+    errors,
+    showSnackBar,
+    verifyCode,
+    sharePage,
+    findGetParameter,
+    round,
+    geoPermission,
+    addhttps,
+    sha256,
+    sendAddRequest,
+    sendFindRequest,
+    makeMicronationListItem,
+    sendListRequest,
+    geoData,
+    superfetch,
+    isJSON,
+    timeago,
+    sendInfoRequest,
+    sendUnlockRequest,
+    sendEditRequest,
+    sendRemoveRequest,
+    sendSearchRequest,
+    sendVerificationRequest,
+} from "/scripts/functions.js";
 
 async function main() {
 'use strict';
