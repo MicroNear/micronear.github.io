@@ -125,7 +125,7 @@ export async function sendAddRequest (micronation) {
 
             if(data.success == true) {
 
-                window.location = `/micronation.html?m=${data.code}`;
+                window.location = `/micronation?m=${data.code}`;
 
             } else {
                 if(data.message != "") {
@@ -159,7 +159,7 @@ export async function sendFindRequest (geolocation) {
 
     let wrapper = document.createElement("div");
     if(data.length == 0) {
-        wrapper.innerHTML += `<p>We couldn't find any micronations within 800km, would you like to <a href="/add.html">add your micronation</a>?</p>`;
+        wrapper.innerHTML += `<p>We couldn't find any micronations within 800km, would you like to <a href="/add">add your micronation</a>?</p>`;
     }
     data.forEach(micronation => {
         let card = `
@@ -173,7 +173,7 @@ ${(micronation.description != undefined) ? micronation.description : "No descrip
 </div>
 
 <div class="mdl-card__actions mdl-card--border">
-    <a href="micronation.html?m=${micronation.code}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    <a href="micronation?m=${micronation.code}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
         More
     </a>
     <span>${round(micronation.proximity, 1)}km</span>
@@ -258,7 +258,7 @@ export async function sendListRequest(page) {
 
         data.forEach(micronation => {
 
-            let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`)
+            let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation?m=${micronation.code}`)
     
         wrapper.innerHTML += listitem;
         });
@@ -434,7 +434,7 @@ export async function sendInfoRequest(code) {
         }
     
         elements.name.innerText = micronation.name;
-        elements.edit.setAttribute("href", `edit.html?m=${micronation.code}`);
+        elements.edit.setAttribute("href", `edit?m=${micronation.code}`);
         elements.code_text.innerText = micronation.code;
         let time = Date.now();
         elements.time_added.innerText = timeago(time - micronation.time_added);
@@ -576,7 +576,7 @@ export async function sendEditRequest(code, old_password, elements) {
             if(data.success) {
         
                 console.log("SUCCESS");
-                window.location = `/micronation.html?m=${request.new_code}`;
+                window.location = `/micronation?m=${request.new_code}`;
 
                 
             } else {
