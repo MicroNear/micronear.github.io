@@ -525,9 +525,9 @@ elements.buy.addEventListener("click", async (e) => {
                 icon = "edit";
                 break;
             case "verified":
-                icon = "flaky";
+                icon = "verified";
                 break;
-            case "requestedverification":
+            case "verificationrequested":
                 icon = "task";
                 break;
             case "backedup":
@@ -542,7 +542,7 @@ elements.buy.addEventListener("click", async (e) => {
                 <span class="mdl-list__item-primary-content">
                     <span>${entry.text}</span>
                     <span class="mdl-list__item-text-body">
-                        ${Date(entry.time).toGMTString()}
+                        ${new Date(entry.time).toGMTString()}
                     </span>
                 </span>
             </span>
