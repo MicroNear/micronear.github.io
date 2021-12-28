@@ -1207,7 +1207,6 @@ elements.buy.addEventListener("click", async (e) => {
         
         data.forEach(entry => {
             const newelem = `
-            <li class="mdl-list__item">
             <a href="/micronation.html?m=${entry.code}" class="mdl-list__item mdl-list__item--three-line">
                 <span class="mdl-list__item-primary-content">
                     <span class="mdl-list__item-text-body">
@@ -1217,8 +1216,7 @@ elements.buy.addEventListener("click", async (e) => {
                 <span class="mdl-list__item-secondary-content">
                     <i class="material-icons">access_time</i>
                 </span>
-            </a>
-          </li>`
+            </a>`
 
           verification_requests_element.innerHTML += newelem;
         });
