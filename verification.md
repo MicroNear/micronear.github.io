@@ -33,7 +33,7 @@
       </span>
       </li>
     </ul>
-    <p>Sharing precise location on map is optional.</p>
+    <p>Sharing location on map is optional.</p>
     </div>
     <form id="verification__form" class="">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
