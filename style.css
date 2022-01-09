@@ -174,3 +174,7 @@ nav > a.mdl-button {
 .mdl-list__item {
 	width: 100%;
 }
+
+.mdl-list__item--three-line .mdl-list__item-text-body, .mdl-list__item, .mdl-list__item--three-line .mdl-list__item-primary-content  {
+	height: auto;
+}
