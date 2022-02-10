@@ -9,7 +9,7 @@
   </form>
 </section>
 
-<section id="list">
+<section class="list">
   <ul id="list__ul" class="list-micronations mdl-list">
 
   </ul>
