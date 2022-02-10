@@ -84,7 +84,7 @@ button.mdl-button, input, textarea, .mdl-progress {
 }
 
 .list {
-
+    padding: 1rem;
 }
 
 .list ul {
@@ -94,12 +94,22 @@ button.mdl-button, input, textarea, .mdl-progress {
     gap: 1rem;
 }
 
-.list ul a {
+.listitem {
     padding: 2rem 1rem;
     display: flex;
     justify-content: space-between;
     background-color: var(--tanned);
     color: currentColor;
+}
+
+.listitem > div { 
+    display: flex;
+    align-items: center;
+}
+
+.listitem > div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .layout .card {

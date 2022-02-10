@@ -192,7 +192,7 @@ ${(micronation.description != undefined) ? micronation.description : "No descrip
 
 export function makeMicronationListItem(code, name, verified, icon, link) {
     let listitem = `
-    <a href="${link} class="listitem">
+    <a href="${link}" class="listitem">
         <div>
             <span>${code}</span>
             <span>${name}</span>
