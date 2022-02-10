@@ -23,15 +23,11 @@ export const errors = {
 }
 
 export function showSnackBar(message) {
-    if(snackbar.MaterialSnackbar != undefined) {
-        snackbar.MaterialSnackbar.showSnackbar({message: message});
-    } else {
-        window.setTimeout(showSnackBar, 400, message);
-    }
+    alert(message);
 }
 
 export function verifyCode (code) {
-    if(code.length > 1 && code.length < 5) {
+    if(code.length > 1 && code.length < 5) {
         return true;
     } else {
         return false;
@@ -151,7 +147,7 @@ export async function sendFindRequest (geolocation) {
     let foundresults = document.querySelector("#found__results");
 
 
-    foundresults.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
+    foundresults.innerHTML = `Loading...`;
     
     let url = `${protocol}${domain}/find`;
 
@@ -163,26 +159,26 @@ export async function sendFindRequest (geolocation) {
     }
     data.forEach(micronation => {
         let card = `
-<div class="card mdl-card mdl-shadow--2dp" style="background-image: linear-gradient(to bottom, rgb(255 255 255 / 85%), rgb(18 50 66 / 25%)), url('${protocol}${domain}/image/${micronation.code}')">
+<div class="card" style="background-image: linear-gradient(to bottom, rgb(255 255 255 / 85%), rgb(18 50 66 / 25%)), url('${protocol}${domain}/image/${micronation.code}')">
 
-<div class="mdl-card__title">
-<h2 class="mdl-card__title-text">${micronation.name}</h2>
+<div class="cardtitle">
+<h2>${micronation.name}</h2>
 </div>
-<div class="mdl-card__supporting-text">
+<div class="carddescription">
 ${(micronation.description != undefined) ? micronation.description : "No description provided"}
 </div>
 
-<div class="mdl-card__actions mdl-card--border">
-    <a href="micronation?m=${micronation.code}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+<div class="cardfooter">
+    <a href="micronation?m=${micronation.code}" class="buttont">
         More
     </a>
     <span>${round(micronation.proximity, 1)}km</span>
 </div>
 
-<div class="mdl-card__menu">
-<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-    <i class="material-icons">${(micronation.verified) ? "verified" : null}</i>
-</button>
+<div class="cardicon">
+<div>
+<i class="material-icons">${(micronation.verified) ? "verified" : null}</i>
+</div>
 </div>
 </div>
         
@@ -195,39 +191,16 @@ ${(micronation.description != undefined) ? micronation.description : "No descrip
 }
 
 export function makeMicronationListItem(code, name, verified, icon, link) {
-    let oldlistitem = `
-    <li class="mdl-list__item mdl-list__item--three-line">
-        <span class="mdl-list__item-primary-content">
-            <span>${code}</span>
-            <span class="mdl-list__item-text-body">
-                ${name}
-            </span>
-        </span>
-        <span class="mdl-list__item-secondary-content">
-            <i class="material-icons">${(verified) ? "verified" : null}</i>
-        </span>
-        <span class="mdl-list__item-secondary-content">
-            <a href="${link}">
-                <i class="material-icons">${icon}</i>
-            </a>
-        </span>
-    </li>
-    `;
-
     let listitem = `
-    <a href="${link}" class="mdl-list__item mdl-list__item--three-line">
-        <span class="mdl-list__item-primary-content">
+    <a href="${link} class="listitem">
+        <div>
             <span>${code}</span>
-            <span class="mdl-list__item-text-body">
-                ${name}
-            </span>
-        </span>
-        <span class="mdl-list__item-secondary-content">
-            ${(verified) ? '<i class="material-icons">verified</i>' : ""}
-        </span>
-        <span class="mdl-list__item-secondary-content">
-            <i class="material-icons">${icon}</i>
-        </span>
+            <span>${name}</span>
+        </div>
+        <div>
+        ${(verified) ? '<i class="material-icons">verified</i>' : ""}
+        <i class="material-icons">${icon}</i>
+        </div>
     </a>
     `;
 
@@ -240,7 +213,7 @@ export async function sendListRequest(page) {
 
 
     let wrapper = document.getElementById("list__ul");
-    wrapper.innerHTML = `<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>`;
+    wrapper.innerHTML = `Loading...`;
 
 
     let data = await superfetch(url, "GET", null);

@@ -23,8 +23,7 @@ const PRECACHE_URLS = [
   '/404',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://code.getmdl.io/1.3.0/material.blue-green.min.css',
-  'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700',
-  'https://code.getmdl.io/1.3.0/material.min.js'
+  'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'
 ];
 
 // The install handler takes care of precaching the resources we always need.

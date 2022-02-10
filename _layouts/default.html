@@ -7,9 +7,7 @@
     <title>Micronear</title>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/style.css">
     <link rel="manifest" href="/manifest.json">
@@ -18,8 +16,8 @@
     <meta property="og:description" content="Micronation list & nearby micronation finder" />
     <meta property="og:title" content="Micronear" />
     <meta property="og:type" content="app" />
-    <meta property="og:url" content="https://micronear.cupertinoalliance.com" />
-    <meta property="og:image" content="https://micronear.cupertinoalliance.com/images/icon_1.png" />
+    <meta property="og:url" content="https://micronear.cupertinoalliance.ca" />
+    <meta property="og:image" content="https://micronear.cupertinoalliance.ca/images/icon_1.png" />
     <meta name="theme-color" content="#448AFF">
     <script>
       window.onerror = function (errorMsg, url, lineNumber) {
@@ -30,46 +28,43 @@
 </head>
 <body>
 
-    <div class="layout mdl-layout mdl-js-layout
-            mdl-layout--fixed-header">
-  <main class="mdl-layout__content">
-    <div class="page-content">
-        {{ content }}
-    </div>
+<main>
+  {{content}}
+</main>
 
-    <nav>
-      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/index">
-        <div>
-          <i class="material-icons">search</i>
-        </div>
-      </a>
-      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/find">
-        <div>
-          <i class="material-icons">explore</i>
-        </div>
-      </a>
-      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/add">
-        <div>
-          <i class="material-icons">add_location_alt</i>
-        </div>
-      </a>
-      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/articles">
-        <div>
-          <i class="material-icons">feed</i>
-        </div>
-      </a>
-      <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/about">
-        <div>
-          <i class="material-icons">settings_applications</i>
-        </div>
-      </a>
-    </nav>
+  <nav>
+    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/index">
+      <div>
+        <i class="material-icons">search</i>
+      </div>
+    </a>
+    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/find">
+      <div>
+        <i class="material-icons">explore</i>
+      </div>
+    </a>
+    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/add">
+      <div>
+        <i class="material-icons">add_location_alt</i>
+      </div>
+    </a>
+    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/articles">
+      <div>
+        <i class="material-icons">feed</i>
+      </div>
+    </a>
+    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/about">
+      <div>
+        <i class="material-icons">settings_applications</i>
+      </div>
+    </a>
+  </nav>
 
-    <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
-      <div class="mdl-snackbar__text"></div>
-      <button class="mdl-snackbar__action" type="button"></button>
-    </div>
-  </main>
+  <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+  </div>
+</main>
 </div>
 
 </body>
