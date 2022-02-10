@@ -41,19 +41,7 @@
 </section>
 
 <section id="add_ad">
-  <ul class="list-micronations mdl-list">
-    <a href="/add" class="mdl-list__item mdl-list__item--three-line">
-      <span class="mdl-list__item-primary-content">
-          <span>ADD</span>
-          <span class="mdl-list__item-text-body">
-              Add your micronation
-          </span>
-      </span>
-      <span class="mdl-list__item-secondary-content">
-      </span>
-      <span class="mdl-list__item-secondary-content">
-          <i class="material-icons">note_add</i>
-      </span>
-    </a>
+  <ul class="list">
+    <a href="#">Addbutton</a>
   </ul>
 </section>
