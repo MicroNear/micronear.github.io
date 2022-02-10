@@ -18,22 +18,22 @@
 <section id="switchpage">
   <div>
     <div>
-      <button id="switchpage_back_full" class="mdl-button mdl-js-button mdl-button--icon">
+      <button id="switchpage_back_full">
         <i class="material-icons">first_page</i>
       </button>
     </div>
     <div>
-      <button id="switchpage_back_one" class="mdl-button mdl-js-button mdl-button--icon">
+      <button id="switchpage_back_one">
         <i class="material-icons">chevron_left</i>
       </button>
     </div>
     <div>
-      <button id="switchpage_next_one" class="mdl-button mdl-js-button mdl-button--icon">
+      <button id="switchpage_next_one">
         <i class="material-icons">navigate_next</i>
       </button>
     </div>
     <div>
-      <button id="switchpage_next_full" class="mdl-button mdl-js-button mdl-button--icon">
+      <button id="switchpage_next_full">
         <i class="material-icons">last_page</i>
       </button>
     </div>
@@ -42,6 +42,13 @@
 
 <section id="add_ad">
   <ul class="list">
-    <a href="#">Addbutton</a>
-  </ul>
+    <a href="/add" class="listitem">
+        <div>
+            <span>ADD</span>
+            <span>Add a micronation</span>
+        </div>
+        <div>
+        <i class="material-icons">add</i>
+        </div>
+    </a>  </ul>
 </section>
