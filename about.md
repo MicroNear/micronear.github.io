@@ -1,5 +1,5 @@
 <section>
-  <h2> Micronear </h2>
+  <h1> Micronear </h1>
   <p>Micronation list & nearby micronation finder</p>
   <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
     <span class="mdl-chip mdl-chip--deletable">

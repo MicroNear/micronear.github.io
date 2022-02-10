@@ -1,5 +1,6 @@
 <section>
   <h3>All micronations</h3>
+  <p>Note: You might experience glitches till Feb 13th 2022. We are updating the app.</p>
   <p>Displaying <span id="shownmicronations_count">##</span> of <span id="allmicronations_count">##</span> micronations.</p>
   <form>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

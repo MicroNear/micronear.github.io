@@ -20,12 +20,16 @@ html {
 }
 
 body {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-family: 'Roboto', sans-serif;
     -webkit-touch-callout: none;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+}
+
+main {
+    padding: 2rem 1rem;
 }
 
 input, textarea, button, .button {
@@ -84,7 +88,6 @@ button.mdl-button, input, textarea, .mdl-progress {
 }
 
 .list {
-    padding: 1rem;
 }
 
 .list ul {
@@ -110,6 +113,10 @@ button.mdl-button, input, textarea, .mdl-progress {
 .listitem > div:first-child {
     flex-direction: column;
     align-items: flex-start;
+}
+
+.listitem > div:last-child {
+    gap: 0.5rem;
 }
 
 .layout .card {
@@ -206,10 +213,6 @@ nav > a.mdl-button {
     flex: 1;
 }
 
-.mdl-list__item {
-	width: 100%;
-}
-
-.mdl-list__item--three-line .mdl-list__item-text-body, .mdl-list__item, .mdl-list__item--three-line .mdl-list__item-primary-content  {
-	height: auto;
+#switchpage button {
+    cursor: pointer;
 }
