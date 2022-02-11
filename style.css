@@ -38,6 +38,15 @@ input, textarea, button, .button {
     color: currentColor;
     border-radius: 0.5rem;
     padding: 1rem 2rem;
+    font-size: inherit;
+    margin: 1rem;
+    display: flex;
+}
+
+.accent {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 1rem 3rem;
 }
 
 h1 {
@@ -188,7 +197,7 @@ nav {
     mix-blend-mode: normal;
 }
 
-nav > a.mdl-button {
+nav > a.button {
     height: 100%;
     margin: 0;
     width: 100%;
