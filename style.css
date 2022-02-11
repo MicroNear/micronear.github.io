@@ -44,6 +44,7 @@ body {
     align-items: stretch;
 
     background-color: var(--positive);
+    color: var(--negative-tanned)
 }
 
 main {
