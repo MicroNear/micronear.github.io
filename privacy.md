@@ -25,5 +25,6 @@
         The server accepts only end-to-end encrypted https connections secured by TLS.
         The micronations are regularly backed up to avoid data loss.
         The server may log parts of received data for security purposes.
+        A log of certain activities (like creating, editing or removing micronations) is publicly available (without any private information).
     </p>
 </section>

@@ -7,11 +7,15 @@
       <button type="button" class="mdl-chip__action"><i class="material-icons">reviews</i></button>
     </span>
   </a>
+  <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" class="button">
+      <i class="material-icons">reviews</i>
+      Review on Google Play
+  </a>
 </section>
 <hr>
 <section>
   <h4> Contact </h4>
-  <a href="https://discord.com/invite/7FFunBaT6m">Discord (preferred)</a> <br>
+  <a href="https://discord.com/invite/7FFunBaT6m">Discord</a> <br>
   <a href="mailto:general@cupertinoalliance.ca">Email</a> <br>
 </section>
 <hr>
@@ -45,7 +49,7 @@
   <p>Developed by volunteers from the <a href="/micronation?m=RR">Berry Empire</a>, </p>
   <p>Hosted in <a href="/micronation?m=FNNA">New Athens</a>.</p>
   <p>Micronear is a property of the Cupertino Alliance.</p>
-  <p><a href="log">Log</a> | <a href="manual">Maintenance</a></p>
+  <p><a href="log">Public log</a></p>
   <hr>
   <p>&copy; Copyright 2021-2022, Cupertino Alliance. All rights reserved. </p>
 </section>
