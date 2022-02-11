@@ -1,4 +1,4 @@
-<h3> Articles </h3>
+<h1> Articles </h1>
 
 <ul>
     <li><a href="/articles/start_a_micronation">How to start a micronation?</a></li>

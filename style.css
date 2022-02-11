@@ -87,10 +87,8 @@ button.mdl-button, input, textarea, .mdl-progress {
     justify-content: space-around;
 }
 
-.list {
-}
 
-.list ul {
+.list {
     display: flex;
     flex-direction: column;
     align-items: stretch;
