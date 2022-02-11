@@ -1,8 +1,8 @@
 <section id="add">
-  <h3>Add a micronation</h3>
+  <h1>Add a micronation</h1>
     <form id="add__form" data-steps="3" action="#">
       <div class="form_step shown" data-step="0">
-        <h4>Basic information</h4>
+        <h2>Basic information</h2>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
           <input class="mdl-textfield__input" type="text" maxlength="256" id="add__mname" required="true" />
           <label class="mdl-textfield__label" for="add__mname">Micronation name</label>
@@ -25,54 +25,54 @@
         </div>
       </div>
       <div class="form_step" data-step="1">
-        <h4>Contact</h4>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <h2>Contact</h2>
+        <div>
           <input class="mdl-textfield__input" type="email" id="add__email" autocomplete="email" />
           <label class="mdl-textfield__label" for="add__email">Email</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <div>
           <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" autocomplete="url" />
           <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
         </div>
         <p>If you don't have a website, use your Wiki page, Instagram or a Discord server. Include https://.</p>
       </div>
       <div class="form_step" data-step="2">
-        <h4>Location</h4>
+        <h2>Location</h2>
         <div id="location_notice">
           <p>Allow Micronear to access the location of your micronation.</p>
-          <button id="location_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          <button id="location_button">
             Grant location access
           </button>
         </div>
         <input type="hidden" id="add__location">
-        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__distance">
-          <input type="checkbox" id="add__distance" class="mdl-switch__input" checked="" />
+        <label for="add__distance">
+          <input type="checkbox" id="add__distance" checked="" />
           <span class="mdl-switch__label">Show distance from users</span>
         </label>
-          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="add__coordinates">
-          <input type="checkbox" id="add__coordinates" class="mdl-switch__input" />
-          <span class="mdl-switch__label">Show on map</span>
+          <label for="add__coordinates">
+          <input type="checkbox" id="add__coordinates"/>
+          <span>Show on map</span>
         </label>
         <p id="locationprivacywarning" class="hidden">
-          <strong>Your physical security is important!</strong>
+          <strong>Your privacy is important!</strong>
           The <strong>Show on map</strong> option will make this location <strong>visible to anyone</strong>. <br>
         </p>
       </div>
       <div class="form_step" data-step="3">
-        <h4>Submit</h4>
-        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="add__terms">
-          <input type="checkbox" id="add__terms" class="mdl-checkbox__input" />
-          <span class="mdl-checkbox__label">I agree to the <a href="/terms">Terms of Service</a> and the <a href="/privacy">Privacy Policy</a></span>
+        <h2>Submit</h2>
+        <label for="add__terms">
+          <input type="checkbox" id="add__terms"/>
+          <span>I agree to the <a href="/terms">Terms of Service</a> and the <a href="/privacy">Privacy Policy</a></span>
         </label>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="add__buy">
+        <button id="add__buy">
           Add
         </button>
       </div>
       <div class="form_controls">
-        <button id="form_back" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+        <button id="form_back">
           Back
         </button>
-        <button id="form_next" class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised mdl-js-ripple-effect">
+        <button id="form_next">
           Next
         </button>
       </div>
@@ -92,7 +92,7 @@
     <li>Write down your password.</li>
   </ul>
   <h5>Need help?</h5>
-  <a href="/about" class="mdl-button mdl-js-button mdl-button--accent mdl-button--raised mdl-js-ripple-effect">
+  <a href="/about" class="button">
     Contact us
   </a>
 </section>

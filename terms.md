@@ -1,10 +1,10 @@
 <section>
-    <h3> Terms of Service </h3>
-    <h4> Legal notice </h4>
+    <h1> Terms of Service </h1>
+    <h2> Legal notice </h2>
     <p>
         This software is provided "as is", without warranty of any kind, express or implied.
     </p>
-    <h4> Terms </h4>
+    <h2> Terms </h2>
     <p>
         You must not:
         <ul>

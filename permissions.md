@@ -4,19 +4,25 @@
   This part of Micronear requires the location permission in order to work.
 </p>
 
-<ul class="demo-list-icon mdl-list">
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-    <i class="material-icons mdl-list__item-icon">gps_fixed</i>
-    Switch GPS on
-</span>
-  </li>
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-    <i class="material-icons mdl-list__item-icon">task_alt</i>
-    Click "Grant"
-  </span>
-  </li>
+
+<ul id="list__ul" class="list">
+  <a href="/micronation?m=AA" class="listitem">
+      <div>
+          <span>Switch GPS on</span>
+      </div>
+      <div>
+      <i class="material-icons">gps_fixed</i>
+      </div>
+  </a>
+  
+  <a href="/micronation?m=AAR" class="listitem">
+      <div>
+          <span>Click "Grant"</span>
+      </div>
+      <div>
+      <i class="material-icons">task_alt</i>
+      </div>
+  </a>
 </ul>
 
 <hr>
