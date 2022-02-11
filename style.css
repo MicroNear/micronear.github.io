@@ -215,12 +215,13 @@ nav {
     mix-blend-mode: normal;
 }
 
-nav > a.button {
+nav a {
     height: 100%;
     margin: 0;
     width: 100%;
     min-width: unset;
     color: inherit;
+    color: currentColor;
 
     display: flex;
     flex-direction: column;
