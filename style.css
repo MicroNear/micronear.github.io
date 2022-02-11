@@ -9,8 +9,24 @@
 
 :root {
     --color-primary: rgb(68,138,255);
-    --highlight: #e0e0e0;
-    --tanned: #efefef;
+
+    --positive: #ffffff;
+    --positive-tanned: #efefef;
+
+    --negative: #000000;
+    --negative-tanned: #0f0f0f;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: rgb(35, 46, 199);
+    
+        --negative: #ffffff;
+        --negative-tanned: #efefef;
+    
+        --positive: #000000;
+        --positive-tanned: #0f0f0f;
+    }
 }
 
 
@@ -34,7 +50,7 @@ main {
 
 input, textarea, button, .button {
     border: none;
-    background-color: #e0e0e0;
+    background-color: var(--positive-tanned);
     color: currentColor;
     border-radius: 0.5rem;
     padding: 1rem 2rem;
@@ -45,7 +61,7 @@ input, textarea, button, .button {
 
 .accent {
     background-color: var(--color-primary);
-    color: #fff;
+    color: var(--positive);
     padding: 1rem 3rem;
 }
 
@@ -186,8 +202,8 @@ nav {
     height: 5rem;
     z-index: 3;
     border-top: 1px solid gray;
-    color: darkslategray;
-    background-color: white;
+    color: var(--negative-tanned);
+    background-color: var(--positive);
 
     display: flex;
     flex-direction: row;
