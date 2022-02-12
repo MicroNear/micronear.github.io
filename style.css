@@ -242,3 +242,14 @@ nav a {
 #switchpage button {
     cursor: pointer;
 }
+
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--positive-tanned);
+    padding: 0.5rem 1rem;
+    border-radius: 5rem;
+    text-decoration: none;
+    color: currentcolor;
+}

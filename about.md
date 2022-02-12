@@ -2,14 +2,10 @@
   <h1> Micronear </h1>
   <p>Micronation list & nearby micronation finder</p>
   <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" target="_blank" class="nodecoration" id="mnpage__website">
-    <span class="mdl-chip mdl-chip--deletable">
-      <span class="mdl-chip__text" id="mnpage__website_text">Review on Google Play</span>
-      <button type="button" class="mdl-chip__action"><i class="material-icons">reviews</i></button>
-    </span>
-  </a>
-  <a href="https://play.google.com/store/apps/details?id=xyz.berrykingdom.micronear" class="button">
+    <span class="chip">
+      <span>Review on Google Play</span>
       <i class="material-icons">reviews</i>
-      Review on Google Play
+    </span>
   </a>
 </section>
 <hr>
