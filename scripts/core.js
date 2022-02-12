@@ -8,7 +8,6 @@ if ('serviceWorker' in navigator) {
 
 import {
     errors,
-    showSnackBar,
     verifyCode,
     sharePage,
     findGetParameter,
@@ -80,7 +79,7 @@ if (link == "/find") {
                 await sendFindRequest(location);
                 location_notice.classList.add("hidden");
             } else {
-                showSnackBar(errors.location);
+                alert(errors.location);
             }
         })
     }
@@ -250,7 +249,7 @@ async function updateForm() {
                 location_button.setAttribute("disabled", "true");
                 location_privacywarning.classList.remove("hidden");
             } else {
-                showSnackBar(errors.location);
+                alert(errors.location);
             }
         })
     }
@@ -297,15 +296,15 @@ elements.buy.addEventListener("click", async (e) => {
                 await sendAddRequest(data);
 
             } else {
-                showSnackBar(errors.terms);
+                alert(errors.terms);
             }
         } else {
-            showSnackBar("Enable location to continue")
+            alert("Enable location to continue")
         }
 
 
     } else {
-        showSnackBar(`Country code ${data.code} is invalid`);
+        alert(`Country code ${data.code} is invalid`);
     }
 
 });
@@ -328,7 +327,7 @@ elements.buy.addEventListener("click", async (e) => {
         //observeGeoPermission(r);
 
     } else {
-        showSnackBar(errors.browser_support);
+        alert(errors.browser_support);
     }
 
 
@@ -347,7 +346,7 @@ elements.buy.addEventListener("click", async (e) => {
 
     
     } else {
-        showSnackBar(errors.generic);
+        alert(errors.generic);
     }
 } else if (link == "/edit") {
 
@@ -395,7 +394,7 @@ elements.buy.addEventListener("click", async (e) => {
             elements.location.value = JSON.stringify(location);
             elements.location_button.setAttribute("disabled", "true")
         } else {
-            showSnackBar(errors.location);
+            alert(errors.location);
         }
     })
 
@@ -421,7 +420,7 @@ elements.buy.addEventListener("click", async (e) => {
         })
     
     } else {
-        showSnackBar(errors.generic);
+        alert(errors.generic);
         console.error(errors.generic);
     }
 
@@ -433,25 +432,13 @@ elements.buy.addEventListener("click", async (e) => {
 
     });
 
-
-    let snackbarContainer = document.querySelector('#edit__confirm_remove');
-
-    let handler = async function(event) {
-        let password_hash = await sha256(elements.old_password.value);
-        await sendRemoveRequest(code, password_hash);
-    };
-
     elements.remove.addEventListener('click', async function() {
         'use strict';
 
-        let data = {
-          message: 'Are you sure?',
-          timeout: 5000,
-          actionHandler: handler,
-          actionText: 'Remove'
-        };
-
-        snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        if(confirm("This action cannot be undone. Remove micronation?")) {
+            let password_hash = await sha256(elements.old_password.value);
+            await sendRemoveRequest(code, password_hash);
+        }
 
     });
 
@@ -467,7 +454,7 @@ elements.buy.addEventListener("click", async (e) => {
         e.preventDefault();
 
         let response = await sendVerificationRequest(elements.code.value, await sha256(elements.password.value));
-        showSnackBar(response.message);
+        alert(response.message);
         if(response.success) {
             setTimeout(() => {
                 window.location = "/verification";

@@ -22,10 +22,6 @@ export const errors = {
     location_needed: "Location access needed"
 }
 
-export function showSnackBar(message) {
-    alert(message);
-}
-
 export function verifyCode (code) {
     if(code.length > 1 && code.length < 5) {
         return true;
@@ -48,12 +44,12 @@ export async function sharePage() {
               text
             })
     
-                showSnackBar("Thanks for sharing");
+                alert("Thanks for sharing");
           } catch (err) {
                 // Cancelled or error
           }
     } else {
-        showSnackBar("Sharing isn't supported by your device");
+        alert("Sharing isn't supported by your device");
     }
 
   }
@@ -125,19 +121,19 @@ export async function sendAddRequest (micronation) {
 
             } else {
                 if(data.message != "") {
-                    showSnackBar(data.message);
+                    alert(data.message);
                 } else {
-                    showSnackBar(errors.add_internal_fault);
+                    alert(errors.add_internal_fault);
                 }
             }
 
         } else {
-            showSnackBar(`Your device provided inaccurate location (${micronation.coordinates.accuracy}m), try again later`);
+            alert(`Your device provided inaccurate location (${micronation.coordinates.accuracy}m), try again later`);
         }
         
 
     } else {
-        showSnackBar("Enable location to continue");
+        alert("Enable location to continue");
     }
 
 }
@@ -221,7 +217,7 @@ export async function sendListRequest(page) {
     wrapper.innerHTML = null;
 
     if(typeof data != typeof []) {
-        showSnackBar((data == null) ? "Failed to fetch data" : data);
+        alert((data == null) ? "Failed to fetch data" : data);
     } else {
         shown_span.innerText = data.length;
 
@@ -261,7 +257,7 @@ export async function geoData (enableHighAccuracy) {
             resolve(data);
         }, (error) => {
             resolve(false);
-            showSnackBar(errors.geo_denied);
+            alert(errors.geo_denied);
             console.log(error);
         }, options);
     });
@@ -286,7 +282,7 @@ export async function superfetch(url, method, body) {
     .then((response) => {
         return response.json();
     }).then(data => {return data})
-    .catch(error => showSnackBar("ERROR: " + error))
+    .catch(error => alert("ERROR: " + error))
 
     return data;
 }
@@ -491,7 +487,7 @@ export async function sendUnlockRequest(code, password, elements) {
 
 
     } else {
-        showSnackBar(data.message);
+        alert(data.message);
     }
 
 
@@ -553,15 +549,15 @@ export async function sendEditRequest(code, old_password, elements) {
 
                 
             } else {
-                showSnackBar(data.message);
+                alert(data.message);
             }
     
             
         } else {
-            showSnackBar(`Your device provided inaccurate location (${request.coordinates.accuracy}m), try again later`);
+            alert(`Your device provided inaccurate location (${request.coordinates.accuracy}m), try again later`);
         }
     } else {
-        showSnackBar(errors.location_needed);
+        alert(errors.location_needed);
     }
 
 }
@@ -586,7 +582,7 @@ export async function sendRemoveRequest(code, password) {
 
             
     } else {
-            showSnackBar(data.message);
+            alert(data.message);
     }
     
 }
@@ -609,7 +605,7 @@ export async function sendSearchRequest(term) {
         return data
     })
     .catch(error => {
-        showSnackBar(error)   
+        alert(error)   
     })
     return data;
 }
@@ -633,7 +629,7 @@ export async function sendVerificationRequest(code, password) {
         return data
     })
     .catch(error => {
-        showSnackBar(error)   
+        alert(error)   
     })
     return data;    
 }
