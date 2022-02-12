@@ -175,12 +175,6 @@ button.mdl-button, input, textarea, .mdl-progress {
 .page-content {
     padding: 4rem;
 }
-
-.hidden {
-    visibility: hidden;
-    display: none;
-}
-
 .mdl-snackbar {
     z-index: 100;
 }
@@ -252,4 +246,9 @@ nav a {
     border-radius: 5rem;
     text-decoration: none;
     color: currentcolor;
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
 }
