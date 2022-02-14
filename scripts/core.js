@@ -501,6 +501,7 @@ elements.buy.addEventListener("click", async (e) => {
     data.forEach(entry => {
 
         let icon = "info";
+
         switch(entry.type) {
             case "added":
                 icon = "add_location_alt";
@@ -522,20 +523,10 @@ elements.buy.addEventListener("click", async (e) => {
                 break;
         }
 
-        const newelem = `
-        <li class="mdl-list__item mdl-list__item--three-line">
-            <span class="mdl-list__item-primary-content">
-                <span class="mdl-list__item-primary-content">
-                    <span>${entry.text}</span>
-                    <span class="mdl-list__item-text-body">
-                        ${new Date(entry.time).toGMTString()}
-                    </span>
-                </span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-                <i class="material-icons">${icon}</i>
-            </span>
-        </li>`;
+        datehappened = new Date(entry.time).toGMTString();
+
+        const newelem = makeMicronationListItem(datehappened, entry.text, false, icon, "")
+
         logelem.innerHTML += newelem;
     })
 
