@@ -523,7 +523,7 @@ elements.buy.addEventListener("click", async (e) => {
                 break;
         }
 
-        datehappened = new Date(entry.time).toGMTString();
+        const datehappened = new Date(entry.time).toGMTString();
 
         const newelem = makeMicronationListItem(datehappened, entry.text, false, icon, "")
 
