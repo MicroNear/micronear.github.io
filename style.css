@@ -27,6 +27,9 @@
         --positive: #000000;
         --positive-tanned: #0f0f0f;
     }
+    a:link, a:visited {
+        color: lightblue;
+    }
 }
 
 
