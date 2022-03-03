@@ -3,36 +3,36 @@
     <form id="add__form" data-steps="3" action="#">
       <div class="form_step shown" data-step="0">
         <h2>Basic information</h2>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="text" maxlength="256" id="add__mname" required="true" />
-          <label class="mdl-textfield__label" for="add__mname">Micronation name</label>
+        <div class="textfield">
+          <label for="add__mname">Micronation name</label>
+          <input type="text" maxlength="256" id="add__mname" required="true" />
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <div class="textfield">
+            <label for="add__code">Country code</label>
             <input class="mdl-textfield__input uppercase" type="text" maxlength="4" id="add__code" required="true" autocomplete="country"/>
-            <label class="mdl-textfield__label" for="add__code">Country code</label>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mflag" autocomplete="url" />
-          <label class="mdl-textfield__label" for="add__mflag">Flag image link</label>
+        <div class="textfield">
+          <label for="add__mflag">Flag image link</label>
+          <input type="url" maxlength="256" id="add__mflag" autocomplete="url" />
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
-          <label class="mdl-textfield__label" for="add__password">New password</label>
+        <div class="textfield">
+          <label for="add__password">New password</label>
+          <input type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-          <textarea class="mdl-textfield__input" type="text" rows="3" id="add__description" maxlength="1000"></textarea>
-          <label class="mdl-textfield__label" for="add__description">Short description in English</label>
+          <label for="add__description">Short description in English</label>
+          <textarea type="text" rows="3" id="add__description" maxlength="1000"></textarea>
         </div>
       </div>
       <div class="form_step" data-step="1">
         <h2>Contact</h2>
         <div>
-          <input class="mdl-textfield__input" type="email" id="add__email" autocomplete="email" />
-          <label class="mdl-textfield__label" for="add__email">Email</label>
+          <label for="add__email">Email</label>
+          <input type="email" id="add__email" autocomplete="email" />
         </div>
         <div>
-          <input class="mdl-textfield__input" type="url" maxlength="256" id="add__mwebsite" autocomplete="url" />
-          <label class="mdl-textfield__label" for="add__mwebsite">Website</label>
+          <label for="add__mwebsite">Website</label>
+          <input type="url" maxlength="256" id="add__mwebsite" autocomplete="url" />
         </div>
         <p>If you don't have a website, use your Wiki page, Instagram or a Discord server. Include https://.</p>
       </div>
@@ -64,7 +64,7 @@
           <input type="checkbox" id="add__terms"/>
           <span>I agree to the <a href="/terms">Terms of Service</a> and the <a href="/privacy">Privacy Policy</a></span>
         </label>
-        <button id="add__buy">
+        <button class="accent" id="add__buy">
           Add
         </button>
       </div>

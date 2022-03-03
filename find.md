@@ -1,5 +1,5 @@
 <section>
-    <h3>Nearest micronations</h3>
+    <h1>Nearest micronations</h1>
     <div id="location_notice" class="hidden">
       <p>Micronear needs access to your location in order to find micronations near to you.</p>
       <button id="location_button" class="accent">

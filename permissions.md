@@ -1,4 +1,4 @@
-<h3>Location Permission</h3>
+<h1>Location Permission</h1>
 
 <p>
   This part of Micronear requires the location permission in order to work.
