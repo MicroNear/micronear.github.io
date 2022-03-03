@@ -70,10 +70,6 @@ input, textarea, button, .button {
     padding: 1rem 3rem;
 }
 
-h1 {
-    font-size: 2rem;
-}
-
 hr {
     width: 100%;
 }
@@ -242,6 +238,7 @@ nav a {
     border-radius: 5rem;
     text-decoration: none;
     color: currentcolor;
+    margin: 0.5rem 0;
 }
 
 .hidden {
