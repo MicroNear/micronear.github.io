@@ -470,23 +470,8 @@ elements.buy.addEventListener("click", async (e) => {
         verification_requests_element.innerHTML = "";
         
         data.forEach(entry => {
-            const newelem = `
-            <a href="/micronation.html?m=${entry.code}" class="mdl-list__item mdl-list__item--three-line">
-                <span class="mdl-list__item-primary-content">
-                    <span class="mdl-list__item-primary-content">
-                        <span>${entry.code}</span>
-                        <span class="mdl-list__item-text-body">
-                            ${new Date(entry.time).toGMTString()}
-                        </span>
-                    </span>
-                </span>
-                <span class="mdl-list__item-secondary-content">
-                    <i class="material-icons">access_time</i>
-                </span>
-            </a>`
-            
             const newelem = makeMicronationListItem(new Date(entry.time).toGMTString(), entry.code, task, `/micronation.html?m=${entry.code}`);
-          verification_requests_element.innerHTML += newelem;
+            verification_requests_element.innerHTML += newelem;
         });
     }
 
