@@ -118,7 +118,7 @@ if (link == "/find") {
             console.log(results);
     
             results.forEach(micronation => {
-                const li = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation.html?m=${micronation.code}`);
+                const li = makeMicronationListItem(micronation.code, micronation.name, (micronation.verified) ? "verified" : null, "open_in_new" ,`/micronation.html?m=${micronation.code}`);
                 searchresults.innerHTML += li;
             });
 
@@ -484,7 +484,8 @@ elements.buy.addEventListener("click", async (e) => {
                     <i class="material-icons">access_time</i>
                 </span>
             </a>`
-
+            
+            const newelem = makeMicronationListItem(new Date(entry.time).toGMTString(), entry.code, task, `/micronation.html?m=${entry.code}`);
           verification_requests_element.innerHTML += newelem;
         });
     }
@@ -525,7 +526,7 @@ elements.buy.addEventListener("click", async (e) => {
 
         const datehappened = new Date(entry.time).toGMTString();
 
-        const newelem = makeMicronationListItem(datehappened, entry.text, false, icon, "")
+        const newelem = makeMicronationListItem(datehappened, entry.text, "info", icon, "")
 
         logelem.innerHTML += newelem;
     })

@@ -45,11 +45,11 @@
           </button>
         </div>
         <input type="hidden" id="add__location">
-        <label for="add__distance">
+        <label class="checkbox" for="add__distance">
           <input type="checkbox" id="add__distance" checked="" />
-          <span class="mdl-switch__label">Show distance from users</span>
+          <span>Show distance from users</span>
         </label>
-          <label for="add__coordinates">
+        <label class="checkbox" for="add__coordinates">
           <input type="checkbox" id="add__coordinates"/>
           <span>Show on map</span>
         </label>

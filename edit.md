@@ -43,29 +43,29 @@
     <div>
     <h4>Location</h4>
     <label class="checkbox" for="edit__update_coordinates">
-      <input type="checkbox" id="edit__update_coordinates" class="mdl-checkbox__input" />
+      <input type="checkbox" id="edit__update_coordinates"/>
       <span>Update the coordinates with my location</span>
     </label>
     <div id="location_notice" class="hidden">
       <p>Allow Micronear to access the location of your micronation.</p>
-      <button type="button" id="location_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      <button type="button" id="location_button">
         Grant location access
       </button>
     </div>
     <input type="hidden" id="edit__location">
     </div>
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="edit__privacy_distance">
-      <input type="checkbox" id="edit__privacy_distance" class="mdl-switch__input" />
+    <label class="checkbox" for="edit__privacy_distance">
+      <input type="checkbox" id="edit__privacy_distance"/>
       <span class="mdl-switch__label">Show on the find nearby page</span>
     </label>
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="edit__privacy_coordinates">
-      <input type="checkbox" id="edit__privacy_coordinates" class="mdl-switch__input" />
+    <label class="checkbox" for="edit__privacy_coordinates">
+      <input type="checkbox" id="edit__privacy_coordinates"/>
       <span class="mdl-switch__label">Visible on map</span>
     </label>
     <div>
       <h4>Submit</h4>
       <label class="checkbox" for="edit__want_to_change_pass">
-        <input type="checkbox" id="edit__want_to_change_pass" class="mdl-checkbox__input" />
+        <input type="checkbox" id="edit__want_to_change_pass"/>
         <span>Change password</span>
       </label>
       <div class="textfield mdl-js-textfield textfield--floating-label hidden" id="edit__new_password_wrapper">
@@ -77,12 +77,14 @@
         <span>I agree to the <a href="terms">Terms of Service</a> and the <a href="privacy">Privacy Policy</a></span>
       </label>
       <hr />
-      <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="edit__remove">
+      <div>
+      <button type="button" id="edit__remove">
         Remove
       </button>
-      <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="edit__buy">
+      <button type="submit" id="edit__buy">
         Update
       </button>
+      </div>
     </div>
 </form>
 

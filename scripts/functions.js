@@ -186,18 +186,19 @@ ${(micronation.description != undefined) ? micronation.description : "No descrip
     
 }
 
-export function makeMicronationListItem(code, name, verified, icon, link) {
+export function makeMicronationListItem(row1, row2, icon1, icon2, link) {
+    const wrappertype = link == "" ? "div" : "a";
     let listitem = `
-    <a href="${link}" class="listitem">
+    <${wrappertype} href="${link}" class="listitem">
         <div>
-            <span>${code}</span>
-            <span>${name}</span>
+            <span>${row1}</span>
+            <span>${row2}</span>
         </div>
         <div>
-        ${(verified) ? '<i class="material-icons">verified</i>' : ""}
-        <i class="material-icons">${icon}</i>
+        ${(icon1 != "") ? '<i class="material-icons">' + icon1 + '</i>' : ""}
+        ${(icon2 != "") ? '<i class="material-icons">' + icon2 + '</i>' : ""}
         </div>
-    </a>
+    </${wrappertype}>
     `;
 
     return listitem;
@@ -227,7 +228,7 @@ export async function sendListRequest(page) {
 
         data.forEach(micronation => {
 
-            let listitem = makeMicronationListItem(micronation.code, micronation.name, micronation.verified, "open_in_new" ,`/micronation?m=${micronation.code}`)
+            let listitem = makeMicronationListItem(micronation.code, micronation.name, (micronation.verified) ? "verified" : null, "open_in_new" ,`/micronation?m=${micronation.code}`)
     
         wrapper.innerHTML += listitem;
         });
