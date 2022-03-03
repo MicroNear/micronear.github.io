@@ -472,15 +472,15 @@ export async function sendUnlockRequest(code, password, elements) {
 
 
         if(data.privacy_distance) {
-            elements.privacy_distance.parentElement.MaterialSwitch.on();
+            elements.privacy_distance.setAttribute("disabled", true);
         } else {
-            elements.privacy_distance.parentElement.MaterialSwitch.off();
+            elements.privacy_distance.removeAttribute("disabled", true)
         }
 
         if(data.privacy_coordinates) {
-            elements.privacy_coordinates.parentElement.MaterialSwitch.on();
+            elements.privacy_coordinates.setAttribute("disabled", true);
         } else {
-            elements.privacy_coordinates.parentElement.MaterialSwitch.off();
+            elements.privacy_coordinates.removeAttribute("disabled", true)
         }
 
         elements.form.classList.remove("hidden");
