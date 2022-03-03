@@ -52,7 +52,7 @@ if ('serviceWorker' in navigator) {
 } else {
     console.log("Browser not supported.");
 }
-
+/*
 const uppercase = document.querySelectorAll(".uppercase");
 uppercase.forEach(element => {
     element.addEventListener("input", e => {
@@ -62,6 +62,7 @@ uppercase.forEach(element => {
         e.target.setSelectionRange(p, p);
     });
 })
+*/
 
 if (link == "/find") {
 

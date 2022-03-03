@@ -9,7 +9,7 @@
         </div>
         <div class="textfield">
             <label for="add__code">Country code</label>
-            <input class="mdl-textfield__input uppercase" type="text" maxlength="4" id="add__code" required="true" autocomplete="country"/>
+            <input class="mdl-textfield__input" type="text" maxlength="4" id="add__code" required="true" autocapitalize autocomplete="country"/>
         </div>
         <div class="textfield">
           <label for="add__mflag">Flag image link</label>

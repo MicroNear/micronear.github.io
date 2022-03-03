@@ -4,12 +4,12 @@
   <h1>Edit micronation</h1>
     <form id="edit__preform">
         <div class="textfield mdl-js-textfield">
-            <input type="text" maxlength="256" id="edit__code" required="true" disabled />
             <label for="edit__code">Code</label>
+            <input type="text" maxlength="256" id="edit__code" required="true" autocapitalize disabled />
         </div>
         <div class="textfield">
-            <input type="password" maxlength="256" id="edit__old_password" required="true" autocomplete="current-password" />
             <label for="edit__password">Password</label>
+            <input type="password" maxlength="256" id="edit__old_password" required="true" autocomplete="current-password" />
         </div>
         <button class="accent" id="edit__unlock">
             Unlock
@@ -23,20 +23,20 @@
         <label for="edit__name">Micronation name</label>
       </div>
       <div class="textfield mdl-js-textfield">
-        <textarea type="text" rows="3" id="edit__description" maxlength="1000"></textarea>
         <label for="edit__description">Description in English</label>
+        <textarea type="text" rows="3" id="edit__description" maxlength="1000"></textarea>
       </div>
       <div class="textfield">
-        <input type="email" id="edit__email" />
         <label for="edit__email">Email</label>
+        <input type="email" id="edit__email" />
       </div>
       <div class="textfield">
-        <input type="url" maxlength="256" id="edit__flag" />
         <label for="edit__flag">Flag image link</label>
+        <input type="url" maxlength="256" id="edit__flag" />
       </div>
       <div class="textfield">
-        <input type="url" maxlength="256" id="edit__website" />
         <label for="edit__website">Website</label>
+        <input type="url" maxlength="256" id="edit__website" />
       </div>
       <p>If you don't have a website, use your Wiki page, Instagram or a Discord server</p>
     </div>
