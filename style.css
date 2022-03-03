@@ -164,10 +164,6 @@ span a, ul a, ol a {
     color: inherit;
 }
 
-.mdl-checkbox {
-    height: unset;
-}
-
 .icon_chip span {
     padding: 0 3px;
 }
@@ -259,5 +255,10 @@ nav a {
 }
 
 .checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.row {
     display: flex;
 }

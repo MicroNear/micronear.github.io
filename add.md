@@ -60,7 +60,7 @@
       </div>
       <div class="form_step" data-step="3">
         <h2>Submit</h2>
-        <label for="add__terms">
+        <label class="checkbox" for="add__terms">
           <input type="checkbox" id="add__terms"/>
           <span>I agree to the <a href="/terms">Terms of Service</a> and the <a href="/privacy">Privacy Policy</a></span>
         </label>
@@ -72,7 +72,7 @@
         <button id="form_back">
           Back
         </button>
-        <button id="form_next">
+        <button id="form_next" class="accent">
           Next
         </button>
       </div>
@@ -80,18 +80,17 @@
 </section>
 <hr>
 <section id="tips">
-  <h5>Choosing a country code</h5>
+  <h3>Choosing a country code</h3>
   <ul>
     <li>Country code is a 2, 3 or 4-letter code representing your micronation.</li>
-    <li>Don't include "Kingdom" or "Republic" in your code. For example Nonexistent Republic should be NE or NEX, not NR.</li>
-    <li>Valid examples: DR, MOL, SEA, SKL.</li>
+    <li>For example: DR, MOL, SEA, SKL.</li>
   </ul>
-  <h5>Privacy & Security</h5>
+  <h3>Privacy & Security</h3>
   <ul>
-    <li>Longer passwords such as "micronationswilltakeover" are stronger and easier to remember than passwords like "Q9E4P1D7S2".</li>
+    <li>Passphrases such as "micronationswilltakeover" are stronger and easier to remember than passwords like "Q9E4P1D7S2".</li>
     <li>Write down your password.</li>
   </ul>
-  <h5>Need help?</h5>
+  <h3>Need help?</h3>
   <a href="/about" class="button">
     Contact us
   </a>

@@ -77,13 +77,13 @@
         <span>I agree to the <a href="terms">Terms of Service</a> and the <a href="privacy">Privacy Policy</a></span>
       </label>
       <hr />
-      <div>
-      <button type="button" id="edit__remove">
-        Remove
-      </button>
-      <button type="submit" id="edit__buy">
-        Update
-      </button>
+      <div class="row">
+        <button type="button" id="edit__remove">
+          Remove
+        </button>
+        <button class="accent" type="submit" id="edit__buy">
+          Update
+        </button>
       </div>
     </div>
 </form>
