@@ -246,7 +246,7 @@ nav a {
 
 .hidden {
     visibility: hidden;
-    display: none;
+    display: none !important;
 }
 
 .textfield {
