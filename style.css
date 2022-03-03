@@ -107,9 +107,6 @@ span a, ul a, ol a {
     text-decoration: none;
 }
 
-button.mdl-button, input, textarea, .mdl-progress {
-    margin: 1rem;
-}
 
 .form_controls {
     display: flex;
@@ -254,4 +251,13 @@ nav a {
 .hidden {
     visibility: hidden;
     display: none;
+}
+
+.textfield {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox {
+    display: flex;
 }
