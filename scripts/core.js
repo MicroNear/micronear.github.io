@@ -71,7 +71,9 @@ if (link == "/find") {
 
     if(await geoPermission()) {
         let location = await geoData(true);
-        await sendFindRequest(location);
+        if(location) {
+            await sendFindRequest(location);
+        }
     } else {
         location_notice.classList.remove("hidden");
         location_button.addEventListener("click", async e => {

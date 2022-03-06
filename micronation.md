@@ -3,40 +3,28 @@
     <p id="mnpage__description">No description provided</p>
     <div>
       <a href="#" class="chip" id="mnpage__code">
-      <span>
-        <i class="material-icons">flag</i>
+      <i class="material-icons">flag</i>
         <span id="mnpage__code_text">CODE</span>
-      </span>
-    </a>
+      </a>
     <a href="/verification.html" class="chip hidden" id="mnpage__verified">
-      <span>
-        <i class="material-icons">verified</i>
+      <i class="material-icons">verified</i>
         <span>Verified</span>
-      </span>
-    </a>
+      </a>
     <a href="#" target="_blank" class="chip hidden" id="mnpage__map">
-      <span>
-        <i class="material-icons">map</i>
+      <i class="material-icons">map</i>
         <span>View on map</span>
-      </span>
-    </a>
+      </a>
     <a href="#" target="_blank" class="chip hidden" id="mnpage__email">
-      <span>
-        <i class="material-icons">contact_mail</i>
+      <i class="material-icons">contact_mail</i>
         <span>Email</span>
-      </span>
-    </a>
+      </a>
     <a href="#" target="_blank" class="chip hidden" id="mnpage__website">
-      <span>
-        <i class="material-icons">public</i>
+      <i class="material-icons">public</i>
         <span id="mnpage__website_text">Website</span>
-      </span>
-    </a>
+      </a>
     <a href="#" class="chip" id="mnpage__edit">
-        <span>
-          <i class="material-icons">edit_location_alt</i>
-          <span id="mnpage__website_text">Edit</span>
-        </span>
+        <i class="material-icons">edit_location_alt</i>
+        <span id="mnpage__website_text">Edit</span>
     </a>
     </div>
 </section>
