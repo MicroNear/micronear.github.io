@@ -37,7 +37,7 @@
     </div>
     <form id="verification__form" class="">
     <div class="textfield">
-      <input type="text" maxlength="4" autocomplete="username" id="verification__code" autocomplete="country" required uppercase />
+      <input class="uppercase" type="text" maxlength="4" autocomplete="username" id="verification__code" autocomplete="country" required />
       <label class="mdl-textfield__label" for="verification__code">Country code</label>
     </div>
     <div class="textfield">

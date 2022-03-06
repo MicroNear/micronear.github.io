@@ -4,23 +4,23 @@
       <div class="form_step shown" data-step="0">
         <h2>Basic information</h2>
         <div class="textfield">
-          <label for="add__mname">Micronation name</label>
-          <input type="text" maxlength="256" id="add__mname" required="true" />
+          <label for="add__mname">Micronation name *</label>
+          <input type="text" maxlength="256" id="add__mname" required="true" placeholder="Republic of Questonia" />
         </div>
         <div class="textfield">
-            <label for="add__code">Country code</label>
-            <input type="text" maxlength="4" id="add__code" required="true" autocapitalize autocomplete="country"/>
+            <label class="uppercase" for="add__code">Country code *</label>
+            <input type="text" maxlength="4" id="add__code" required="true" autocapitalize autocomplete="country" placeholder="QES"/>
         </div>
         <div class="textfield">
           <label for="add__mflag">Flag image link</label>
-          <input type="url" maxlength="256" id="add__mflag" autocomplete="url" />
+          <input type="url" maxlength="256" id="add__mflag" autocomplete="url" placeholder="https://micronations.wiki/your-flag.png"/>
         </div>
         <div class="textfield">
-          <label for="add__password">New password</label>
+          <label for="add__password">New password *</label>
           <input type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
         </div>
         <div class="textfield">
-          <label for="add__description">Short description in English</label>
+          <label for="add__description">Short description in English *</label>
           <textarea type="text" rows="3" id="add__description" maxlength="1000"></textarea>
         </div>
       </div>
