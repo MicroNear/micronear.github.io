@@ -155,7 +155,7 @@ export async function sendFindRequest (geolocation) {
     }
     data.forEach(micronation => {
         let card = `
-<div class="card" style="background-image: linear-gradient(to bottom, var(--negative), var(--negative-transparent), url('${protocol}${domain}/image/${micronation.code}')">
+<div class="card" style="background-image: linear-gradient(to bottom, var(--negative), var(--negative-transparent)), url('${protocol}${domain}/image/${micronation.code}')">
 
 <div class="cardtitle">
 <h2>${micronation.name}</h2>
