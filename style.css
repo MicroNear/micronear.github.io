@@ -8,13 +8,15 @@
   
 
 :root {
-    --color-primary: rgb(68,138,255);
+    --color-primary: #448AFF;
 
     --positive: #ffffff;
     --positive-tanned: #efefef;
+    --positive-transparent: rgba(240, 240, 240, .5);
 
     --negative: #000000;
     --negative-tanned: #0f0f0f;
+    --negative-transparent: rgba(16,16,16, .5);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,9 +25,13 @@
     
         --negative: #ffffff;
         --negative-tanned: #efefef;
+        --negative-transparent: rgba(240, 240, 240, .5);
+
     
         --positive: #000000;
         --positive-tanned: #0f0f0f;
+        --positive-transparent: rgba(16,16,16, .5);
+
     }
     a:link, a:visited {
         color: lightblue;
