@@ -5,7 +5,7 @@
     <li class="mdl-list__item">
       <span class="mdl-list__item-primary-content">
       <i class="material-icons mdl-list__item-icon">restart_alt</i>
-      Update Micronear by swiping down
+      Update Micronear
     </span>
     </li>
     <li class="mdl-list__item">

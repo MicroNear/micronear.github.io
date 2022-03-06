@@ -9,7 +9,7 @@
         </div>
         <div class="textfield">
             <label for="add__code">Country code</label>
-            <input class="mdl-textfield__input" type="text" maxlength="4" id="add__code" required="true" autocapitalize autocomplete="country"/>
+            <input type="text" maxlength="4" id="add__code" required="true" autocapitalize autocomplete="country"/>
         </div>
         <div class="textfield">
           <label for="add__mflag">Flag image link</label>
@@ -19,7 +19,7 @@
           <label for="add__password">New password</label>
           <input type="password" maxlength="256" id="add__password" minlength="8" required="true" autocomplete="new-password" />
         </div>
-        <div class="mdl-textfield mdl-js-textfield">
+        <div class="textfield">
           <label for="add__description">Short description in English</label>
           <textarea type="text" rows="3" id="add__description" maxlength="1000"></textarea>
         </div>
@@ -80,12 +80,13 @@
 </section>
 <hr>
 <section id="tips">
+  <h2>Tips</h2>
   <h3>Choosing a country code</h3>
   <ul>
     <li>Country code is a 2, 3 or 4-letter code representing your micronation.</li>
     <li>For example: DR, MOL, SEA, SKL.</li>
   </ul>
-  <h3>Privacy & Security</h3>
+  <h3>Security</h3>
   <ul>
     <li>Passphrases such as "micronationswilltakeover" are stronger and easier to remember than passwords like "Q9E4P1D7S2".</li>
     <li>Write down your password.</li>
