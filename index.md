@@ -1,11 +1,12 @@
 <section>
   <h1>All micronations</h1>
   <p>Displaying <span id="shownmicronations_count">##</span> of <span id="allmicronations_count">###</span> micronations.</p>
+  <br>
   <input maxlength="30" type="text" id="search_input" placeholder="Search">
 </section>
 
 <section class="list">
-  <ul id="list__ul" class="list-micronations mdl-list">
+  <ul id="list__ul" class="list">
 
   </ul>
 </section>

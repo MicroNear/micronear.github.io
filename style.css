@@ -11,7 +11,7 @@
     --color-primary: #448AFF;
 
     --positive: #ffffff;
-    --positive-tanned: #efefef;
+    --positive-tanned: #ddd;
     --positive-transparent: rgba(240, 240, 240, .5);
 
     --negative: #000000;
@@ -64,7 +64,7 @@ input, textarea, button, .button {
     border: none;
     background-color: var(--positive-tanned);
     color: currentColor;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     padding: 1rem 2rem;
     font-size: inherit;
     display: flex;
@@ -141,8 +141,9 @@ span a, ul a, ol a {
     padding: 2rem 2rem;
     display: flex;
     justify-content: space-between;
-    background-color: var(--tanned);
+    background-color: var(--positive-tanned);
     color: currentColor;
+    border-radius: 1rem;
 }
 
 .listitem > div { 
@@ -153,6 +154,10 @@ span a, ul a, ol a {
 .listitem > div:first-child {
     flex-direction: column;
     align-items: flex-start;
+}
+
+.listitem > div:first-child > span:first-child {
+    font-weight: bold;
 }
 
 .listitem > div:last-child {
