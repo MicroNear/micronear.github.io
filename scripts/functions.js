@@ -154,6 +154,7 @@ export async function sendFindRequest (geolocation) {
         wrapper.innerHTML += `<p>We couldn't find any micronations within 800km, would you like to <a href="/add">add your micronation</a>?</p>`;
     }
     data.forEach(micronation => {
+        console.log(micronation);
         let card = `
 <div class="card" style="background-image: linear-gradient(to bottom, var(--positive), var(--positive-transparent)), url('${protocol}${domain}/image/${micronation.code}')">
 
