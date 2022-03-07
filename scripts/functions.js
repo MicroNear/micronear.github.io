@@ -161,7 +161,7 @@ export async function sendFindRequest (geolocation) {
 <h2>${micronation.name}</h2>
 </div>
 <div class="carddescription">
-${(micronation.description != undefined) ? (micronation.description.slice(0,255) (micronation.description.length > 255) ? "..." : "") : "No description provided"}
+${(micronation.description != undefined) ? micronation.description : "No description provided"}
 </div>
 
 <div class="cardfooter">
