@@ -162,7 +162,7 @@ export async function sendFindRequest (geolocation) {
 <h2>${micronation.name}</h2>
 </div>
 <div class="carddescription">
-${(micronation.description != undefined) ? micronation.description : "No description provided"}
+${(micronation.hasOwnProperty("description")) ? micronation.description : "No description provided"}
 </div>
 
 <div class="cardfooter">
