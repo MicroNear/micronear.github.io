@@ -134,7 +134,7 @@ span a, ul a, ol a {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .listitem {
