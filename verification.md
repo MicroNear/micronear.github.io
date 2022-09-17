@@ -32,8 +32,13 @@
           A flag that will be shown on the "Nearest micronations" page
       </span>
       </li>
+      <li class="">
+        <span>
+        <i class="material-icons -icon">share_location</i>
+          Sharing location on map is optional.
+      </span>
+      </li>
     </ul>
-    <p>Sharing location on map is optional.</p>
     </div>
     <form id="verification__form" class="">
     <div class="textfield">
@@ -67,7 +72,6 @@
             <span>
                 <i class="material-icons">task_alt</i>
             </span>
-        </span>
       </li>
   </ul>
 </section>
