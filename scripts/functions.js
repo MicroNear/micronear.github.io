@@ -1,6 +1,6 @@
 'use strict';
 
-export const TESTING = true;
+export const TESTING = false;
 export const MAX_MICRONATIONS_PER_PAGE = 10;
 export const ACCURACY_TO_ADD = 2500;
 
